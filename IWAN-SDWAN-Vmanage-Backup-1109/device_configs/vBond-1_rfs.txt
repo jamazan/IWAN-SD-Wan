@@ -1,0 +1,95 @@
+no config 
+config
+  system
+   personality             vedge
+   device-model            vedge-cloud
+   chassis-number          9bb28a3a-7e8c-4a7b-b94d-bcb8dcc6e2db
+   host-name               vBond-1
+   system-ip               1.1.1.2
+   site-id                 1
+   admin-tech-on-failure
+   no route-consistency-check
+   organization-name       "Viptela-POC-Tool - 19827"
+   clock timezone America/Los_Angeles
+   vbond vbond-test-drive local
+   aaa
+    auth-order local radius tacacs
+    usergroup basic
+     task system read write
+     task interface read write
+    !
+    usergroup netadmin
+    !
+    usergroup operator
+     task system read
+     task interface read
+     task policy read
+     task routing read
+     task security read
+    !
+    usergroup tenantadmin
+    !
+    user admin
+     password $6$92w8nWrseN927VLu$XMXFON8.2ihK9Eyra/MUhvmJT.sBsx9lGas9SiVUUAYmCVH61wQGkTYlfxae2EkwVVIh6QaVIxNvNUn/cItbR/
+    !
+   !
+   logging
+    disk
+     enable
+    !
+   !
+   ntp
+    server time1.google.com
+     source-interface ""
+     vpn              0
+     version          4
+    exit
+   !
+  !
+  omp
+   no shutdown
+   graceful-restart
+   advertise connected
+   advertise static
+  !
+  sslproxy
+   no enable
+   rsa-key-modulus      2048
+   certificate-lifetime 730
+   eckey-type           P256
+   ca-tp-label          PROXY-SIGNING-CA
+   settings expired-certificate  drop
+   settings untrusted-certificate drop
+   settings unknown-status       drop
+   settings unsupported-protocol-versions drop
+   settings unsupported-cipher-suites drop
+   settings failure-mode         close
+   settings minimum-tls-ver      TLSv1
+  !
+  security
+   ipsec
+    authentication-type ah-sha1-hmac sha1-hmac
+   !
+  !
+  vpn 0
+   host vbond-test-drive ip 19.1.1.2
+   interface ge0/0
+    ip address 19.1.1.2/24
+    no shutdown
+   !
+   ip route 0.0.0.0/0 19.1.1.1
+  !
+  vpn 512
+   dns 8.8.8.8 primary
+   interface eth0
+    ip dhcp-client
+    no shutdown
+   !
+   interface ge0/6
+    ip address 192.168.150.3/24
+    no shutdown
+   !
+   ip route 0.0.0.0/0 192.168.150.1
+  !
+ !
+!

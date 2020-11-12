@@ -1,0 +1,294 @@
+no config 
+config
+  system
+   personality             vsmart
+   device-model            vsmart
+   chassis-number          4b81c38d-acc6-4ca0-ab77-c8ea497ac571
+   host-name               vSmart-1
+   system-ip               1.1.1.3
+   site-id                 1
+   admin-tech-on-failure
+   organization-name       "Viptela-POC-Tool - 19827"
+   clock timezone America/Los_Angeles
+   upgrade-confirm         15
+   config-template-name    vsmart-cli-template
+   policy-template-name    Enterprise-SDWAN-policy-final
+   policy-template-version 11062020T122723938
+   vbond vbond-test-drive port 12346
+   aaa
+    auth-order local radius tacacs
+    usergroup basic
+     task system read write
+     task interface read write
+    !
+    usergroup netadmin
+    !
+    usergroup operator
+     task system read
+     task interface read
+     task policy read
+     task routing read
+     task security read
+    !
+    usergroup tenantadmin
+    !
+    user admin
+     password $6$l2Yh.0L7CGiQDvdE$IVdOIegEQTZry7BiXAowL1Pqypbb5UO5W.KWg2h3S/Lx9L4zieW/sp3a.ZIR4O/YIgNvwj77iBsO38f7/3fmW.
+    !
+   !
+   logging
+    disk
+     enable
+    !
+   !
+   ntp
+    server time1.google.com
+     version 4
+    exit
+   !
+  !
+  omp
+   no shutdown
+   send-path-limit   16
+   send-backup-paths
+   graceful-restart
+  !
+  vpn 0
+   host vbond-test-drive ip 19.1.1.2
+   interface eth0
+    ip dhcp-client
+    tunnel-interface
+     allow-service dhcp
+     allow-service dns
+     allow-service icmp
+     allow-service sshd
+     allow-service netconf
+     allow-service ntp
+     no allow-service stun
+    !
+    no shutdown
+   !
+  !
+  vpn 512
+   dns 8.8.8.8 primary
+   interface eth7
+    ip address 192.168.150.4/24
+    no shutdown
+   !
+   ip route 0.0.0.0/0 192.168.150.1
+  !
+  policy
+   sla-class BULK_DATA1
+    loss    5
+    latency 300
+   !
+   sla-class DEFAULT1
+    loss    10
+    latency 500
+   !
+   sla-class LOW_LATENCY_DATA1
+    loss    5
+    latency 100
+   !
+   sla-class REAL_TIME_VIDEO1
+    loss    1
+    latency 150
+    jitter  20
+   !
+   sla-class SCAVENGER1
+    loss    50
+    latency 500
+   !
+   sla-class VOICE-ITU1
+    loss    1
+    latency 150
+    jitter  30
+   !
+   data-policy _VPN1-corporate_Traffic-data-policy
+    vpn-list VPN1-corporate
+     sequence 1
+      match
+       source-ip 0.0.0.0/0
+       dscp      8
+      !
+      action accept
+       set
+        local-tloc-list
+         color    biz-internet
+         encap    ipsec
+         restrict
+        !
+       !
+      !
+     !
+     default-action accept
+    !
+   !
+   app-route-policy _VPN1-corporate_AAR-Policy-v2
+    vpn-list VPN1-corporate
+     sequence 1
+      match
+       source-ip 0.0.0.0/0
+       app-list  mybusinessapp-list
+      !
+      action
+       sla-class BULK_DATA1 preferred-color mpls
+      !
+     !
+     sequence 11
+      match
+       source-ip 0.0.0.0/0
+       dscp      46
+      !
+      action
+       sla-class VOICE-ITU1 preferred-color mpls
+      !
+     !
+     sequence 21
+      match
+       source-ip 0.0.0.0/0
+       dscp      32 34 36 38
+      !
+      action
+       sla-class REAL_TIME_VIDEO1 preferred-color mpls
+      !
+     !
+     sequence 31
+      match
+       source-ip 0.0.0.0/0
+       dscp      16 18 20 22 24
+      !
+      action
+       sla-class LOW_LATENCY_DATA1 preferred-color mpls
+      !
+     !
+     sequence 41
+      match
+       source-ip 0.0.0.0/0
+       dscp      10 12 14
+      !
+      action
+       sla-class BULK_DATA1 preferred-color biz-internet
+      !
+     !
+     sequence 51
+      match
+       source-ip 0.0.0.0/0
+       dscp      8
+      !
+      action
+       sla-class SCAVENGER1 strict preferred-color biz-internet
+      !
+     !
+     sequence 61
+      match
+       source-ip 0.0.0.0/0
+       dscp      0
+      !
+      action
+       sla-class DEFAULT1 preferred-color biz-internet
+      !
+     !
+    !
+   !
+   lists
+    vpn-list VPN1-corporate
+     vpn 1
+    !
+    tloc-list DC-TLOCs
+     tloc 1.10.1.1 color mpls encap ipsec
+     tloc 1.10.1.1 color biz-internet encap ipsec
+    !
+    app-list mybusinessapp-list
+     app mybusinessapp
+    !
+    site-list ALL-SITES
+     site-id 10
+     site-id 20
+     site-id 30
+     site-id 50
+    !
+    site-list Branch_Group
+     site-id 30
+     site-id 50
+    !
+    site-list DC1
+     site-id 10
+    !
+    site-list DC2
+     site-id 20
+    !
+    site-list DC_Group
+     site-id 10
+     site-id 20
+    !
+    site-list Dynamic-tunnel-branches
+     site-id 30
+     site-id 50
+    !
+    prefix-list _AnyIpv4PrefixList
+     ip-prefix 0.0.0.0/0 le 32
+    !
+   !
+   control-policy Central-topology-policy-v2
+    sequence 1
+     match route
+      prefix-list _AnyIpv4PrefixList
+      site-list   DC1
+     !
+     action accept
+      set
+       preference 400
+      !
+     !
+    !
+    sequence 11
+     match route
+      prefix-list _AnyIpv4PrefixList
+      site-list   DC2
+     !
+     action accept
+      set
+       preference 200
+      !
+     !
+    !
+    sequence 21
+     match route
+      prefix-list _AnyIpv4PrefixList
+      site-list   Dynamic-tunnel-branches
+     !
+     action accept
+      set
+       tloc-action backup
+       tloc-list   DC-TLOCs
+      !
+     !
+    !
+    default-action accept
+   !
+   control-policy DC-block-tunnels
+    sequence 1
+     match tloc
+      site-list DC_Group
+     !
+     action reject
+     !
+    !
+    default-action accept
+   !
+  !
+  apply-policy
+   site-list ALL-SITES
+    data-policy _VPN1-corporate_Traffic-data-policy from-service
+    app-route-policy _VPN1-corporate_AAR-Policy-v2
+   !
+   site-list Branch_Group
+    control-policy Central-topology-policy-v2 out
+   !
+   site-list DC_Group
+    control-policy DC-block-tunnels out
+   !
+  !
+ !
+!

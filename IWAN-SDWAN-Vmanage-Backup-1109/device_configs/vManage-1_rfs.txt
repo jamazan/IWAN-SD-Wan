@@ -1,0 +1,76 @@
+no config 
+config
+  system
+   personality           vmanage
+   device-model          vmanage
+   chassis-number        9c6deb27-55c9-4ec5-a013-514f88927189
+   host-name             vManage-1
+   system-ip             1.1.1.1
+   site-id               1
+   admin-tech-on-failure
+   sp-organization-name  "Viptela-POC-Tool - 19827"
+   organization-name     "Viptela-POC-Tool - 19827"
+   clock timezone America/Los_Angeles
+   vbond vbond-test-drive
+   aaa
+    auth-order local radius tacacs
+    usergroup basic
+     task system read write
+     task interface read write
+    !
+    usergroup netadmin
+    !
+    usergroup operator
+     task system read
+     task interface read
+     task policy read
+     task routing read
+     task security read
+    !
+    usergroup tenantadmin
+    !
+    user admin
+     password $6$k4nYVAOS2MS/mnD5$jeKj7NiowHq7dRuBytbhaVZZUvlbzFaVSiRXxxMkNQjv0MsJMwbN8I8qmsxEkPQvc4rWIiFQWU6M3jHexsGWC.
+    !
+   !
+   logging
+    disk
+     enable
+    !
+   !
+   ntp
+    server time1.google.com
+     source-interface ""
+     vpn              0
+     version          4
+    exit
+   !
+  !
+  vpn 0
+   host vbond-test-drive ip 19.1.1.2
+   interface eth0
+    ip dhcp-client
+    tunnel-interface
+     hello-tolerance 12
+     allow-service dhcp
+     allow-service dns
+     allow-service icmp
+     no allow-service sshd
+     no allow-service netconf
+     no allow-service ntp
+     no allow-service stun
+     allow-service https
+    !
+    no shutdown
+   !
+  !
+  vpn 512
+   dns 8.8.8.8 primary
+   interface eth7
+    ip address 192.168.150.2/24
+    no shutdown
+   !
+   ip route 0.0.0.0/0 192.168.150.1
+  !
+ !
+!
