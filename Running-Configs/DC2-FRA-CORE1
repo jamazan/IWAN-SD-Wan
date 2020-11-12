@@ -1,0 +1,234 @@
+
+!
+! Last configuration change at 16:18:37 UTC Tue Oct 27 2020
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname dc2-fra-core1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name cisco-csr
+!
+ip dhcp pool GigabitEthernet6_dhcp_pool
+ network 10.1.102.12 255.255.255.252
+ default-router 10.1.102.14 
+ dns-server 8.8.8.8 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-203627049
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-203627049
+ revocation-check none
+ rsakeypair TP-self-signed-203627049
+!
+crypto pki trustpoint TP-self-signed-2999771780
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2999771780
+ revocation-check none
+ rsakeypair TP-self-signed-2999771780
+!
+!
+crypto pki certificate chain TP-self-signed-203627049
+crypto pki certificate chain TP-self-signed-2999771780
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9UE3LF80JF4
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+username cisco privilege 15 password 0 cisco
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback100
+ ip address 200.200.200.200 255.255.255.255
+!
+interface GigabitEthernet1
+ description TO DC2-MPLS-FRA-CE
+ ip address 10.2.1.2 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ description TO DC2-MC
+ ip address 10.1.102.2 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ description TO DC2-FRA-WAN-EDGE1
+ ip address 10.2.11.1 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ description TO DCI
+ ip address 10.102.1.2 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ description DC2 LAN
+ ip address 10.2.100.1 255.255.255.0
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ description link to DC2-IWAN-BR
+ ip address 10.1.102.14 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ description "MISSING connection to INET HANDOFF"
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ description TO OOB MGMT
+ ip address 192.168.150.13 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router bgp 65020
+ bgp log-neighbor-changes
+ redistribute connected
+ neighbor 10.1.102.1 remote-as 64512
+ neighbor 10.1.102.13 remote-as 64510
+ neighbor 10.1.102.13 description IWAN-BR
+ neighbor 10.2.1.1 remote-as 65020
+ neighbor 10.2.1.1 description to_dc2-fra-ce
+ neighbor 10.2.1.1 next-hop-self
+ neighbor 10.2.1.1 prefix-list PL-DC1PREFIXES-OUT out
+ neighbor 10.2.11.2 remote-as 65011
+ neighbor 10.2.11.2 description dc2-fra-cedge1
+ neighbor 10.102.1.1 remote-as 65015
+ neighbor 10.102.1.1 description DCI router
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+!
+ip ssh version 2
+ip scp server enable
+!
+!
+ip prefix-list PL-DC1PREFIXES-OUT seq 5 deny 100.100.100.100/32
+ip prefix-list PL-DC1PREFIXES-OUT seq 10 permit 0.0.0.0/0 le 32
+!
+ip access-list standard NAT_ACL_FOR_INTERNET
+ permit 10.2.1.0 0.0.0.3
+ permit 10.1.102.0 0.0.0.3
+ permit 10.2.11.0 0.0.0.3
+ permit 10.102.1.0 0.0.0.3
+ permit 10.2.100.0 0.0.0.255
+ permit 10.1.102.12 0.0.0.3
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+!
+!
+end

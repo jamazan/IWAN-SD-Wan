@@ -1,0 +1,213 @@
+
+!
+! Last configuration change at 16:18:38 UTC Tue Oct 27 2020
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname dc1-sjc-fw
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name cisco-csr
+!
+ip dhcp pool GigabitEthernet7_dhcp_pool
+ network 10.1.101.24 255.255.255.252
+ default-router 10.1.101.26 
+ dns-server 8.8.8.8 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3436161981
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3436161981
+ revocation-check none
+ rsakeypair TP-self-signed-3436161981
+!
+!
+crypto pki certificate chain TP-self-signed-3436161981
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9E4RIFJNQAV
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+username cisco privilege 15 password 0 cisco
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface GigabitEthernet1
+ description "TO SP INET"
+ ip address 19.10.1.2 255.255.255.0
+ ip nat outside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ description TO DC1-CORE1
+ ip address 10.1.254.1 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ description TO DC1-CORE2
+ ip address 10.1.254.5 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ description TO DC1-WAN EDGE1
+ ip address 10.1.254.9 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ description TO DC1-WAN EDGE2
+ ip address 10.1.254.13 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ description TO DC1-IWAN BR-1
+ ip address 10.1.101.18 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ description TO DC1-IWAN BR-2
+ ip address 10.1.101.26 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ description "TO OOB-MGMT"
+ ip address 192.168.150.6 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+ip nat pool net-19 19.10.1.100 19.10.1.200 prefix-length 24
+ip nat inside source static 10.1.101.25 19.10.1.10
+ip nat inside source list 1 pool net-19 overload
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip route 0.0.0.0 0.0.0.0 19.10.1.1
+ip route 10.0.0.0 255.0.0.0 10.1.254.2
+!
+ip ssh version 2
+ip scp server enable
+!
+!
+ip access-list standard NAT_ACL_FOR_INTERNET
+ permit 19.10.1.0 0.0.0.255
+ permit 10.1.254.0 0.0.0.3
+ permit 10.1.254.4 0.0.0.3
+ permit 10.1.254.8 0.0.0.3
+ permit 10.1.254.12 0.0.0.3
+ permit 10.1.101.16 0.0.0.3
+ permit 10.1.101.24 0.0.0.3
+access-list 1 permit 10.0.0.0 0.255.255.255
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+!
+!
+end

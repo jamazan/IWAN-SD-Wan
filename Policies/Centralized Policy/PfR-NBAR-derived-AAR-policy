@@ -1,0 +1,536 @@
+viptela-policy:policy
+  sla-class Bulk-Data
+   jitter 100
+   latency 300
+   loss 10
+  !
+  sla-class Default
+   jitter 100
+   latency 300
+   loss 25
+  !
+  sla-class LOW_LATENCY_DATA
+   latency 100
+   loss 5
+  !
+  sla-class SCAVENGER
+   latency 500
+   loss 50
+  !
+  sla-class Voice-And-Video
+   jitter 100
+   latency 45
+   loss 2
+  !
+ app-route-policy _VPN1-corporate_SYF-AAR-IWAN-Derived
+  vpn-list VPN1-corporate
+    sequence 1
+     match
+      app-list gaming
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER 
+     !
+    !
+    sequence 11
+     match
+      app-list consumer-internet
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER 
+     !
+    !
+    sequence 21
+     match
+      app-list consumer-file-sharing
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER 
+     !
+    !
+    sequence 31
+     match
+      app-list consumer-streaming
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER 
+     !
+    !
+    sequence 41
+     match
+      app-list browsing
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class LOW_LATENCY_DATA 
+     !
+    !
+    sequence 51
+     match
+      app-list software-updates
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER 
+     !
+    !
+    sequence 61
+     match
+      app-list instant-messenging
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER 
+     !
+    !
+    sequence 71
+     match
+      app-list social-networking
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER 
+     !
+    !
+    sequence 81
+     match
+      app-list email
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class LOW_LATENCY_DATA 
+     !
+    !
+    sequence 91
+     match
+      app-list voice-and-video
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class Voice-And-Video 
+     !
+    !
+    sequence 101
+     match
+      app-list other
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER 
+     !
+    !
+    sequence 111
+     match
+      app-list file-sharing
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class Bulk-Data 
+     !
+    !
+    sequence 121
+     match
+      app-list business-and-productivity-tools
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class LOW_LATENCY_DATA 
+     !
+    !
+    sequence 131
+     match
+      app-list consumer-messaging
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER 
+     !
+    !
+    sequence 141
+     match
+      dscp 0
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class Default 
+     !
+    !
+ !
+ lists
+  app-list browsing
+   app wikipedia 
+   app spdy 
+   app http 
+   app https 
+   app tlsp 
+   app ssl 
+   app flash-video 
+   app flash 
+  !
+  app-list business-and-productivity-tools
+   app ms_sway 
+   app ms_onenote 
+   app office_docs 
+   app groove 
+   app ms-office-365 
+   app ms-office-web-apps 
+   app excel_online 
+   app yammer 
+   app powerpoint_online 
+   app office365 
+   app word_online 
+   app ms_planner 
+   app outlook 
+   app sharepoint_admin 
+   app sharepoint_online 
+   app share-point 
+   app sharepoint_blog 
+   app sharepoint_calendar 
+   app sharepoint 
+   app sharepoint_document 
+   app jedi 
+   app ica 
+   app citrix_online 
+   app citrix_pvs 
+   app citrix 
+   app sap 
+   app salesforce 
+   app vmware-vmotion 
+   app vmotion 
+   app vmware 
+   app vmware-vsphere 
+   app ms-wbt 
+   app rdp 
+   app clearcase 
+   app oracle 
+   app oracle-ebsuite-unsecured 
+  !
+  app-list consumer-file-sharing
+   app xunlei 
+   app thunder 
+   app edonkey 
+   app share 
+   app bleep 
+   app bitlord 
+   app bitcomet_pex 
+   app utorrent 
+   app bittorrent 
+   app frostwire 
+   app vuze 
+   app ares 
+  !
+  app-list consumer-internet
+   app google_play_music 
+   app googlebot 
+   app google_groups 
+   app google_gen 
+   app google_classroom 
+   app google_skymap 
+   app google_tags 
+   app google_maps 
+   app gcs 
+   app google_toolbar 
+   app google_spaces 
+   app chrome_update 
+   app google_accounts 
+   app google_sprayscape 
+   app google-services 
+   app google_desktop 
+   app google_cache 
+   app google 
+   app google_translate 
+   app google_localguides 
+   app google_ads 
+   app google_safebrowsing 
+   app gmail_drive 
+   app google-accounts 
+   app google_calendar 
+   app google_code 
+   app google_analytics 
+   app gstatic 
+   app google_appengine 
+   app google_weblight 
+   app google_trusted_store 
+   app google 
+   app google-downloads 
+   app gmail 
+   app gmail_mobile 
+   app gmail_basic 
+   app dropbox 
+   app dropbox_upload 
+   app icloud 
+   app ms-live-accounts 
+   app windowslive 
+   app ymail2 
+   app ymail_classic 
+   app ymail_mobile_new 
+   app yahoo-mail 
+   app skydrive_login 
+   app onedrive 
+   app skydrive 
+   app espn-browsing 
+   app espn 
+   app qq_news 
+   app qq_transfer 
+   app qq-services 
+   app qqlive 
+   app qqdownload 
+   app qq_finance 
+   app qqstream 
+   app qq_web 
+   app qq_blog 
+   app qqmusic 
+   app qq 
+   app oicq 
+   app qq-im 
+  !
+  app-list consumer-messaging
+   app naver-line 
+   app naver_mobile 
+   app skype 
+   app ymsg 
+   app ymsg_webmessenger 
+   app ymsg_conf 
+   app ymsg_transfer 
+   app yahoo-messenger 
+   app gtalk 
+   app facetime 
+  !
+  app-list consumer-streaming
+   app pptv 
+   app qq_news 
+   app qq_transfer 
+   app qq-services 
+   app qqlive 
+   app qqdownload 
+   app qq_finance 
+   app qqstream 
+   app qq_web 
+   app qq_blog 
+   app qqmusic 
+   app rtmp 
+   app pando 
+   app baidu-movie 
+   app baidu_player 
+   app mms 
+   app netshow 
+   app rtsp 
+   app shoutcast 
+   app itunes 
+   app espn-browsing 
+   app espn 
+   app youtube 
+   app youtube_hd 
+   app activenet 
+   app an 
+   app netflix 
+   app hulu 
+   app apple_airplay 
+   app airplay 
+   app xunlei 
+   app thunder 
+  !
+  app-list email
+   app ms-rpc 
+   app msrpc 
+   app imap 
+   app imap 
+   app imaps 
+   app rtmp 
+   app secure-pop3 
+   app pop3s 
+   app lotusnotes 
+   app lotus-notes 
+   app live_hotmail 
+   app outlook-web-service 
+   app owa 
+   app livemail_mobile 
+   app mail_ru_games 
+   app mailru 
+   app mailru_agent 
+   app mail_ru_moimir 
+   app mail-ru 
+   app smtps 
+   app secure-smtp 
+   app smtp 
+  !
+  app-list file-sharing
+   app ftp_data 
+   app ftp-data 
+   app ftp 
+   app google 
+   app google-downloads 
+   app gtalk 
+   app itunes 
+   app tftp 
+  !
+  app-list gaming
+   app qq_games 
+   app qq-games 
+  !
+  app-list instant-messenging
+   app kakaotalk 
+   app kakao-talk 
+   app gtalk 
+   app qq 
+   app oicq 
+   app qq-im 
+   app ymsg 
+   app ymsg_webmessenger 
+   app ymsg_conf 
+   app ymsg_transfer 
+   app yahoo-messenger 
+   app gtalk-chat 
+   app gmail_chat 
+   app ircs 
+   app irc_transfer 
+   app irc 
+   app wechat 
+   app gmail_chat 
+   app gtalk-ft 
+   app gtalk-video 
+   app gmail_chat 
+   app gtalk-voip 
+   app gmail_chat 
+   app hangouts-chat 
+   app google 
+   app whatsapp 
+   app jabber 
+   app cisco-jabber-im 
+  !
+  app-list other
+   app nntp 
+   app mcafee-antivirus 
+   app mcafee 
+   app qq_news 
+   app qq_transfer 
+   app qq-services 
+   app qqlive 
+   app qqdownload 
+   app qq_finance 
+   app qqstream 
+   app qq_web 
+   app qq_blog 
+   app qqmusic 
+   app google_earth 
+   app google-earth 
+   app ping 
+   app icmp 
+   app icmp6 
+   app apple 
+   app apple_music 
+   app imessage_file_download 
+   app game_center 
+   app apple-services 
+   app apple_hls 
+   app apns 
+   app google_play_music 
+   app googlebot 
+   app google_groups 
+   app google_gen 
+   app google_classroom 
+   app google_skymap 
+   app google_tags 
+   app google_maps 
+   app gcs 
+   app google_toolbar 
+   app google_spaces 
+   app chrome_update 
+   app google_accounts 
+   app google_sprayscape 
+   app google-services 
+   app google_desktop 
+   app google_cache 
+   app google 
+   app google_translate 
+   app google_localguides 
+   app google_ads 
+   app google_safebrowsing 
+   app gmail_drive 
+   app google-accounts 
+   app google_calendar 
+   app google_code 
+   app google_analytics 
+   app gstatic 
+   app google_appengine 
+   app google_weblight 
+   app google_trusted_store 
+   app kakaotalk 
+   app kakao-talk 
+  !
+  app-list social-networking
+   app twitter 
+   app instagram 
+   app facebook 
+   app facebook_messenger 
+   app fbcdn 
+   app facebook_mail 
+   app facebook_live 
+   app blogger 
+   app linkedin 
+   app picasa 
+   app google_picasa 
+   app google-plus 
+   app google_plus 
+  !
+  app-list software-updates
+   app android-updates 
+   app google_groups 
+   app apple-updates 
+   app apple_update 
+   app windows_update 
+   app windows-update 
+   app svcctl 
+   app ms-sms 
+   app sccm 
+   app appstore 
+   app apple-app-store 
+   app ios_ota_update 
+   app apple-ios-updates 
+   app ms-update 
+   app microsoft 
+   app google_play 
+   app google-play 
+  !
+  app-list voice-and-video
+   app uaudp_rtp 
+   app rtp 
+   app yahoo-messenger-video 
+   app ymsg_video 
+   app lync 
+   app ms-lync-audio 
+   app lync 
+   app ms-lync-video 
+   app rtcp 
+   app amazon-instant-video 
+   app amazon_video 
+   app sip 
+   app webex-meeting 
+   app webex_weboffice 
+   app webex 
+   app openvpn 
+   app esp 
+   app ipsec 
+   app wesp 
+   app rtsp 
+  !
+  site-list ALL-SITES
+   site-id 10 
+   site-id 20 
+   site-id 30 
+   site-id 50 
+  !
+  vpn-list VPN1-corporate
+   vpn 1 
+  !
+ !
+!
+apply-policy
+ site-list ALL-SITES
+  app-route-policy _VPN1-corporate_SYF-AAR-IWAN-Derived
+ !
+!

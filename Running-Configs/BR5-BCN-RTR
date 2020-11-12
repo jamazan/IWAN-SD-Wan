@@ -1,0 +1,209 @@
+
+!
+! Last configuration change at 16:18:42 UTC Tue Oct 27 2020
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname br5-bcn-rtr
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip host www.cisco.com 184.25.199.192
+ip domain name cisco-csr
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-4136006447
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-4136006447
+ revocation-check none
+ rsakeypair TP-self-signed-4136006447
+!
+crypto pki trustpoint TP-self-signed-2867407102
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2867407102
+ revocation-check none
+ rsakeypair TP-self-signed-2867407102
+!
+!
+crypto pki certificate chain TP-self-signed-4136006447
+crypto pki certificate chain TP-self-signed-2867407102
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 96O7F16DDBW
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+username cisco privilege 15 password 0 cisco
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface GigabitEthernet1
+ ip address 10.5.1.2 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ ip address 10.5.2.2 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ ip address 10.5.100.1 255.255.255.0
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ ip address 192.168.150.19 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router bgp 65054
+ bgp log-neighbor-changes
+ neighbor 10.5.1.1 remote-as 64510
+ neighbor 10.5.2.1 remote-as 64510
+ !
+ address-family ipv4
+  redistribute connected
+  neighbor 10.5.1.1 activate
+  neighbor 10.5.2.1 activate
+ exit-address-family
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+!
+ip ssh version 2
+ip scp server enable
+!
+!
+ip access-list standard NAT_ACL_FOR_INTERNET
+ permit 10.5.1.0 0.0.0.3
+ permit 10.5.2.0 0.0.0.3
+ permit 10.5.100.0 0.0.0.255
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+!
+!
+end

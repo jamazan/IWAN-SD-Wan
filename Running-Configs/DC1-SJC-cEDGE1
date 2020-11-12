@@ -1,0 +1,595 @@
+
+!
+! Last configuration change at 21:24:10 UTC Fri Nov 6 2020 by NETCONF
+!
+version 17.3
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+! Call-home is enabled by Smart-Licensing.
+service call-home
+platform qfp utilization monitor load 80
+platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname DC1-SJC-cEdge1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition 1
+ description VRF1 for LAN
+ rd 1:1
+ !
+ address-family ipv4
+  route-target export 65011:1
+  route-target import 65011:1
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+vrf definition 65528
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition Mgmt-intf
+ description Mgmt-intf
+ rd 1:512
+ !
+ address-family ipv4
+  route-target export 1:512
+  route-target import 1:512
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+logging buffered 512000
+logging persistent
+no logging rate-limit
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local 
+!
+!
+!
+!
+!
+!
+aaa session-id common
+!
+endpoint-tracker static-track1-dci-10.1.100.254 
+ endpoint-ip 10.1.100.254 
+ interval 20 
+ threshold 100 
+ tracker-type static-route 
+fhrp version vrrp v3
+ip arp proxy disable
+!
+!
+!
+!
+!
+!
+!
+ip bootp server
+ip host vbond-test-drive 19.1.1.2
+no ip domain lookup
+no ip dhcp use class
+!
+!
+!
+no ip igmp ssm-map query dns
+login on-success log
+ipv6 unicast-routing
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+!
+flow record sdwan_flow_record
+ description flow and application visibility records
+ match ipv4 destination address
+ match ipv4 protocol
+ match ipv4 source address
+ match routing vrf service
+ match transport destination-port
+ match transport source-port
+ collect application name
+ collect connection id long
+ collect counter bytes long
+ collect counter bytes sdwan dropped long
+ collect counter packets long
+ collect counter packets sdwan dropped long
+ collect flow end-reason
+ collect interface input
+ collect interface output
+ collect ipv4 dscp
+ collect overlay session id input
+ collect overlay session id output
+ collect timestamp absolute first
+ collect timestamp absolute last
+ collect transport tcp flags
+ collect drop cause id
+ collect sdwan sla-not-met
+ collect sdwan preferred-color-not-met
+ collect sdwan qos-queue-id
+!
+!
+flow exporter sdwan_flow_exporter_0
+ description export flow and application visibility records to vManage
+ destination local sdwan
+ transport udp 5458
+ export-protocol ipfix
+ option application-table
+ option drop-cause-table
+ option application-attributes
+!
+!
+flow monitor sdwan_flow_monitor
+ description monitor flows for vManage and external collectors
+ exporter sdwan_flow_exporter_0
+ cache timeout inactive 10
+ cache timeout active 60
+ cache entries 250000
+ record sdwan_flow_record
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2938653975
+ enrollment selfsigned
+ revocation-check crl
+!
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+!
+!
+crypto pki certificate chain TP-self-signed-2938653975
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32393338 36353339 3735301E 170D3230 30373330 32313036 
+  35315A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 39333836 
+  35333937 35308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100C256 4DF3CB9D 5F8176F5 492307AE 19197AFC 5EE05A07 C527EF5A 
+  B614E9CB 070D164D F88F3E55 6C4FA294 24512F23 760209DE 99EF5F62 5FE5B6F3 
+  FF019778 B693F6B6 FAD2759C 1E8B8A50 2BD3AC07 5A1B9AC5 F1B2B348 2E036AF7 
+  AB9A0EB0 EC67F5EA A99E2E17 449BB704 DA5EE938 354E97E6 233432E6 B58AC747 
+  370AF162 761C5182 BF5CA356 1C18824E 1B1FF9FD AE488F1B F972C1A4 A5B053D2 
+  359E89D5 83F4F028 1EB47FB0 CEEA0148 C81B5866 6D64622A FBC510B6 12C5C747 
+  96B0DFE2 A6229196 A1AC86E1 4B4042FD 64E64485 387FB709 DB82EABC 0B566284 
+  FE5A9D49 56E0B70B 938A0028 B08CF3B9 7674DBA6 32B6FE70 29AEF65B F62AD921 
+  AD69BB6F 67630203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 140C91D1 90615E63 7FA830E7 B10B0C9B 112FABA2 
+  1A301D06 03551D0E 04160414 0C91D190 615E637F A830E7B1 0B0C9B11 2FABA21A 
+  300D0609 2A864886 F70D0101 05050003 82010100 5CB390F1 6EF529AF 2DAC2AA3 
+  D4C73906 7C59AD32 457A8988 7B5E4CE1 F604E62F CDA9D1EE B20D66A8 D46072CA 
+  2EC662FF 0BA17094 E493CF18 B44DA64D D889FEA9 EAB32AAE 67D9BB9C 47FE2C79 
+  9771453C 6BF1BCB0 9F276B67 61A53EF5 1D6F472A 6F63BDCC 8FA86DF1 9EE34306 
+  F3F70654 1E94D168 00E03377 62F80489 74AC89E4 B398C72A 1B7523AE 0FD4FE79 
+  61724733 B8FC9E00 F442717E 6630F45B 2C5871EA B3B0CD52 B2090261 1F4DDAF1 
+  19922D74 8937B326 78922A2C ABB98A4F 907E7287 917B7802 5B86C2F5 1AC18755 
+  080A0DF4 5B65D3EB 08F24734 70B5685C 20A98FCC 0D535C41 2455C194 11B6F946 
+  9871E5EA 5F926013 26852363 E1113657 A6477169
+  	quit
+crypto pki certificate chain SLA-TrustPoint
+ certificate ca 01
+  30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 
+  32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363 
+  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934 
+  3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305 
+  43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720 
+  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 
+  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D 
+  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520 
+  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE 
+  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC 
+  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188 
+  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7 
+  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191 
+  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44 
+  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201 
+  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85 
+  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500 
+  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905 
+  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B 
+  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8 
+  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C 
+  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B 
+  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678 
+  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB 
+  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 
+  D697DF7F 28
+  	quit
+!
+license udi pid CSR1000V sn 93YTBMRF5Q0
+diagnostic bootup level minimal
+memory free low-watermark processor 71556
+!
+!
+spanning-tree extend system-id
+!
+username admin privilege 15 secret 9 $9$2lAL2FAM3VEJ3.$E68O3gWuUlmf7E7RXZfDGJw5YjklzDpba59DRlt41Ig
+username cisco privilege 15 secret 9 $9$1l6E1l6D3l6K2k$snHHQFUR9F.4iVIJH0xjGl2cIv0Fpfy6mNkvU3TCFJ6
+!
+redundancy
+!
+!
+!
+!
+no crypto ikev2 diagnose error
+!
+!
+lldp run
+cdp run
+!
+track static-track1-dci-10.1.100.254 endpoint-tracker
+!
+!
+class-map match-any SDWAN_underlay
+ match any 
+class-map match-any STREAMING-VIDEO
+ match qos-group 6
+class-map match-any CRITICAL-DATA
+ match qos-group 1
+class-map match-any INTERACTIVE_VIDEO
+ match qos-group 4
+class-map match-any DEFAULT
+ match qos-group 3
+class-map match-any VOICE
+ match qos-group 0
+class-map match-any SCAVENGER
+ match qos-group 2
+class-map match-any Queue1
+ match qos-group 1
+class-map match-any Queue0
+ match qos-group 0
+class-map match-any Queue3
+ match qos-group 3
+class-map match-any Queue2
+ match qos-group 2
+class-map match-any Queue5
+ match qos-group 5
+class-map match-any Queue4
+ match qos-group 4
+class-map match-any Queue7
+ match qos-group 7
+class-map match-any Queue6
+ match qos-group 6
+class-map match-any CALL-SIGNALING
+ match qos-group 7
+class-map match-any NET-CTRL
+ match qos-group 5
+!
+policy-map WAN-QOS
+ class Queue0
+  priority level 1
+  police rate percent 10
+ class Queue1
+  bandwidth remaining ratio 25
+  random-detect
+ class Queue3
+  bandwidth remaining ratio 15
+  random-detect
+ class Queue4
+  bandwidth remaining ratio 30
+  random-detect
+ class Queue5
+  bandwidth remaining ratio 5
+  random-detect
+ class Queue6
+  bandwidth remaining ratio 10
+  random-detect
+ class Queue7
+  bandwidth remaining ratio 4
+  random-detect
+ class class-default
+  bandwidth remaining ratio 1
+  random-detect
+policy-map per_tunnel_qos_policy_GigabitEthernet1
+ class SDWAN_underlay
+  bandwidth remaining percent 10 
+   service-policy WAN-QOS
+policy-map per_tunnel_qos_policy_GigabitEthernet2
+ class SDWAN_underlay
+  bandwidth remaining percent 10 
+   service-policy WAN-QOS
+policy-map SDWANPolicy4210715
+ class class-default
+  shape average 50000000   
+  bandwidth remaining ratio 5
+   service-policy WAN-QOS
+policy-map SDWANPolicy4210714
+ class class-default
+  shape average 50000000   
+  bandwidth remaining ratio 5
+   service-policy WAN-QOS
+policy-map SDWANPolicy4210713
+ class class-default
+  shape average 50000000   
+  bandwidth remaining ratio 5
+   service-policy WAN-QOS
+policy-map SDWANPolicy4210712
+ class class-default
+  shape average 30000000   
+  bandwidth remaining ratio 3
+   service-policy WAN-QOS
+policy-map SDWANPolicy4210711
+ class class-default
+  shape average 30000000   
+  bandwidth remaining ratio 3
+   service-policy WAN-QOS
+policy-map SDWANPolicy4210710
+ class class-default
+  shape average 30000000   
+  bandwidth remaining ratio 3
+   service-policy WAN-QOS
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback65528
+ vrf forwarding 65528
+ ip address 192.168.1.1 255.255.255.255
+!
+interface Tunnel1
+ ip unnumbered GigabitEthernet1
+ no ip redirects
+ ipv6 unnumbered GigabitEthernet1
+ no ipv6 redirects
+ tunnel source GigabitEthernet1
+ tunnel mode sdwan
+!
+interface Tunnel2
+ ip unnumbered GigabitEthernet2
+ no ip redirects
+ ipv6 unnumbered GigabitEthernet2
+ no ipv6 redirects
+ tunnel source GigabitEthernet2
+ tunnel mode sdwan
+!
+interface GigabitEthernet1
+ description INET WAN interface
+ ip address 10.1.254.10 255.255.255.252
+ no ip redirects
+ ip nat outside
+ load-interval 30
+ negotiation auto
+ arp timeout 1200
+ no mop enabled
+ no mop sysid
+ service-policy output per_tunnel_qos_policy_GigabitEthernet1
+!
+interface GigabitEthernet2
+ description MPLS WAN interface
+ ip address 10.1.1.10 255.255.255.252
+ no ip redirects
+ load-interval 30
+ negotiation auto
+ arp timeout 1200
+ no mop enabled
+ no mop sysid
+ service-policy output per_tunnel_qos_policy_GigabitEthernet2
+!
+interface GigabitEthernet3
+ description VPN1 -TO - DC-Core1
+ vrf forwarding 1
+ ip address 10.1.11.2 255.255.255.252
+ no ip redirects
+ ip nbar protocol-discovery
+ load-interval 30
+ negotiation auto
+ arp timeout 1200
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ description VPN1 -TO - DC-Core2
+ vrf forwarding 1
+ ip address 10.1.12.2 255.255.255.252
+ no ip redirects
+ ip nbar protocol-discovery
+ load-interval 30
+ negotiation auto
+ arp timeout 1200
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ no ip address
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ no ip address
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ no ip address
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ description mgmt interface
+ vrf forwarding Mgmt-intf
+ ip address 192.168.150.20 255.255.255.0
+ no ip redirects
+ load-interval 30
+ negotiation auto
+ arp timeout 1200
+ no mop enabled
+ no mop sysid
+!
+router omp
+!
+router ospfv3 1
+ !
+ address-family ipv4 unicast vrf 1
+ exit-address-family
+!
+router isis
+ vrf 1
+!
+router bgp 65011
+ bgp log-neighbor-changes
+ distance bgp 20 200 20
+ !
+ address-family ipv4 vrf 1
+  bgp router-id 1.10.1.1
+  redistribute connected
+  redistribute omp
+  propagate-aspath
+  neighbor 10.1.11.1 remote-as 65010
+  neighbor 10.1.11.1 description dc core1 router peer
+  neighbor 10.1.11.1 activate
+  neighbor 10.1.11.1 send-community both
+  neighbor 10.1.11.1 maximum-prefix 2147483647 100
+  neighbor 10.1.12.1 remote-as 65010
+  neighbor 10.1.12.1 description dc core2 router peer
+  neighbor 10.1.12.1 activate
+  neighbor 10.1.12.1 send-community both
+ exit-address-family
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+ip community-list standard OMP2BGP permit 65537000
+ip visibility global flow monitor sdwan_flow_monitor input
+ip nat settings central-policy
+ip nat route vrf 65528 0.0.0.0 0.0.0.0 global
+ip nat translation tcp-timeout 3600
+ip nat translation udp-timeout 60
+no ip nat service skinny tcp port 2000
+no ip nat service sip tcp port 5060
+no ip nat service sip udp port 5060
+no ip nat service H225
+no ip nat service ras
+no ip nat service rtsp udp
+no ip nat service rtsp tcp
+no ip nat service dns tcp
+no ip nat service dns udp
+no ip nat service netbios-ns tcp
+no ip nat service netbios-ns udp
+no ip nat service netbios-ssn
+no ip nat service netbios-dgm
+no ip nat service ldap
+no ip nat service sunrpc udp
+no ip nat service sunrpc tcp
+no ip nat service msrpc tcp
+no ip nat service tftp
+no ip nat service rcmd
+no ip nat service pptp
+no ip nat service ftp
+no ip nat service gatekeeper
+no ip nat service dns-reset-ttl
+ip nat inside source list nat-dia-vpn-hop-access-list interface GigabitEthernet1 overload
+ip route vrf 1 10.0.0.0 255.0.0.0 10.1.11.1 track name static-track1-dci-10.1.100.254
+ip route 0.0.0.0 0.0.0.0 10.1.1.9
+ip route 0.0.0.0 0.0.0.0 10.1.254.9
+ip scp server enable
+!
+!
+!
+!
+route-map BGP_FROM_DC deny 1 
+ match community OMP2BGP
+!
+route-map BGP_FROM_DC permit 65535 
+!
+route-map BGP_TO_DC permit 1 
+ set community 65537000
+!
+route-map BGP_TO_DC permit 65535 
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+ speed 115200
+line vty 0 4
+ transport input ssh
+line vty 5 80
+ transport input ssh
+!
+nat64 translation timeout udp 1
+nat64 translation timeout tcp 60
+call-home
+ ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
+ ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+ contact-email-addr sch-smart-licensing@cisco.com
+ profile "CiscoTAC-1"
+  active
+  destination transport-method http
+!
+!
+!
+!
+!
+netconf-yang
+netconf-yang feature candidate-datastore
+end

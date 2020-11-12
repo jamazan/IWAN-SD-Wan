@@ -1,0 +1,196 @@
+viptela-policy:policy
+  sla-class BULK_DATA
+   latency 300
+   loss 5
+  !
+  sla-class DEFAULT
+   latency 500
+   loss 10
+  !
+  sla-class LOW_LATENCY_DATA
+   latency 100
+   loss 5
+  !
+  sla-class REAL_TIME_VIDEO
+   latency 150
+   loss 1
+   jitter 20
+  !
+  sla-class SCAVENGER
+   latency 500
+   loss 50
+  !
+  sla-class VOICE-ITU
+   latency 150
+   loss 1
+   jitter 30
+  !
+ app-route-policy _VPN1-corporate_AAR-Policy-v1
+  vpn-list VPN1-corporate
+    sequence 1
+     match
+      dscp 46
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class VOICE-ITU  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 11
+     match
+      dscp 32
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class REAL_TIME_VIDEO  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 21
+     match
+      dscp 34
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class REAL_TIME_VIDEO  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 31
+     match
+      dscp 36
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class REAL_TIME_VIDEO  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 41
+     match
+      dscp 38
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class REAL_TIME_VIDEO  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 51
+     match
+      dscp 16
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class LOW_LATENCY_DATA  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 61
+     match
+      dscp 24
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class LOW_LATENCY_DATA  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 71
+     match
+      dscp 18
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class LOW_LATENCY_DATA  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 81
+     match
+      dscp 20
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class LOW_LATENCY_DATA  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 91
+     match
+      dscp 22
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class LOW_LATENCY_DATA  preferred-color mpls
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 101
+     match
+      dscp 10
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class BULK_DATA  preferred-color biz-internet
+      backup-sla-preferred-color biz-internet
+     !
+    !
+    sequence 111
+     match
+      dscp 12
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class BULK_DATA  preferred-color biz-internet
+      backup-sla-preferred-color mpls
+     !
+    !
+    sequence 121
+     match
+      dscp 14
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class BULK_DATA  preferred-color biz-internet
+      backup-sla-preferred-color mpls
+     !
+    !
+    sequence 131
+     match
+      dscp 8
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER strict preferred-color biz-internet
+     !
+    !
+    sequence 141
+     match
+      dscp 0
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class DEFAULT  preferred-color biz-internet
+      backup-sla-preferred-color mpls
+     !
+    !
+ !
+ lists
+  site-list ALL-SITES
+   site-id 10 
+   site-id 20 
+   site-id 30 
+   site-id 50 
+  !
+  vpn-list VPN1-corporate
+   vpn 1 
+  !
+ !
+!
+apply-policy
+ site-list ALL-SITES
+  app-route-policy _VPN1-corporate_AAR-Policy-v1
+ !
+!

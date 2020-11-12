@@ -1,0 +1,178 @@
+policy
+ access-list QOS-ACL
+    sequence 1
+     match
+      dscp 40 26 28 30
+     !
+     action accept
+      class STREAMING-VIDEO
+     !
+    !
+    sequence 11
+     match
+      dscp 32 34 36 38
+     !
+     action accept
+      class INTERACTIVE_VIDEO
+     !
+    !
+    sequence 21
+     match
+      dscp 16 10 12 14 18 20 22
+     !
+     action accept
+      class CRITICAL-DATA
+     !
+    !
+    sequence 31
+     match
+      dscp 46
+     !
+     action accept
+      class VOICE
+     !
+    !
+    sequence 41
+     match
+      dscp 8
+     !
+     action accept
+      class SCAVENGER
+     !
+    !
+    sequence 51
+     match
+      dscp 24
+     !
+     action accept
+      class CALL-SIGNALING
+     !
+    !
+    sequence 61
+     match
+      dscp 48
+     !
+     action accept
+      class NET-CTRL
+     !
+    !
+    sequence 71
+     match
+      dscp 0
+     !
+     action accept
+      class DEFAULT
+     !
+    !
+  default-action drop
+ !
+ rewrite-rule REWRITE-POLICY
+  class CRITICAL-DATA low dscp 18 layer-2-cos 2
+  class STREAMING-VIDEO low dscp 10 layer-2-cos 1
+  class CALL-SIGNALING low dscp 10 layer-2-cos 1
+  class VOICE low dscp 46 layer-2-cos 2
+  class NET-CTRL low dscp 10 layer-2-cos 1
+  class INTERACTIVE_VIDEO low dscp 10 layer-2-cos 1
+  class DEFAULT low dscp 10 layer-2-cos 1
+  class SCAVENGER low dscp 10 layer-2-cos 1
+ !
+ route-policy set-bgp-as-prepend
+    sequence 1
+     action accept
+      set
+       as-path prepend "65011 65011 65011 65011"
+       as-path exclude "1"
+      !
+     !
+    !
+  default-action accept
+ !
+  qos-scheduler WAN-QOS_0
+   class Queue0
+   bandwidth-percent 10
+   buffer-percent 10
+   scheduling llq
+   drops tail-drop
+   burst 15000
+  !
+  qos-scheduler WAN-QOS_1
+   class Queue1
+   bandwidth-percent 25
+   buffer-percent 25
+   scheduling wrr
+   drops red-drop
+  !
+  qos-scheduler WAN-QOS_2
+   class Queue2
+   bandwidth-percent 1
+   buffer-percent 1
+   scheduling wrr
+   drops red-drop
+  !
+  qos-scheduler WAN-QOS_4
+   class Queue4
+   bandwidth-percent 30
+   buffer-percent 30
+   scheduling wrr
+   drops red-drop
+  !
+  qos-scheduler WAN-QOS_5
+   class Queue5
+   bandwidth-percent 5
+   buffer-percent 5
+   scheduling wrr
+   drops red-drop
+  !
+  qos-scheduler WAN-QOS_6
+   class Queue6
+   bandwidth-percent 10
+   buffer-percent 10
+   scheduling wrr
+   drops red-drop
+  !
+  qos-scheduler WAN-QOS_7
+   class Queue7
+   bandwidth-percent 4
+   buffer-percent 4
+   scheduling wrr
+   drops red-drop
+  !
+  qos-scheduler WAN-QOS_3
+   class Queue3
+   bandwidth-percent 15
+   buffer-percent 15
+   scheduling wrr
+   drops red-drop
+  !
+  qos-map WAN-QOS
+   qos-scheduler WAN-QOS_0 
+   qos-scheduler WAN-QOS_1 
+   qos-scheduler WAN-QOS_2 
+   qos-scheduler WAN-QOS_4 
+   qos-scheduler WAN-QOS_5 
+   qos-scheduler WAN-QOS_6 
+   qos-scheduler WAN-QOS_7 
+   qos-scheduler WAN-QOS_3 
+  !
+  class-map 
+   class CALL-SIGNALING queue 7 
+   class CRITICAL-DATA queue 1 
+   class DEFAULT queue 3 
+   class INTERACTIVE_VIDEO queue 4 
+   class NET-CTRL queue 5 
+   class Queue0 queue 0 
+   class Queue1 queue 1 
+   class Queue2 queue 2 
+   class Queue3 queue 3 
+   class Queue4 queue 4 
+   class Queue5 queue 5 
+   class Queue6 queue 6 
+   class Queue7 queue 7 
+   class SCAVENGER queue 2 
+   class STREAMING-VIDEO queue 6 
+   class VOICE queue 0 
+  !
+ !
+ app-visibility 
+ flow-visibility 
+!

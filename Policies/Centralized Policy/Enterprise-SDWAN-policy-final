@@ -1,0 +1,210 @@
+viptela-policy:policy
+  sla-class BULK_DATA1
+   latency 300
+   loss 5
+  !
+  sla-class DEFAULT1
+   latency 500
+   loss 10
+  !
+  sla-class LOW_LATENCY_DATA1
+   latency 100
+   loss 5
+  !
+  sla-class REAL_TIME_VIDEO1
+   latency 150
+   loss 1
+   jitter 20
+  !
+  sla-class SCAVENGER1
+   latency 500
+   loss 50
+  !
+  sla-class VOICE-ITU1
+   latency 150
+   loss 1
+   jitter 30
+  !
+ app-route-policy _VPN1-corporate_AAR-Policy-v2
+  vpn-list VPN1-corporate
+    sequence 1
+     match
+      app-list mybusinessapp-list
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class BULK_DATA1  preferred-color mpls
+     !
+    !
+    sequence 11
+     match
+      dscp 46
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class VOICE-ITU1  preferred-color mpls
+     !
+    !
+    sequence 21
+     match
+      dscp 32 34 36 38
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class REAL_TIME_VIDEO1  preferred-color mpls
+     !
+    !
+    sequence 31
+     match
+      dscp 16 18 20 22 24
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class LOW_LATENCY_DATA1  preferred-color mpls
+     !
+    !
+    sequence 41
+     match
+      dscp 10 12 14
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class BULK_DATA1  preferred-color biz-internet
+     !
+    !
+    sequence 51
+     match
+      dscp 8
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class SCAVENGER1 strict preferred-color biz-internet
+     !
+    !
+    sequence 61
+     match
+      dscp 0
+      source-ip 0.0.0.0/0
+     !
+     action
+      sla-class DEFAULT1  preferred-color biz-internet
+     !
+    !
+ !
+ control-policy Central-topology-policy-v2
+    sequence 1
+     match route
+      site-list DC1
+      prefix-list _AnyIpv4PrefixList
+     !
+     action accept
+      set
+       preference 400
+      !
+     !
+    !
+    sequence 11
+     match route
+      site-list DC2
+      prefix-list _AnyIpv4PrefixList
+     !
+     action accept
+      set
+       preference 200
+      !
+     !
+    !
+    sequence 21
+     match route
+      site-list Dynamic-tunnel-branches
+      prefix-list _AnyIpv4PrefixList
+     !
+     action accept
+      set
+       tloc-action backup
+       tloc-list DC-TLOCs
+      !
+     !
+    !
+  default-action accept
+ !
+ control-policy DC-block-tunnels
+    sequence 1
+     match tloc
+      site-list DC_Group
+     !
+     action reject
+     !
+    !
+  default-action accept
+ !
+ data-policy _VPN1-corporate_Traffic-data-policy
+  vpn-list VPN1-corporate
+    sequence 1
+     match
+      dscp 8
+      source-ip 0.0.0.0/0
+     !
+     action accept
+      set
+       local-tloc-list 
+        color biz-internet
+        encap ipsec
+        restrict
+      !
+     !
+    !
+  default-action accept
+ !
+ lists
+  app-list mybusinessapp-list
+   app mybusinessapp 
+  !
+  site-list ALL-SITES
+   site-id 10 
+   site-id 20 
+   site-id 30 
+   site-id 50 
+  !
+  site-list Branch_Group
+   site-id 30 
+   site-id 50 
+  !
+  site-list DC1
+   site-id 10 
+  !
+  site-list DC2
+   site-id 20 
+  !
+  site-list DC_Group
+   site-id 10 
+   site-id 20 
+  !
+  site-list Dynamic-tunnel-branches
+   site-id 30 
+   site-id 50 
+  !
+  tloc-list DC-TLOCs
+   tloc 1.10.1.1 color mpls encap ipsec 
+   tloc 1.10.1.1 color biz-internet encap ipsec 
+  !
+  vpn-list VPN1-corporate
+   vpn 1 
+  !
+  prefix-list _AnyIpv4PrefixList
+   ip-prefix 0.0.0.0/0 le 32 
+  !
+ !
+!
+apply-policy
+ site-list ALL-SITES
+  data-policy _VPN1-corporate_Traffic-data-policy from-service
+  app-route-policy _VPN1-corporate_AAR-Policy-v2
+ !
+ site-list DC_Group
+  control-policy DC-block-tunnels out
+ !
+ site-list Branch_Group
+  control-policy Central-topology-policy-v2 out
+ !
+!

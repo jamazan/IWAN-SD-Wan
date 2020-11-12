@@ -1,0 +1,218 @@
+
+!
+! Last configuration change at 16:18:38 UTC Tue Oct 27 2020
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname DC2-MC
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name cisco-csr
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+domain iwan
+ vrf default
+  master transit 1
+   source-interface Loopback0
+   site-prefixes prefix-list DC2-PREFIXES
+   password cisco
+   hub 172.16.1.1
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-589085671
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-589085671
+ revocation-check none
+ rsakeypair TP-self-signed-589085671
+!
+crypto pki trustpoint TP-self-signed-3688829750
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3688829750
+ revocation-check none
+ rsakeypair TP-self-signed-3688829750
+!
+!
+crypto pki certificate chain TP-self-signed-589085671
+crypto pki certificate chain TP-self-signed-3688829750
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9QGY0RHLNVG
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+username cisco privilege 15 password 0 cisco
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 172.16.2.1 255.255.255.255
+!
+interface GigabitEthernet1
+ description TO DC2-CORE1
+ ip address 10.1.102.1 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ description TO OOB MGMT
+ ip address 192.168.150.28 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router bgp 64512
+ bgp router-id 172.16.2.4
+ bgp log-neighbor-changes
+ redistribute connected
+ neighbor 10.1.102.2 remote-as 65020
+ neighbor 10.1.102.2 description DC2-FRA-CORE1
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip route 0.0.0.0 0.0.0.0 192.168.150.1
+!
+ip ssh version 2
+ip scp server enable
+!
+!
+ip prefix-list DC2-PREFIXES seq 10 permit 10.2.100.0/24
+!
+ip access-list standard NAT_ACL_FOR_INTERNET
+ permit 10.1.102.0 0.0.0.3
+no service-routing capabilities-manager
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+!
+!
+end

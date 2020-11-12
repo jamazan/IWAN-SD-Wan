@@ -1,0 +1,510 @@
+
+!
+! Last configuration change at 15:37:03 UTC Fri Nov 6 2020
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname IWAN-BR-2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition IWAN-TRANSPORT-1
+ !
+ address-family ipv4
+ exit-address-family
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name cisco-csr
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+flow record Record-FNF-IWAN
+ description Flexible NetFlow for IWAN Monitoring
+ match ipv4 tos
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ match interface input
+ match flow direction
+ collect routing source as
+ collect routing destination as
+ collect routing next-hop address ipv4
+ collect ipv4 dscp
+ collect ipv4 id
+ collect ipv4 source prefix
+ collect ipv4 source mask
+ collect ipv4 destination mask
+ collect transport tcp flags
+ collect interface output
+ collect flow sampler
+ collect counter bytes
+ collect counter packets
+ collect timestamp sys-uptime first
+ collect timestamp sys-uptime last
+ collect application name
+!
+!
+flow exporter Export-FNF-Monitor-1
+ description FNFv9 NBAR2 with LiveAction
+ destination 10.4.48.178
+ source Loopback0
+ transport udp 2055
+ option interface-table
+ option application-table
+ option application-attributes
+!
+!
+flow exporter Export-FNF-Monitor-2
+ description FNFv9 NBAR2 with Prime
+ destination 10.4.48.36
+ source Loopback0
+ transport udp 9991
+ option interface-table
+ option application-table
+ option application-attributes
+!
+!
+flow monitor Monitor-FNF-IWAN
+ description IWAN Traffic Analysis
+ exporter Export-FNF-Monitor-1
+ exporter Export-FNF-Monitor-2
+ cache timeout inactive 10
+ cache timeout active 60
+ record Record-FNF-IWAN
+!
+multilink bundle-name authenticated
+!
+domain iwan
+ vrf default
+  border
+   source-interface Loopback0
+   master 172.16.1.1
+   password cisco
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3041864361
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3041864361
+ revocation-check none
+ rsakeypair TP-self-signed-3041864361
+!
+crypto pki trustpoint TP-self-signed-2380511051
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2380511051
+ revocation-check none
+ rsakeypair TP-self-signed-2380511051
+!
+!
+crypto pki certificate chain TP-self-signed-3041864361
+crypto pki certificate chain TP-self-signed-2380511051
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9TWKSE07WUU
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+username cisco privilege 15 password 0 cisco
+!
+redundancy
+!
+crypto ikev2 proposal AES/GCM/256 
+ encryption aes-gcm-256
+ prf sha512
+ group 19
+!
+crypto ikev2 policy AES/GCM/256 
+ match fvrf any
+ proposal AES/GCM/256
+!
+crypto ikev2 keyring DMVPN-KEYRING
+ peer ANY
+  address 0.0.0.0 0.0.0.0
+  pre-shared-key c1sco123
+ !
+!
+!
+crypto ikev2 profile DMVPN-IKEv2-PROFILE
+ description PSK Profile
+ match fvrf any
+ match identity remote address 0.0.0.0 
+ identity local address 172.16.1.3
+ authentication remote pre-share
+ authentication local pre-share
+ keyring local DMVPN-KEYRING
+!
+!
+!
+!
+!
+class-map match-any STREAMING-VIDEO
+ match dscp cs5 
+ match dscp af31 
+ match dscp af32 
+ match dscp af33 
+class-map match-any INTERACTIVE-VIDEO
+ match dscp cs4 
+ match dscp af41 
+ match dscp af42 
+ match dscp af43 
+class-map match-any CRITICAL-DATA
+ match dscp cs2 
+ match dscp af11 
+ match dscp af12 
+ match dscp af13 
+ match dscp af21 
+ match dscp af22 
+ match dscp af23 
+class-map match-any VOICE
+ match dscp ef 
+class-map match-any SCAVENGER
+ match dscp cs1 
+class-map match-any CALL-SIGNALING
+ match dscp cs3 
+class-map match-any NET-CTRL
+ match dscp cs6 
+!
+policy-map WAN
+ class INTERACTIVE-VIDEO
+  bandwidth remaining percent 30 
+  random-detect dscp-based
+  set dscp tunnel af41
+ class STREAMING-VIDEO
+  bandwidth remaining percent 10 
+  random-detect dscp-based
+  set dscp tunnel af31
+ class NET-CTRL
+  bandwidth remaining percent 5 
+  set dscp tunnel cs6
+ class CALL-SIGNALING
+  bandwidth remaining percent 4 
+  set dscp tunnel af21
+ class CRITICAL-DATA
+  bandwidth remaining percent 25 
+  random-detect dscp-based
+  set dscp tunnel af21
+ class SCAVENGER
+  bandwidth remaining percent 1 
+  set dscp tunnel af11
+ class VOICE
+  priority level 1
+  police cir percent 10
+  set dscp tunnel ef
+ class class-default
+  bandwidth remaining percent 25 
+  random-detect
+  set dscp tunnel default
+policy-map RS-GROUP-30MBPS-80-POLICY
+ description 80% of RS inbound service rate
+ class class-default
+  shape average 24000000   
+  bandwidth remaining ratio 24
+   service-policy WAN
+policy-map TRANSPORT-2-SHAPE-ONLY
+ class class-default
+  shape average 900000000   
+policy-map RS-GROUP-10MBPS-80-POLICY
+ description 80% of RS inbound service rate
+ class class-default
+  shape average 8000000   
+  bandwidth remaining ratio 8
+   service-policy WAN
+policy-map RS-GROUP-4G-80-POLICY
+ description 80% of RS inbound service rate
+ class class-default
+  shape average 6000000   
+  bandwidth remaining ratio 6
+   service-policy WAN
+policy-map RS-GROUP-300MBPS-80-POLICY
+ description 80% of RS inbound service rate
+ class class-default
+  shape average 240000000   
+  bandwidth remaining ratio 240
+   service-policy WAN
+policy-map RS-GROUP-20MBPS-80-POLICY
+ description 80% of RS inbound service rate
+ class class-default
+  shape average 16000000   
+  bandwidth remaining ratio 16
+   service-policy WAN
+policy-map TRANSPORT-1-SHAPE-ONLY
+ class class-default
+  shape average 600000000   
+policy-map RS-GROUP-50MBPS-80-POLICY
+ description 80% of RS inbound service rate
+ class class-default
+  shape average 40000000   
+  bandwidth remaining ratio 40
+   service-policy WAN
+policy-map RS-GROUP-100MBPS-80-POLICY
+ description 80% of RS inbound service rate
+ class class-default
+  shape average 80000000   
+  bandwidth remaining ratio 80
+   service-policy WAN
+policy-map RS-GROUP-200MBPS-80-POLICY
+ description 80% of RS inbound service rate
+ class class-default
+  shape average 160000000   
+  bandwidth remaining ratio 160
+   service-policy WAN
+!
+! 
+!
+!
+!
+!
+!
+!
+crypto ipsec security-association replay window-size 1024
+!
+crypto ipsec transform-set AES256/GCM/TRANSFORM esp-gcm 256 
+ mode transport
+!
+crypto ipsec profile DMVPN-IPSEC-PROFILE
+ set transform-set AES256/GCM/TRANSFORM 
+ set ikev2-profile DMVPN-IKEv2-PROFILE
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 172.16.1.3 255.255.255.255
+!
+interface Tunnel200
+ description INET1
+ bandwidth 900000
+ ip flow monitor Monitor-FNF-IWAN input
+ ip flow monitor Monitor-FNF-IWAN output
+ ip address 10.6.36.1 255.255.254.0
+ no ip redirects
+ ip mtu 1400
+ ip pim nbma-mode
+ ip pim sparse-mode
+ ip nhrp authentication cisco123
+ ip nhrp network-id 200
+ ip nhrp server-only
+ ip nhrp redirect
+ ip tcp adjust-mss 1360
+ nhrp map group RS-GROUP-300MBPS-80 service-policy output RS-GROUP-300MBPS-80-POLICY
+ nhrp map group RS-GROUP-200MBPS-80 service-policy output RS-GROUP-200MBPS-80-POLICY
+ nhrp map group RS-GROUP-100MBPS-80 service-policy output RS-GROUP-100MBPS-80-POLICY
+ nhrp map group RS-GROUP-50MBPS-80 service-policy output RS-GROUP-50MBPS-80-POLICY
+ nhrp map group RS-GROUP-30MBPS-80 service-policy output RS-GROUP-30MBPS-80-POLICY
+ nhrp map group RS-GROUP-20MBPS-80 service-policy output RS-GROUP-20MBPS-80-POLICY
+ nhrp map group RS-GROUP-10MBPS-80 service-policy output RS-GROUP-10MBPS-80-POLICY
+ nhrp map group RS-GROUP-4G-80 service-policy output RS-GROUP-4G-80-POLICY
+ tunnel source GigabitEthernet2
+ tunnel mode gre multipoint
+ tunnel key 200
+ tunnel vrf IWAN-TRANSPORT-1
+ tunnel protection ipsec profile DMVPN-IPSEC-PROFILE
+ domain iwan path INET1 path-id 2
+!
+interface GigabitEthernet1
+ description to DC1-SJC-CORE2
+ ip address 10.1.101.13 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ description to DC1 INTERNET FW
+ vrf forwarding IWAN-TRANSPORT-1
+ ip address 10.1.101.25 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+ service-policy output TRANSPORT-2-SHAPE-ONLY
+!
+interface GigabitEthernet3
+ description to DC1 MPLS CE
+ no ip address
+ ip nat inside
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ description direct link for PfR autotunnel
+ ip address 10.1.101.34 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ ip address 192.168.150.26 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router bgp 64510
+ bgp router-id 172.16.1.3
+ bgp log-neighbor-changes
+ bgp listen range 10.6.36.0/23 peer-group INET1-SPOKES
+ neighbor INET1-SPOKES peer-group
+ neighbor INET1-SPOKES remote-as 64510
+ neighbor INET1-SPOKES description INET1 Spoke Route Reflector
+ neighbor INET1-SPOKES update-source Tunnel200
+ neighbor INET1-SPOKES timers 20 60
+ neighbor 10.1.101.14 remote-as 65010
+ neighbor 10.1.101.14 description DC1-SJC-CORE2
+ !
+ address-family ipv4
+  bgp redistribute-internal
+  network 10.0.0.0
+  redistribute connected
+  neighbor INET1-SPOKES activate
+  neighbor INET1-SPOKES send-community
+  neighbor INET1-SPOKES route-reflector-client
+  neighbor INET1-SPOKES next-hop-self all
+  neighbor INET1-SPOKES weight 50000
+  neighbor INET1-SPOKES soft-reconfiguration inbound
+  neighbor INET1-SPOKES route-map INET1-IN in
+  neighbor INET1-SPOKES route-map INET1-OUT out
+  neighbor 10.1.101.14 activate
+  maximum-secondary-paths ibgp 1
+  distance bgp 201 19 200
+ exit-address-family
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip route 10.0.0.0 255.0.0.0 10.1.101.14
+ip route vrf IWAN-TRANSPORT-1 0.0.0.0 0.0.0.0 10.1.101.26
+!
+ip bgp-community new-format
+ip ssh version 2
+ip scp server enable
+!
+!
+ip prefix-list DEFAULT-ROUTE seq 10 permit 0.0.0.0/0
+!
+ip prefix-list ENTERPRISE-PREFIXES seq 10 permit 10.0.0.0/8
+ip prefix-list ENTERPRISE-PREFIXES seq 20 permit 172.16.0.0/12
+ip prefix-list ENTERPRISE-PREFIXES seq 30 permit 192.168.0.0/16
+!
+ip prefix-list LOCALDC-PREFIX seq 10 permit 10.1.100.0/24
+!
+ip prefix-list LOCALMCLOOPBACK seq 10 permit 172.16.1.1/32
+!
+ip prefix-list TUNNEL-DMVPN seq 10 permit 10.6.34.0/23
+ip prefix-list TUNNEL-DMVPN seq 20 permit 10.6.36.0/23
+!
+ip access-list standard NAT_ACL_FOR_INTERNET
+ permit 10.1.101.12 0.0.0.3
+ permit 10.1.101.24 0.0.0.3
+ permit 10.1.101.28 0.0.0.3
+ permit 10.1.101.32 0.0.0.3
+no service-routing capabilities-manager
+!
+!
+route-map INET1-IN deny 10 
+ description All Blocked Prefixes to come IN on BGP
+ match ip address prefix-list DEFAULT-ROUTE ENTERPRISE-PREFIXES LOCALDC-PREFIX LOCALMCLOOPBACK TUNNEL-DMVPN
+!
+route-map INET1-IN permit 1000 
+ description Allow Everything Else
+!
+route-map INET1-OUT permit 10 
+ description All Allowed Prefixes to Go OUT on BGP to Spokes
+ match ip address prefix-list DEFAULT-ROUTE ENTERPRISE-PREFIXES LOCALDC-PREFIX LOCALMCLOOPBACK
+ set local-preference 780
+ set community 65100:200
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+!
+!
+!
+end

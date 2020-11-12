@@ -1,0 +1,36 @@
+policy
+ zone-based-policy ent-sec-pol_copy
+    sequence 1
+     seq-name internet-allow
+     match
+      destination-port 443 80 2164 53 90
+      protocol 6 17
+      protocol-name https http ddns-v3 dns dnsix
+     !
+     action inspect
+     !
+    !
+    sequence 11
+     seq-name icmp-allow
+     match
+      protocol 1 17
+     !
+     action inspect
+     !
+    !
+  default-action drop
+ !
+  zone vpn0-zone
+   vpn 0 
+  !
+  zone vpn1-zone
+   vpn 1 
+  !
+  zone-pair ZP_vpn1-zone_vpn0-zone_369572979
+   source-zone vpn1-zone
+   destination-zone vpn0-zone
+   zone-policy ent-sec-pol_copy
+  !
+ !
+ zone-to-nozone-internet deny
+!

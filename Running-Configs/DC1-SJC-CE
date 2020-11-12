@@ -1,0 +1,230 @@
+
+!
+! Last configuration change at 16:18:38 UTC Tue Oct 27 2020
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname dc1-sjc-ce
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name cisco-csr
+!
+ip dhcp pool GigabitEthernet6_dhcp_pool
+ network 10.1.101.20 255.255.255.252
+ default-router 10.1.101.21 
+ dns-server 8.8.8.8 
+!
+ip dhcp pool GigabitEthernet7_dhcp_pool
+ network 10.1.101.28 255.255.255.252
+ default-router 10.1.101.30 
+ dns-server 8.8.8.8 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-612065520
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-612065520
+ revocation-check none
+ rsakeypair TP-self-signed-612065520
+!
+crypto pki trustpoint TP-self-signed-3063872402
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3063872402
+ revocation-check none
+ rsakeypair TP-self-signed-3063872402
+!
+!
+crypto pki certificate chain TP-self-signed-612065520
+crypto pki certificate chain TP-self-signed-3063872402
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9QDIMZA8TPN
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+username cisco privilege 15 password 0 cisco
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface GigabitEthernet1
+ description to MPLS (BGP AS 65000)
+ ip address 10.10.0.2 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ description to DC1-SJC-CORE1 (iBGP)
+ ip address 10.1.1.1 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ description To DC1-SJC-CORE2 (ibgp)
+ ip address 10.1.1.5 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ description TO DC1-WAN-EDGE1
+ ip address 10.1.1.9 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ description TO DC1-WAN-EDGE2
+ ip address 10.1.1.13 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ description link to IWAN Hub BR1
+ ip address 10.1.101.22 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ description link to IWAN Hub BR2
+ ip address 10.1.101.30 255.255.255.252
+ ip nat inside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ ip address 192.168.150.9 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router bgp 65010
+ bgp log-neighbor-changes
+ neighbor 10.1.1.2 remote-as 65010
+ neighbor 10.10.0.1 remote-as 65000
+ !
+ address-family ipv4
+  redistribute connected
+  neighbor 10.1.1.2 activate
+  neighbor 10.1.1.2 next-hop-self
+  neighbor 10.10.0.1 activate
+ exit-address-family
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+!
+ip ssh version 2
+ip scp server enable
+!
+!
+ip access-list standard NAT_ACL_FOR_INTERNET
+ permit 10.10.0.0 0.0.0.3
+ permit 10.1.1.0 0.0.0.3
+ permit 10.1.1.4 0.0.0.3
+ permit 10.1.1.8 0.0.0.3
+ permit 10.1.1.12 0.0.0.3
+ permit 10.1.101.20 0.0.0.3
+ permit 10.1.101.28 0.0.0.3
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+!
+!
+end
