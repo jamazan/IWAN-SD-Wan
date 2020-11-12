@@ -1,0 +1,40 @@
+{
+  "deviceType": [
+    "vsmart",
+    "vmanage"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "security-vsmart",
+  "lastUpdatedBy": "system",
+  "editedTemplateDefinition": {
+    "control": {
+      "protocol": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": "dtls"
+      }
+    }
+  },
+  "gTemplateClass": "vedge",
+  "templateDefinition": {
+    "control": {
+      "protocol": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": "dtls"
+      }
+    }
+  },
+  "templateId": "bc418aa3-b9ce-402a-aab2-79575e1d633f",
+  "attachedMastersCount": 0,
+  "configType": "xml",
+  "createdOn": 1595978433241,
+  "@rid": 185,
+  "feature": "vmanage-default",
+  "factoryDefault": true,
+  "templateName": "Factory_Default_vSmart_vManage_Security_Template",
+  "createdBy": "system",
+  "devicesAttached": 0,
+  "templateDescription": "Default Security template settings for vSmart and vManage",
+  "lastUpdatedOn": 1595978433241
+}

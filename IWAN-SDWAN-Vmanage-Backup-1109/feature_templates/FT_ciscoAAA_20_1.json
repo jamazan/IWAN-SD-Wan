@@ -1,0 +1,431 @@
+{
+  "deviceType": [
+    "vedge-CSR-1000v",
+    "vedge-ASR-1001-HX",
+    "vedge-ASR-1002-X",
+    "vedge-ASR-1002-HX",
+    "vedge-ASR-1001-X"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cedge_aaa",
+  "lastUpdatedBy": "admin",
+  "editedTemplateDefinition": {
+    "user": {
+      "vipType": "constant",
+      "vipValue": [
+        {
+          "vipOptional": false,
+          "name": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "admin",
+            "vipVariableName": "user_name_0"
+          },
+          "password": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "$6$bDUakA==$BLcfqGPd6jvM6dOVgFAs8Aa/i3QHgGXkgkpegwtjsTORVN5MEjcQUppEXmzOXIEC5hZTQ03ob.z9T.unm4OUn/",
+            "vipVariableName": "user_password1"
+          },
+          "secret": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "$9$2lAL2FAM3VEJ3.$E68O3gWuUlmf7E7RXZfDGJw5YjklzDpba59DRlt41Ig",
+            "vipVariableName": "password_secret1"
+          },
+          "pubkey-chain": {
+            "vipObjectType": "tree",
+            "vipType": "ignore",
+            "vipValue": [],
+            "vipVariableName": "user_pubkey_chain_0",
+            "vipPrimaryKey": [
+              "key-string"
+            ]
+          },
+          "privilege": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "15",
+            "vipVariableName": "user_privilege_0"
+          },
+          "priority-order": [
+            "name",
+            "password",
+            "secret",
+            "pubkey-chain",
+            "privilege"
+          ]
+        },
+        {
+          "name": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "cisco",
+            "vipVariableName": "user_name_1"
+          },
+          "password": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "$6$PTQgBA==$fLUrphdkf6S8ycXye/6ahqF6XB8YmH3qVjdmiHuFCbM4ERqssUROnff1U1x/S1yV8JWAp.p3TRYdRnw1Icjmj.",
+            "vipVariableName": "user_password2"
+          },
+          "secret": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "$9$1l6E1l6D3l6K2k$snHHQFUR9F.4iVIJH0xjGl2cIv0Fpfy6mNkvU3TCFJ6",
+            "vipVariableName": "password_secret2"
+          },
+          "privilege": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "15",
+            "vipVariableName": "user_privilege"
+          },
+          "pubkey-chain": {
+            "vipObjectType": "tree",
+            "vipType": "ignore",
+            "vipValue": [],
+            "vipVariableName": "user_pubkey_chain_1",
+            "vipPrimaryKey": [
+              "key-string"
+            ]
+          },
+          "priority-order": [
+            "name",
+            "password",
+            "secret",
+            "pubkey-chain",
+            "privilege"
+          ]
+        }
+      ],
+      "vipObjectType": "tree",
+      "vipPrimaryKey": [
+        "name"
+      ]
+    },
+    "tacacs": {
+      "vipType": "ignore",
+      "vipValue": []
+    },
+    "radius": {
+      "vipType": "ignore",
+      "vipValue": []
+    },
+    "authentication": {
+      "dot1x": {
+        "default": {
+          "authentication_group": {
+            "key": "authentication_group",
+            "description": "Authentication Param",
+            "details": "Authentication configurations parameters",
+            "optionType": [
+              {
+                "value": "constant",
+                "display": "Global",
+                "iconClass": "language",
+                "iconColor": "icon-global"
+              },
+              {
+                "value": "variable",
+                "display": "Device Specific",
+                "iconClass": "router",
+                "iconColor": "icon-variable"
+              },
+              {
+                "value": "ignore",
+                "display": "Default",
+                "iconClass": "check_circle",
+                "iconColor": "icon-default"
+              }
+            ],
+            "originalDefaultOption": "ignore",
+            "defaultOption": "ignore",
+            "dataType": {
+              "type": "boolean",
+              "default": "false"
+            },
+            "dataPath": [
+              "default"
+            ],
+            "vipObjectType": "object",
+            "objectType": "object",
+            "deleteFlag": false,
+            "vipType": "ignore",
+            "vipValue": "false",
+            "vipVariableName": "dot1x_auth_group"
+          }
+        }
+      }
+    },
+    "accounting": {
+      "dot1x": {
+        "default": {
+          "start-stop": {
+            "accounting_group": {
+              "key": "accounting_group",
+              "description": "Accounting Param",
+              "details": "Accounting configurations parameters",
+              "optionType": [
+                {
+                  "value": "constant",
+                  "display": "Global",
+                  "iconClass": "language",
+                  "iconColor": "icon-global"
+                },
+                {
+                  "value": "variable",
+                  "display": "Device Specific",
+                  "iconClass": "router",
+                  "iconColor": "icon-variable"
+                },
+                {
+                  "value": "ignore",
+                  "display": "Default",
+                  "iconClass": "check_circle",
+                  "iconColor": "icon-default"
+                }
+              ],
+              "originalDefaultOption": "ignore",
+              "defaultOption": "ignore",
+              "dataType": {
+                "type": "boolean",
+                "default": "false"
+              },
+              "dataPath": [
+                "start-stop"
+              ],
+              "vipObjectType": "object",
+              "objectType": "object",
+              "deleteFlag": false,
+              "vipType": "ignore",
+              "vipValue": "false",
+              "vipVariableName": "dot1x_acct_group"
+            }
+          }
+        }
+      }
+    },
+    "server-auth-order": {
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipValue": "local"
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "user": {
+      "vipType": "constant",
+      "vipValue": [
+        {
+          "vipOptional": false,
+          "name": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "admin",
+            "vipVariableName": "user_name_0"
+          },
+          "password": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "$6$bDUakA==$BLcfqGPd6jvM6dOVgFAs8Aa/i3QHgGXkgkpegwtjsTORVN5MEjcQUppEXmzOXIEC5hZTQ03ob.z9T.unm4OUn/",
+            "vipVariableName": "user_password1"
+          },
+          "secret": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "$9$2lAL2FAM3VEJ3.$E68O3gWuUlmf7E7RXZfDGJw5YjklzDpba59DRlt41Ig",
+            "vipVariableName": "password_secret1"
+          },
+          "pubkey-chain": {
+            "vipObjectType": "tree",
+            "vipType": "ignore",
+            "vipValue": [],
+            "vipVariableName": "user_pubkey_chain_0",
+            "vipPrimaryKey": [
+              "key-string"
+            ]
+          },
+          "privilege": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "15",
+            "vipVariableName": "user_privilege_0"
+          },
+          "priority-order": [
+            "name",
+            "password",
+            "secret",
+            "pubkey-chain",
+            "privilege"
+          ]
+        },
+        {
+          "name": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "cisco",
+            "vipVariableName": "user_name_1"
+          },
+          "password": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "$6$PTQgBA==$fLUrphdkf6S8ycXye/6ahqF6XB8YmH3qVjdmiHuFCbM4ERqssUROnff1U1x/S1yV8JWAp.p3TRYdRnw1Icjmj.",
+            "vipVariableName": "user_password2"
+          },
+          "secret": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "$9$1l6E1l6D3l6K2k$snHHQFUR9F.4iVIJH0xjGl2cIv0Fpfy6mNkvU3TCFJ6",
+            "vipVariableName": "password_secret2"
+          },
+          "privilege": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "15",
+            "vipVariableName": "user_privilege"
+          },
+          "pubkey-chain": {
+            "vipObjectType": "tree",
+            "vipType": "ignore",
+            "vipValue": [],
+            "vipVariableName": "user_pubkey_chain_1",
+            "vipPrimaryKey": [
+              "key-string"
+            ]
+          },
+          "priority-order": [
+            "name",
+            "password",
+            "secret",
+            "pubkey-chain",
+            "privilege"
+          ]
+        }
+      ],
+      "vipObjectType": "tree",
+      "vipPrimaryKey": [
+        "name"
+      ]
+    },
+    "tacacs": {
+      "vipType": "ignore",
+      "vipValue": []
+    },
+    "radius": {
+      "vipType": "ignore",
+      "vipValue": []
+    },
+    "authentication": {
+      "dot1x": {
+        "default": {
+          "authentication_group": {
+            "key": "authentication_group",
+            "description": "Authentication Param",
+            "details": "Authentication configurations parameters",
+            "optionType": [
+              {
+                "value": "constant",
+                "display": "Global",
+                "iconClass": "language",
+                "iconColor": "icon-global"
+              },
+              {
+                "value": "variable",
+                "display": "Device Specific",
+                "iconClass": "router",
+                "iconColor": "icon-variable"
+              },
+              {
+                "value": "ignore",
+                "display": "Default",
+                "iconClass": "check_circle",
+                "iconColor": "icon-default"
+              }
+            ],
+            "originalDefaultOption": "ignore",
+            "defaultOption": "ignore",
+            "dataType": {
+              "type": "boolean",
+              "default": "false"
+            },
+            "dataPath": [
+              "default"
+            ],
+            "vipObjectType": "object",
+            "objectType": "object",
+            "deleteFlag": false,
+            "vipType": "ignore",
+            "vipValue": "false",
+            "vipVariableName": "dot1x_auth_group"
+          }
+        }
+      }
+    },
+    "accounting": {
+      "dot1x": {
+        "default": {
+          "start-stop": {
+            "accounting_group": {
+              "key": "accounting_group",
+              "description": "Accounting Param",
+              "details": "Accounting configurations parameters",
+              "optionType": [
+                {
+                  "value": "constant",
+                  "display": "Global",
+                  "iconClass": "language",
+                  "iconColor": "icon-global"
+                },
+                {
+                  "value": "variable",
+                  "display": "Device Specific",
+                  "iconClass": "router",
+                  "iconColor": "icon-variable"
+                },
+                {
+                  "value": "ignore",
+                  "display": "Default",
+                  "iconClass": "check_circle",
+                  "iconColor": "icon-default"
+                }
+              ],
+              "originalDefaultOption": "ignore",
+              "defaultOption": "ignore",
+              "dataType": {
+                "type": "boolean",
+                "default": "false"
+              },
+              "dataPath": [
+                "start-stop"
+              ],
+              "vipObjectType": "object",
+              "objectType": "object",
+              "deleteFlag": false,
+              "vipType": "ignore",
+              "vipValue": "false",
+              "vipVariableName": "dot1x_acct_group"
+            }
+          }
+        }
+      }
+    },
+    "server-auth-order": {
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipValue": "local"
+    }
+  },
+  "templateId": "f2797a8b-3f28-43a2-8603-313b3fb15380",
+  "attachedMastersCount": 5,
+  "configType": "xml",
+  "createdOn": 1595978663132,
+  "@rid": 477,
+  "feature": "vmanage-default",
+  "factoryDefault": false,
+  "templateName": "FT_ciscoAAA_20_1",
+  "createdBy": "admin",
+  "devicesAttached": 6,
+  "templateDescription": "Cisco AAA feature template",
+  "lastUpdatedOn": 1600316661679
+}

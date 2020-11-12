@@ -1,0 +1,77 @@
+{
+  "deviceType": [
+    "vedge-C1111-8PLTELA",
+    "vedge-CSR-1000v",
+    "vedge-ISR-4331"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cisco_security",
+  "lastUpdatedBy": "system",
+  "editedTemplateDefinition": {
+    "ipsec": {
+      "rekey": {
+        "vipValue": "",
+        "vipObjectType": "object",
+        "vipType": "ignore"
+      },
+      "replay-window": {
+        "vipValue": "",
+        "vipObjectType": "object",
+        "vipType": "ignore"
+      },
+      "authentication-type": {
+        "vipValue": [
+          "ah-sha1-hmac",
+          "sha1-hmac"
+        ],
+        "vipObjectType": "list",
+        "vipType": "constant"
+      },
+      "pairwise-keying": {
+        "vipValue": "",
+        "vipObjectType": "object",
+        "vipType": "ignore"
+      }
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "ipsec": {
+      "rekey": {
+        "vipValue": "",
+        "vipObjectType": "object",
+        "vipType": "ignore"
+      },
+      "replay-window": {
+        "vipValue": "",
+        "vipObjectType": "object",
+        "vipType": "ignore"
+      },
+      "authentication-type": {
+        "vipValue": [
+          "ah-sha1-hmac",
+          "sha1-hmac"
+        ],
+        "vipObjectType": "list",
+        "vipType": "constant"
+      },
+      "pairwise-keying": {
+        "vipValue": "",
+        "vipObjectType": "object",
+        "vipType": "ignore"
+      }
+    }
+  },
+  "templateId": "105a76cc-d5b7-4986-87c0-737ccb45acbe",
+  "attachedMastersCount": 4,
+  "configType": "xml",
+  "createdOn": 1595978431897,
+  "@rid": 168,
+  "feature": "vmanage-default",
+  "factoryDefault": true,
+  "templateName": "Default_Security_Cisco_V01",
+  "createdBy": "system",
+  "devicesAttached": 0,
+  "templateDescription": "Factory Default template for Security Cisco",
+  "lastUpdatedOn": 1595978431897
+}

@@ -1,0 +1,73 @@
+{
+  "deviceType": [
+    "vedge-CSR-1000v",
+    "vedge-ASR-1001-HX",
+    "vedge-ASR-1002-X",
+    "vedge-ASR-1002-HX",
+    "vedge-ASR-1001-X"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cisco_bfd",
+  "lastUpdatedBy": "admin",
+  "editedTemplateDefinition": {
+    "app-route": {
+      "multiplier": {
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipValue": 3,
+        "vipVariableName": "bfd_multiplier"
+      },
+      "poll-interval": {
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipValue": 6000,
+        "vipVariableName": "bfd_poll_interval"
+      }
+    },
+    "color": {
+      "vipType": "ignore",
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipPrimaryKey": [
+        "color"
+      ]
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "app-route": {
+      "multiplier": {
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipValue": 3,
+        "vipVariableName": "bfd_multiplier"
+      },
+      "poll-interval": {
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipValue": 6000,
+        "vipVariableName": "bfd_poll_interval"
+      }
+    },
+    "color": {
+      "vipType": "ignore",
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipPrimaryKey": [
+        "color"
+      ]
+    }
+  },
+  "templateId": "527ab7e7-2471-40b2-b793-478c425e76b8",
+  "attachedMastersCount": 5,
+  "configType": "xml",
+  "createdOn": 1595978663208,
+  "@rid": 478,
+  "feature": "vmanage-default",
+  "factoryDefault": false,
+  "templateName": "FT_CiscoBFD_20_1",
+  "createdBy": "admin",
+  "devicesAttached": 6,
+  "templateDescription": "cisco bfd feature templated",
+  "lastUpdatedOn": 1600886433945
+}

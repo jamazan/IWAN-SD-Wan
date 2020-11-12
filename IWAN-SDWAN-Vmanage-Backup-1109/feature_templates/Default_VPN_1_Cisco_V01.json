@@ -1,0 +1,211 @@
+{
+  "deviceType": [
+    "vedge-C1111-8PLTELA",
+    "vedge-CSR-1000v",
+    "vedge-ISR-4331"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cisco_vpn",
+  "lastUpdatedBy": "system",
+  "editedTemplateDefinition": {
+    "vpn-id": {
+      "vipValue": 1,
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipVariableName": ""
+    },
+    "name": {
+      "vipValue": "",
+      "vipObjectType": "object",
+      "vipType": "ignore"
+    },
+    "dns": {
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipType": "ignore",
+      "vipPrimaryKey": [
+        "dns-addr"
+      ]
+    },
+    "dns-ipv6": {
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipType": "ignore",
+      "vipPrimaryKey": [
+        "dns-addr"
+      ]
+    },
+    "ecmp-hash-key": {
+      "layer4": {
+        "vipValue": "",
+        "vipObjectType": "object",
+        "vipType": "ignore"
+      }
+    },
+    "host": {
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipType": "ignore",
+      "vipPrimaryKey": [
+        "hostname"
+      ]
+    },
+    "ip": {
+      "route": {
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipType": "ignore",
+        "vipPrimaryKey": [
+          "prefix"
+        ]
+      }
+    },
+    "ipv6": {
+      "route": {
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipType": "ignore",
+        "vipPrimaryKey": [
+          "prefix"
+        ]
+      }
+    },
+    "omp": {
+      "advertise": {
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipType": "ignore",
+        "vipPrimaryKey": [
+          "protocol"
+        ]
+      },
+      "ipv6-advertise": {
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipType": "ignore",
+        "vipPrimaryKey": [
+          "protocol"
+        ]
+      }
+    },
+    "nat64": {
+      "v4": {
+        "pool": {
+          "vipValue": [],
+          "vipObjectType": "tree",
+          "vipType": "ignore",
+          "vipPrimaryKey": [
+            "name"
+          ]
+        }
+      }
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "vpn-id": {
+      "vipValue": 1,
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipVariableName": ""
+    },
+    "name": {
+      "vipValue": "",
+      "vipObjectType": "object",
+      "vipType": "ignore"
+    },
+    "dns": {
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipType": "ignore",
+      "vipPrimaryKey": [
+        "dns-addr"
+      ]
+    },
+    "dns-ipv6": {
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipType": "ignore",
+      "vipPrimaryKey": [
+        "dns-addr"
+      ]
+    },
+    "ecmp-hash-key": {
+      "layer4": {
+        "vipValue": "",
+        "vipObjectType": "object",
+        "vipType": "ignore"
+      }
+    },
+    "host": {
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipType": "ignore",
+      "vipPrimaryKey": [
+        "hostname"
+      ]
+    },
+    "ip": {
+      "route": {
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipType": "ignore",
+        "vipPrimaryKey": [
+          "prefix"
+        ]
+      }
+    },
+    "ipv6": {
+      "route": {
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipType": "ignore",
+        "vipPrimaryKey": [
+          "prefix"
+        ]
+      }
+    },
+    "omp": {
+      "advertise": {
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipType": "ignore",
+        "vipPrimaryKey": [
+          "protocol"
+        ]
+      },
+      "ipv6-advertise": {
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipType": "ignore",
+        "vipPrimaryKey": [
+          "protocol"
+        ]
+      }
+    },
+    "nat64": {
+      "v4": {
+        "pool": {
+          "vipValue": [],
+          "vipObjectType": "tree",
+          "vipType": "ignore",
+          "vipPrimaryKey": [
+            "name"
+          ]
+        }
+      }
+    }
+  },
+  "templateId": "5195b2dc-3776-46af-a4e8-3ac1e93c9d38",
+  "attachedMastersCount": 3,
+  "configType": "xml",
+  "createdOn": 1595978429008,
+  "@rid": 136,
+  "feature": "vmanage-default",
+  "factoryDefault": true,
+  "templateName": "Default_VPN_1_Cisco_V01",
+  "createdBy": "system",
+  "devicesAttached": 0,
+  "templateDescription": "Factory Default template for VPN 1 Cisco",
+  "lastUpdatedOn": 1595978429008
+}

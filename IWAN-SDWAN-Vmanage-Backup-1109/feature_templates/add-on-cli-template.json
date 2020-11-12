@@ -1,0 +1,35 @@
+{
+  "deviceType": [
+    "vedge-CSR-1000v"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cli-template",
+  "lastUpdatedBy": "admin",
+  "editedTemplateDefinition": {
+    "config": {
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipValue": "router bgp 64510\r\n address-family ipv4 vrf 1\r\n  default-originate\r\n exit-address-family"
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "config": {
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipValue": "router bgp 64510\r\n address-family ipv4 vrf 1\r\n  default-originate\r\n exit-address-family"
+    }
+  },
+  "templateId": "088829de-5f1e-4805-93ee-9108d070205a",
+  "configType": "xml",
+  "attachedMastersCount": 0,
+  "createdOn": 1600898112791,
+  "@rid": 3909,
+  "feature": "vmanage-default",
+  "factoryDefault": false,
+  "createdBy": "admin",
+  "templateName": "add-on-cli-template",
+  "devicesAttached": 0,
+  "templateDescription": "add-on-cli-template",
+  "lastUpdatedOn": 1600898112791
+}

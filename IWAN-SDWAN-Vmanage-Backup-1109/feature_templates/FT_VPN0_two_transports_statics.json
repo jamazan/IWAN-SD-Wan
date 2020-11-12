@@ -1,0 +1,489 @@
+{
+  "deviceType": [
+    "vedge-CSR-1000v",
+    "vedge-ASR-1001-HX",
+    "vedge-ASR-1002-X",
+    "vedge-ASR-1002-HX",
+    "vedge-ASR-1001-X"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cisco_vpn",
+  "lastUpdatedBy": "admin",
+  "editedTemplateDefinition": {
+    "vpn-id": {
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipValue": 0
+    },
+    "name": {
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipValue": "Transport VPN0",
+      "vipVariableName": "vpn_name"
+    },
+    "ecmp-hash-key": {
+      "layer4": {
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipValue": "true",
+        "vipVariableName": "vpn_layer4"
+      }
+    },
+    "nat64-global": {
+      "prefix": {
+        "stateful": {}
+      }
+    },
+    "nat64": {
+      "v4": {
+        "pool": {
+          "vipType": "ignore",
+          "vipValue": [],
+          "vipObjectType": "tree",
+          "vipPrimaryKey": [
+            "name"
+          ]
+        }
+      }
+    },
+    "host": {
+      "vipType": "constant",
+      "vipValue": [
+        {
+          "hostname": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "vbond-test-drive",
+            "vipVariableName": "vpn_host_hostname"
+          },
+          "ip": {
+            "vipObjectType": "list",
+            "vipType": "constant",
+            "vipValue": [
+              "19.1.1.2"
+            ],
+            "vipVariableName": "vpn_host_ip"
+          },
+          "priority-order": [
+            "hostname",
+            "ip"
+          ]
+        }
+      ],
+      "vipObjectType": "tree",
+      "vipPrimaryKey": [
+        "hostname"
+      ]
+    },
+    "service": {
+      "vipType": "ignore",
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipPrimaryKey": [
+        "svc-type"
+      ]
+    },
+    "ip": {
+      "route": {
+        "vipType": "constant",
+        "vipValue": [
+          {
+            "prefix": {
+              "vipObjectType": "object",
+              "vipType": "variableName",
+              "vipValue": "",
+              "vipVariableName": "vpn0_ipv4_ip_prefix"
+            },
+            "vipOptional": true,
+            "next-hop": {
+              "vipType": "constant",
+              "vipValue": [
+                {
+                  "address": {
+                    "vipObjectType": "object",
+                    "vipType": "variableName",
+                    "vipValue": "",
+                    "vipVariableName": "vpn0_next_hop_ip_address_0"
+                  },
+                  "distance": {
+                    "key": "distance",
+                    "description": "Distance",
+                    "details": "Administrative distance",
+                    "optionType": [
+                      {
+                        "value": "constant",
+                        "display": "Global",
+                        "iconClass": "language",
+                        "iconColor": "icon-global"
+                      },
+                      {
+                        "value": "variable",
+                        "display": "Device Specific",
+                        "iconClass": "router",
+                        "iconColor": "icon-variable"
+                      },
+                      {
+                        "value": "ignore",
+                        "display": "Default",
+                        "iconClass": "check_circle",
+                        "iconColor": "icon-default"
+                      }
+                    ],
+                    "originalDefaultOption": "ignore",
+                    "defaultOption": "ignore",
+                    "dataType": {
+                      "type": "number",
+                      "min": 1,
+                      "max": 255,
+                      "default": 1
+                    },
+                    "dataPath": [],
+                    "vipObjectType": "object",
+                    "objectType": "object",
+                    "deleteFlag": false,
+                    "vipValue": 1,
+                    "vipType": "ignore",
+                    "vipVariableName": "vpn_next_hop_ip_distance_0"
+                  },
+                  "priority-order": [
+                    "address"
+                  ]
+                },
+                {
+                  "address": {
+                    "vipObjectType": "object",
+                    "vipType": "variableName",
+                    "vipValue": "",
+                    "vipVariableName": "vpn0_next_hop_ip_address_2"
+                  },
+                  "distance": {
+                    "key": "distance",
+                    "description": "Distance",
+                    "details": "Administrative distance",
+                    "optionType": [
+                      {
+                        "value": "constant",
+                        "display": "Global",
+                        "iconClass": "language",
+                        "iconColor": "icon-global"
+                      },
+                      {
+                        "value": "variable",
+                        "display": "Device Specific",
+                        "iconClass": "router",
+                        "iconColor": "icon-variable"
+                      },
+                      {
+                        "value": "ignore",
+                        "display": "Default",
+                        "iconClass": "check_circle",
+                        "iconColor": "icon-default"
+                      }
+                    ],
+                    "originalDefaultOption": "ignore",
+                    "defaultOption": "ignore",
+                    "dataType": {
+                      "type": "number",
+                      "min": 1,
+                      "max": 255,
+                      "default": 1
+                    },
+                    "dataPath": [],
+                    "vipObjectType": "object",
+                    "objectType": "object",
+                    "deleteFlag": false,
+                    "vipValue": 1,
+                    "vipType": "ignore",
+                    "vipVariableName": "vpn_next_hop_ip_distance_1"
+                  },
+                  "priority-order": [
+                    "address"
+                  ]
+                }
+              ],
+              "vipObjectType": "tree",
+              "vipPrimaryKey": [
+                "address"
+              ]
+            },
+            "priority-order": [
+              "prefix",
+              "next-hop"
+            ]
+          }
+        ],
+        "vipObjectType": "tree",
+        "vipPrimaryKey": [
+          "prefix"
+        ]
+      },
+      "gre-route": {},
+      "ipsec-route": {},
+      "service-route": {}
+    },
+    "ipv6": {},
+    "omp": {
+      "advertise": {
+        "vipType": "ignore",
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipPrimaryKey": [
+          "protocol"
+        ]
+      },
+      "ipv6-advertise": {
+        "vipType": "ignore",
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipPrimaryKey": [
+          "protocol"
+        ]
+      }
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "vpn-id": {
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipValue": 0
+    },
+    "name": {
+      "vipObjectType": "object",
+      "vipType": "constant",
+      "vipValue": "Transport VPN0",
+      "vipVariableName": "vpn_name"
+    },
+    "ecmp-hash-key": {
+      "layer4": {
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipValue": "true",
+        "vipVariableName": "vpn_layer4"
+      }
+    },
+    "nat64-global": {
+      "prefix": {
+        "stateful": {}
+      }
+    },
+    "nat64": {
+      "v4": {
+        "pool": {
+          "vipType": "ignore",
+          "vipValue": [],
+          "vipObjectType": "tree",
+          "vipPrimaryKey": [
+            "name"
+          ]
+        }
+      }
+    },
+    "host": {
+      "vipType": "constant",
+      "vipValue": [
+        {
+          "hostname": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "vbond-test-drive",
+            "vipVariableName": "vpn_host_hostname"
+          },
+          "ip": {
+            "vipObjectType": "list",
+            "vipType": "constant",
+            "vipValue": [
+              "19.1.1.2"
+            ],
+            "vipVariableName": "vpn_host_ip"
+          },
+          "priority-order": [
+            "hostname",
+            "ip"
+          ]
+        }
+      ],
+      "vipObjectType": "tree",
+      "vipPrimaryKey": [
+        "hostname"
+      ]
+    },
+    "service": {
+      "vipType": "ignore",
+      "vipValue": [],
+      "vipObjectType": "tree",
+      "vipPrimaryKey": [
+        "svc-type"
+      ]
+    },
+    "ip": {
+      "route": {
+        "vipType": "constant",
+        "vipValue": [
+          {
+            "prefix": {
+              "vipObjectType": "object",
+              "vipType": "variableName",
+              "vipValue": "",
+              "vipVariableName": "vpn0_ipv4_ip_prefix"
+            },
+            "vipOptional": true,
+            "next-hop": {
+              "vipType": "constant",
+              "vipValue": [
+                {
+                  "address": {
+                    "vipObjectType": "object",
+                    "vipType": "variableName",
+                    "vipValue": "",
+                    "vipVariableName": "vpn0_next_hop_ip_address_0"
+                  },
+                  "distance": {
+                    "key": "distance",
+                    "description": "Distance",
+                    "details": "Administrative distance",
+                    "optionType": [
+                      {
+                        "value": "constant",
+                        "display": "Global",
+                        "iconClass": "language",
+                        "iconColor": "icon-global"
+                      },
+                      {
+                        "value": "variable",
+                        "display": "Device Specific",
+                        "iconClass": "router",
+                        "iconColor": "icon-variable"
+                      },
+                      {
+                        "value": "ignore",
+                        "display": "Default",
+                        "iconClass": "check_circle",
+                        "iconColor": "icon-default"
+                      }
+                    ],
+                    "originalDefaultOption": "ignore",
+                    "defaultOption": "ignore",
+                    "dataType": {
+                      "type": "number",
+                      "min": 1,
+                      "max": 255,
+                      "default": 1
+                    },
+                    "dataPath": [],
+                    "vipObjectType": "object",
+                    "objectType": "object",
+                    "deleteFlag": false,
+                    "vipValue": 1,
+                    "vipType": "ignore",
+                    "vipVariableName": "vpn_next_hop_ip_distance_0"
+                  },
+                  "priority-order": [
+                    "address"
+                  ]
+                },
+                {
+                  "address": {
+                    "vipObjectType": "object",
+                    "vipType": "variableName",
+                    "vipValue": "",
+                    "vipVariableName": "vpn0_next_hop_ip_address_2"
+                  },
+                  "distance": {
+                    "key": "distance",
+                    "description": "Distance",
+                    "details": "Administrative distance",
+                    "optionType": [
+                      {
+                        "value": "constant",
+                        "display": "Global",
+                        "iconClass": "language",
+                        "iconColor": "icon-global"
+                      },
+                      {
+                        "value": "variable",
+                        "display": "Device Specific",
+                        "iconClass": "router",
+                        "iconColor": "icon-variable"
+                      },
+                      {
+                        "value": "ignore",
+                        "display": "Default",
+                        "iconClass": "check_circle",
+                        "iconColor": "icon-default"
+                      }
+                    ],
+                    "originalDefaultOption": "ignore",
+                    "defaultOption": "ignore",
+                    "dataType": {
+                      "type": "number",
+                      "min": 1,
+                      "max": 255,
+                      "default": 1
+                    },
+                    "dataPath": [],
+                    "vipObjectType": "object",
+                    "objectType": "object",
+                    "deleteFlag": false,
+                    "vipValue": 1,
+                    "vipType": "ignore",
+                    "vipVariableName": "vpn_next_hop_ip_distance_1"
+                  },
+                  "priority-order": [
+                    "address"
+                  ]
+                }
+              ],
+              "vipObjectType": "tree",
+              "vipPrimaryKey": [
+                "address"
+              ]
+            },
+            "priority-order": [
+              "prefix",
+              "next-hop"
+            ]
+          }
+        ],
+        "vipObjectType": "tree",
+        "vipPrimaryKey": [
+          "prefix"
+        ]
+      },
+      "gre-route": {},
+      "ipsec-route": {},
+      "service-route": {}
+    },
+    "ipv6": {},
+    "omp": {
+      "advertise": {
+        "vipType": "ignore",
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipPrimaryKey": [
+          "protocol"
+        ]
+      },
+      "ipv6-advertise": {
+        "vipType": "ignore",
+        "vipValue": [],
+        "vipObjectType": "tree",
+        "vipPrimaryKey": [
+          "protocol"
+        ]
+      }
+    }
+  },
+  "templateId": "f43bf246-05ff-4083-9bf3-cf18e1a376b6",
+  "attachedMastersCount": 3,
+  "configType": "xml",
+  "createdOn": 1595978663557,
+  "@rid": 484,
+  "feature": "vmanage-default",
+  "factoryDefault": false,
+  "templateName": "FT_VPN0_two_transports_statics",
+  "createdBy": "admin",
+  "devicesAttached": 3,
+  "templateDescription": "VPN0 for router with two transports, with static routes",
+  "lastUpdatedOn": 1600458704459
+}

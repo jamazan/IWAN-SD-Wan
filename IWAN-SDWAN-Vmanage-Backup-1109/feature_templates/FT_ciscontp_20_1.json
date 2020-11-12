@@ -1,0 +1,43 @@
+{
+  "deviceType": [
+    "vedge-CSR-1000v",
+    "vedge-ASR-1001-HX",
+    "vedge-ASR-1002-X",
+    "vedge-ASR-1002-HX",
+    "vedge-ASR-1001-X"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cisco_ntp",
+  "lastUpdatedBy": "admin",
+  "editedTemplateDefinition": {
+    "keys": {
+      "trusted": {
+        "vipObjectType": "list",
+        "vipType": "ignore",
+        "vipVariableName": "trusted_key"
+      }
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "keys": {
+      "trusted": {
+        "vipObjectType": "list",
+        "vipType": "ignore",
+        "vipVariableName": "trusted_key"
+      }
+    }
+  },
+  "templateId": "1bab0ba0-3498-4f7b-9651-b1b45ccdfad0",
+  "attachedMastersCount": 5,
+  "configType": "xml",
+  "createdOn": 1595978663505,
+  "@rid": 483,
+  "feature": "vmanage-default",
+  "factoryDefault": false,
+  "templateName": "FT_ciscontp_20_1",
+  "createdBy": "admin",
+  "devicesAttached": 6,
+  "templateDescription": "Cisco NTP",
+  "lastUpdatedOn": 1595978663505
+}

@@ -1,0 +1,73 @@
+{
+  "deviceType": [
+    "vedge-CSR-1000v",
+    "vedge-ASR-1001-HX",
+    "vedge-ASR-1002-X",
+    "vedge-ASR-1002-HX",
+    "vedge-ASR-1001-X"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cisco_logging",
+  "lastUpdatedBy": "admin",
+  "editedTemplateDefinition": {
+    "disk": {
+      "enable": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": "true",
+        "vipVariableName": "logging_disk_enable"
+      },
+      "file": {
+        "size": {
+          "vipObjectType": "object",
+          "vipType": "ignore",
+          "vipValue": 10,
+          "vipVariableName": "logging_max_file_size"
+        },
+        "rotate": {
+          "vipObjectType": "object",
+          "vipType": "ignore",
+          "vipValue": 10,
+          "vipVariableName": "logging_disk_rotation"
+        }
+      }
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "disk": {
+      "enable": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": "true",
+        "vipVariableName": "logging_disk_enable"
+      },
+      "file": {
+        "size": {
+          "vipObjectType": "object",
+          "vipType": "ignore",
+          "vipValue": 10,
+          "vipVariableName": "logging_max_file_size"
+        },
+        "rotate": {
+          "vipObjectType": "object",
+          "vipType": "ignore",
+          "vipValue": 10,
+          "vipVariableName": "logging_disk_rotation"
+        }
+      }
+    }
+  },
+  "templateId": "5cab99e7-d4ca-4d64-ad43-67ee10625bd1",
+  "attachedMastersCount": 5,
+  "configType": "xml",
+  "createdOn": 1595978663442,
+  "@rid": 482,
+  "feature": "vmanage-default",
+  "factoryDefault": false,
+  "templateName": "FT_ciscologging_20_1",
+  "createdBy": "admin",
+  "devicesAttached": 6,
+  "templateDescription": "Cisco logging template",
+  "lastUpdatedOn": 1595978663442
+}

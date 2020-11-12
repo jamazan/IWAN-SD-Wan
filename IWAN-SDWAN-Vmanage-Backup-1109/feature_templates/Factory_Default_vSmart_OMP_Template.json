@@ -1,0 +1,109 @@
+{
+  "deviceType": [
+    "vsmart"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "omp-vsmart",
+  "lastUpdatedBy": "system",
+  "editedTemplateDefinition": {
+    "graceful-restart": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "true"
+    },
+    "send-path-limit": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": 4
+    },
+    "send-backup-paths": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "false"
+    },
+    "shutdown": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "false"
+    },
+    "timers": {
+      "advertisement-interval": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": 1
+      },
+      "graceful-restart-timer": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": 43200
+      },
+      "holdtime": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": 60
+      }
+    },
+    "discard-rejected": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "false"
+    }
+  },
+  "gTemplateClass": "vedge",
+  "templateDefinition": {
+    "graceful-restart": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "true"
+    },
+    "send-path-limit": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": 4
+    },
+    "send-backup-paths": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "false"
+    },
+    "shutdown": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "false"
+    },
+    "timers": {
+      "advertisement-interval": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": 1
+      },
+      "graceful-restart-timer": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": 43200
+      },
+      "holdtime": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": 60
+      }
+    },
+    "discard-rejected": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "false"
+    }
+  },
+  "templateId": "ec432e14-fa2a-4fe9-a90c-6568690a1c85",
+  "attachedMastersCount": 0,
+  "configType": "xml",
+  "createdOn": 1595978433929,
+  "@rid": 194,
+  "feature": "vmanage-default",
+  "factoryDefault": true,
+  "templateName": "Factory_Default_vSmart_OMP_Template",
+  "createdBy": "system",
+  "devicesAttached": 0,
+  "templateDescription": "Default OMP template settings for vSmart",
+  "lastUpdatedOn": 1595978433929
+}

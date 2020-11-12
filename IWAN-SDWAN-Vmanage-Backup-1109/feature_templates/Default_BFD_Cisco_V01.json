@@ -1,0 +1,137 @@
+{
+  "deviceType": [
+    "vedge-C1111-8PLTELA",
+    "vedge-CSR-1000v",
+    "vedge-ISR-4331"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cisco_bfd",
+  "lastUpdatedBy": "system",
+  "editedTemplateDefinition": {
+    "app-route": {
+      "multiplier": {
+        "vipValue": 2,
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipVariableName": ""
+      },
+      "poll-interval": {
+        "vipValue": 123400,
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipVariableName": ""
+      }
+    },
+    "color": {
+      "vipValue": [
+        {
+          "color": {
+            "vipValue": "lte",
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipVariableName": ""
+          },
+          "hello-interval": {
+            "vipValue": 1000,
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipVariableName": ""
+          },
+          "multiplier": {
+            "vipValue": 1,
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipVariableName": ""
+          },
+          "pmtu-discovery": {
+            "vipValue": "false",
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipVariableName": ""
+          },
+          "priority-order": [
+            "color",
+            "hello-interval",
+            "multiplier",
+            "pmtu-discovery"
+          ]
+        }
+      ],
+      "vipObjectType": "tree",
+      "vipType": "constant",
+      "vipPrimaryKey": [
+        "color"
+      ]
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "app-route": {
+      "multiplier": {
+        "vipValue": 2,
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipVariableName": ""
+      },
+      "poll-interval": {
+        "vipValue": 123400,
+        "vipObjectType": "object",
+        "vipType": "constant",
+        "vipVariableName": ""
+      }
+    },
+    "color": {
+      "vipValue": [
+        {
+          "color": {
+            "vipValue": "lte",
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipVariableName": ""
+          },
+          "hello-interval": {
+            "vipValue": 1000,
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipVariableName": ""
+          },
+          "multiplier": {
+            "vipValue": 1,
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipVariableName": ""
+          },
+          "pmtu-discovery": {
+            "vipValue": "false",
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipVariableName": ""
+          },
+          "priority-order": [
+            "color",
+            "hello-interval",
+            "multiplier",
+            "pmtu-discovery"
+          ]
+        }
+      ],
+      "vipObjectType": "tree",
+      "vipType": "constant",
+      "vipPrimaryKey": [
+        "color"
+      ]
+    }
+  },
+  "templateId": "71cb0c43-ad9d-40f3-a62f-9a14cbb923ed",
+  "attachedMastersCount": 4,
+  "configType": "xml",
+  "createdOn": 1595978428796,
+  "@rid": 135,
+  "feature": "vmanage-default",
+  "factoryDefault": true,
+  "templateName": "Default_BFD_Cisco_V01",
+  "createdBy": "system",
+  "devicesAttached": 0,
+  "templateDescription": "Factory Default template for BFD Cisco",
+  "lastUpdatedOn": 1595978428796
+}

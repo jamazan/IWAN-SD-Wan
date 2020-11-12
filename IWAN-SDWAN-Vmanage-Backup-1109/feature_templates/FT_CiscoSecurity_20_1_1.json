@@ -1,0 +1,87 @@
+{
+  "deviceType": [
+    "vedge-CSR-1000v",
+    "vedge-ASR-1001-HX",
+    "vedge-ASR-1002-X",
+    "vedge-ASR-1002-HX",
+    "vedge-ASR-1001-X"
+  ],
+  "templateMinVersion": "15.0.0",
+  "templateType": "cisco_security",
+  "lastUpdatedBy": "admin",
+  "editedTemplateDefinition": {
+    "ipsec": {
+      "rekey": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": 86400,
+        "vipVariableName": "security_rekey"
+      },
+      "replay-window": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": "512",
+        "vipVariableName": "security_replay_window"
+      },
+      "authentication-type": {
+        "vipType": "constant",
+        "vipValue": [
+          "sha1-hmac",
+          "ah-sha1-hmac"
+        ],
+        "vipObjectType": "list",
+        "vipVariableName": "security_authenticationType"
+      },
+      "pairwise-keying": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": "false",
+        "vipVariableName": "security_pairwise_keying"
+      }
+    }
+  },
+  "gTemplateClass": "cedge",
+  "templateDefinition": {
+    "ipsec": {
+      "rekey": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": 86400,
+        "vipVariableName": "security_rekey"
+      },
+      "replay-window": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": "512",
+        "vipVariableName": "security_replay_window"
+      },
+      "authentication-type": {
+        "vipType": "constant",
+        "vipValue": [
+          "sha1-hmac",
+          "ah-sha1-hmac"
+        ],
+        "vipObjectType": "list",
+        "vipVariableName": "security_authenticationType"
+      },
+      "pairwise-keying": {
+        "vipObjectType": "object",
+        "vipType": "ignore",
+        "vipValue": "false",
+        "vipVariableName": "security_pairwise_keying"
+      }
+    }
+  },
+  "templateId": "1bd6b8d3-cd3c-4c2c-901c-c9ab31dd452e",
+  "attachedMastersCount": 5,
+  "configType": "xml",
+  "createdOn": 1595978663319,
+  "@rid": 480,
+  "feature": "vmanage-default",
+  "factoryDefault": false,
+  "templateName": "FT_CiscoSecurity_20_1_1",
+  "createdBy": "admin",
+  "devicesAttached": 6,
+  "templateDescription": "Cisco Security feature template",
+  "lastUpdatedOn": 1595978663319
+}
