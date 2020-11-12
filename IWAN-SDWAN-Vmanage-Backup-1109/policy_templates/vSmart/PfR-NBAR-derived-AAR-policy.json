@@ -1,0 +1,24 @@
+{
+  "policyDefinition": {
+    "assembly": [
+      {
+        "definitionId": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+        "type": "appRoute",
+        "entries": [
+          {
+            "siteLists": [
+              "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+            ],
+            "vpnLists": [
+              "3a66dac0-6a34-409e-bbef-a9b6a8242ba9"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "policyType": "feature",
+  "policyName": "PfR-NBAR-derived-AAR-policy",
+  "policyDescription": "derived from customer PfR policy",
+  "isPolicyActivated": false
+}

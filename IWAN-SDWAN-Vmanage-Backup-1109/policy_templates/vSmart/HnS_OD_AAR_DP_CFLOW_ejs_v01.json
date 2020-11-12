@@ -1,0 +1,74 @@
+{
+  "policyDefinition": {
+    "assembly": [
+      {
+        "definitionId": "c8350ddc-89ea-4a59-a08e-8cde2b5ec7b7",
+        "type": "data",
+        "entries": [
+          {
+            "direction": "service",
+            "siteLists": [
+              "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+            ],
+            "vpnLists": [
+              "3a66dac0-6a34-409e-bbef-a9b6a8242ba9"
+            ]
+          }
+        ]
+      },
+      {
+        "definitionId": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+        "type": "appRoute",
+        "entries": [
+          {
+            "siteLists": [
+              "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+            ],
+            "vpnLists": [
+              "3a66dac0-6a34-409e-bbef-a9b6a8242ba9"
+            ]
+          }
+        ]
+      },
+      {
+        "definitionId": "d6fdf5f2-679f-48ed-a16e-1b4d5b58792d",
+        "type": "control",
+        "entries": [
+          {
+            "direction": "out",
+            "siteLists": [
+              "76f6f831-a8a4-4174-aa50-f89d814be843"
+            ]
+          }
+        ]
+      },
+      {
+        "definitionId": "37682080-05ff-454d-90e7-bac1c68f0b67",
+        "type": "control",
+        "entries": [
+          {
+            "direction": "out",
+            "siteLists": [
+              "68db6511-ba73-4cbe-9e7d-aa7c63d094d6"
+            ]
+          }
+        ]
+      },
+      {
+        "definitionId": "e682aaa6-d610-42ef-9c97-15a884026df5",
+        "type": "cflowd",
+        "entries": [
+          {
+            "siteLists": [
+              "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "policyType": "feature",
+  "policyName": "HnS_OD_AAR_DP_CFLOW_ejs_v01",
+  "policyDescription": "Hub and Spoke, with On-Demand between branches, with AAR Policy v2, Traffic Data Policy and cFlow template w/dummy dest IP - EJS - v01",
+  "isPolicyActivated": false
+}

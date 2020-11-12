@@ -1,0 +1,24 @@
+{
+  "policyDefinition": {
+    "assembly": [
+      {
+        "definitionId": "66b58539-4ea0-49a1-816a-30f0e6e5a102",
+        "type": "appRoute",
+        "entries": [
+          {
+            "siteLists": [
+              "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+            ],
+            "vpnLists": [
+              "3a66dac0-6a34-409e-bbef-a9b6a8242ba9"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "policyType": "feature",
+  "policyName": "Enterprise-SDWAN-policy-v1",
+  "policyDescription": "AAR policy",
+  "isPolicyActivated": false
+}

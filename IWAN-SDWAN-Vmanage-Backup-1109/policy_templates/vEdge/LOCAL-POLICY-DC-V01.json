@@ -1,0 +1,61 @@
+{
+  "policyName": "LOCAL-POLICY-DC-V01",
+  "policyDescription": "Local policy for Data Centers with BGP route policy",
+  "policyDefinition": {
+    "assembly": [
+      {
+        "definitionId": "302acc00-8ab6-4c9b-98a4-2fb379741c4e",
+        "type": "qosMap"
+      },
+      {
+        "definitionId": "86f6931b-3c17-48d2-b7e2-ebb1e1613dfd",
+        "type": "rewriteRule"
+      },
+      {
+        "definitionId": "4518a8fe-a9ae-4794-b4a2-78177c29e296",
+        "type": "acl"
+      },
+      {
+        "definitionId": "4b4bd176-a1eb-4bf8-bdf4-e3f8545134e2",
+        "type": "vedgeRoute"
+      },
+      {
+        "definitionId": "ad305b41-1396-43d1-b5d3-d715f0b8e37d",
+        "type": "vedgeRoute"
+      }
+    ],
+    "settings": {
+      "appVisibility": true,
+      "flowVisibility": true
+    }
+  },
+  "policyDefinitionEdit": {
+    "assembly": [
+      {
+        "definitionId": "302acc00-8ab6-4c9b-98a4-2fb379741c4e",
+        "type": "qosMap"
+      },
+      {
+        "definitionId": "86f6931b-3c17-48d2-b7e2-ebb1e1613dfd",
+        "type": "rewriteRule"
+      },
+      {
+        "definitionId": "4518a8fe-a9ae-4794-b4a2-78177c29e296",
+        "type": "acl"
+      },
+      {
+        "definitionId": "4b4bd176-a1eb-4bf8-bdf4-e3f8545134e2",
+        "type": "vedgeRoute"
+      },
+      {
+        "definitionId": "ad305b41-1396-43d1-b5d3-d715f0b8e37d",
+        "type": "vedgeRoute"
+      }
+    ],
+    "settings": {
+      "appVisibility": true,
+      "flowVisibility": true
+    }
+  },
+  "policyType": "feature"
+}

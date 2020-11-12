@@ -1,0 +1,63 @@
+{
+  "policyDefinition": {
+    "assembly": [
+      {
+        "definitionId": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+        "type": "appRoute",
+        "entries": [
+          {
+            "siteLists": [
+              "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+            ],
+            "vpnLists": [
+              "3a66dac0-6a34-409e-bbef-a9b6a8242ba9"
+            ]
+          }
+        ]
+      },
+      {
+        "definitionId": "c8350ddc-89ea-4a59-a08e-8cde2b5ec7b7",
+        "type": "data",
+        "entries": [
+          {
+            "direction": "service",
+            "siteLists": [
+              "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+            ],
+            "vpnLists": [
+              "3a66dac0-6a34-409e-bbef-a9b6a8242ba9"
+            ]
+          }
+        ]
+      },
+      {
+        "definitionId": "9e4b5909-4ba5-412f-9c2d-43cc15be63fe",
+        "type": "control",
+        "entries": [
+          {
+            "direction": "out",
+            "siteLists": [
+              "76f6f831-a8a4-4174-aa50-f89d814be843"
+            ]
+          }
+        ]
+      },
+      {
+        "definitionId": "cc32d0f8-c5eb-45d8-a55c-fcad99d2bd3c",
+        "type": "control",
+        "entries": [
+          {
+            "direction": "out",
+            "siteLists": [
+              "68db6511-ba73-4cbe-9e7d-aa7c63d094d6"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "policyType": "feature",
+  "policyName": "Enterprise-SDWAN-policy-final",
+  "policyDescription": "tahir-changes to incorporate dc preference",
+  "isPolicyActivated": true
+}

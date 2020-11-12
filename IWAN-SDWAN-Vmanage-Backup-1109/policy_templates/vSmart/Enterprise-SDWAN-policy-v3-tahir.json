@@ -1,0 +1,51 @@
+{
+  "policyDefinition": {
+    "assembly": [
+      {
+        "definitionId": "c8350ddc-89ea-4a59-a08e-8cde2b5ec7b7",
+        "type": "data",
+        "entries": [
+          {
+            "direction": "service",
+            "siteLists": [
+              "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+            ],
+            "vpnLists": [
+              "3a66dac0-6a34-409e-bbef-a9b6a8242ba9"
+            ]
+          }
+        ]
+      },
+      {
+        "definitionId": "c9d47cf0-10cf-425d-a49c-eb0f485667e4",
+        "type": "control",
+        "entries": [
+          {
+            "direction": "out",
+            "siteLists": [
+              "9a8c7354-8a12-4099-be35-adda50a20563"
+            ]
+          }
+        ]
+      },
+      {
+        "definitionId": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+        "type": "appRoute",
+        "entries": [
+          {
+            "siteLists": [
+              "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+            ],
+            "vpnLists": [
+              "3a66dac0-6a34-409e-bbef-a9b6a8242ba9"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "policyType": "feature",
+  "policyName": "Enterprise-SDWAN-policy-v3-tahir",
+  "policyDescription": "with dynamic tunnels",
+  "isPolicyActivated": false
+}

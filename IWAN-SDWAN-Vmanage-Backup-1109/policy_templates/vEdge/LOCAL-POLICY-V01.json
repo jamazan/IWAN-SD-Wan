@@ -1,0 +1,45 @@
+{
+  "policyName": "LOCAL-POLICY-V01",
+  "policyDescription": "LOCAL-POLICY-V01",
+  "policyDefinition": {
+    "assembly": [
+      {
+        "definitionId": "302acc00-8ab6-4c9b-98a4-2fb379741c4e",
+        "type": "qosMap"
+      },
+      {
+        "definitionId": "86f6931b-3c17-48d2-b7e2-ebb1e1613dfd",
+        "type": "rewriteRule"
+      },
+      {
+        "definitionId": "4518a8fe-a9ae-4794-b4a2-78177c29e296",
+        "type": "acl"
+      }
+    ],
+    "settings": {
+      "appVisibility": true,
+      "flowVisibility": true
+    }
+  },
+  "policyDefinitionEdit": {
+    "assembly": [
+      {
+        "definitionId": "302acc00-8ab6-4c9b-98a4-2fb379741c4e",
+        "type": "qosMap"
+      },
+      {
+        "definitionId": "86f6931b-3c17-48d2-b7e2-ebb1e1613dfd",
+        "type": "rewriteRule"
+      },
+      {
+        "definitionId": "4518a8fe-a9ae-4794-b4a2-78177c29e296",
+        "type": "acl"
+      }
+    ],
+    "settings": {
+      "appVisibility": true,
+      "flowVisibility": true
+    }
+  },
+  "policyType": "feature"
+}

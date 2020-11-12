@@ -1,0 +1,27 @@
+{
+  "policyName": "ent-sec-policy",
+  "policyDescription": "ent-sec-policy",
+  "policyDefinition": {
+    "assembly": [
+      {
+        "definitionId": "9f6b77f0-6c25-410f-9db8-dd85c20a280c",
+        "type": "zoneBasedFW"
+      }
+    ],
+    "settings": {
+      "zoneToNozoneInternet": "deny"
+    }
+  },
+  "policyDefinitionEdit": {
+    "assembly": [
+      {
+        "definitionId": "9f6b77f0-6c25-410f-9db8-dd85c20a280c",
+        "type": "zoneBasedFW"
+      }
+    ],
+    "settings": {
+      "zoneToNozoneInternet": "deny"
+    }
+  },
+  "policyType": "feature"
+}
