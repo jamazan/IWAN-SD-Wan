@@ -1,0 +1,263 @@
+interfaces {
+    ethernet eth0 {
+        address 10.10.0.1/30
+        duplex auto
+        hw-id 0c:ac:24:74:b5:00
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth1 {
+        address 10.30.0.1/30
+        duplex auto
+        hw-id 0c:ac:24:74:b5:01
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth2 {
+        address 10.20.0.1/30
+        duplex auto
+        hw-id 0c:ac:24:74:b5:02
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth3 {
+        address 10.40.0.1/30
+        duplex auto
+        hw-id 0c:ac:24:74:b5:03
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth4 {
+        address 10.40.1.1/30
+        duplex auto
+        hw-id 0c:ac:24:74:b5:04
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth5 {
+        address 10.50.0.1/30
+        duplex auto
+        hw-id 0c:ac:24:74:b5:05
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth6 {
+        address 10.60.0.1/30
+        duplex auto
+        hw-id 0c:ac:24:74:b5:06
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth7 {
+        address 10.99.8.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:07
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth8 {
+        address 10.99.9.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:08
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth9 {
+        address 10.99.10.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:09
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth10 {
+        address 10.99.11.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:0a
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth11 {
+        address 10.99.12.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:0b
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth12 {
+        address 10.99.13.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:0c
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth13 {
+        address 10.99.14.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:0d
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth14 {
+        address 10.99.15.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:0e
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth15 {
+        address 10.99.16.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:0f
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth16 {
+        address 10.99.17.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:10
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth17 {
+        address 10.99.18.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:11
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth18 {
+        address 10.99.19.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:12
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth19 {
+        address 10.99.20.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:13
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth20 {
+        address 10.99.21.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:14
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth21 {
+        address 10.99.22.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:15
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth22 {
+        address 10.99.23.1/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:16
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth23 {
+        address 192.168.150.10/24
+        duplex auto
+        hw-id 0c:ac:24:74:b5:17
+        smp_affinity auto
+        speed auto
+    }
+    loopback lo {
+    }
+}
+protocols {
+    bgp 65000 {
+        neighbor 10.10.0.2 {
+            remote-as 65010
+        }
+        neighbor 10.20.0.2 {
+            remote-as 65020
+        }
+        neighbor 10.30.0.2 {
+            remote-as 65030
+        }
+        neighbor 10.40.0.2 {
+            remote-as 65040
+        }
+        neighbor 10.40.1.2 {
+            remote-as 65040
+        }
+        neighbor 10.50.0.2 {
+            remote-as 64510
+        }
+        neighbor 10.60.0.2 {
+            remote-as 65060
+        }
+        network 10.10.0.0/30 {
+        }
+        network 10.20.0.0/30 {
+        }
+        network 10.30.0.0/30 {
+        }
+        network 10.40.0.0/30 {
+        }
+        network 10.40.1.0/30 {
+        }
+        network 10.50.0.0/30 {
+        }
+    }
+}
+service {
+    ssh {
+        port 22
+    }
+}
+system {
+    config-management {
+        commit-revisions 20
+    }
+    console {
+        device ttyS0 {
+            speed 9600
+        }
+    }
+    host-name mpls
+    login {
+        user vyos {
+            authentication {
+                encrypted-password ****************
+                plaintext-password ****************
+            }
+            level admin
+        }
+    }
+    ntp {
+        server 0.pool.ntp.org {
+        }
+        server 1.pool.ntp.org {
+        }
+        server 2.pool.ntp.org {
+        }
+    }
+    package {
+        auto-sync 1
+        repository community {
+            components main
+            distribution helium
+            password ****************
+            url http://packages.vyos.net/vyos
+            username ""
+        }
+    }
+    syslog {
+        global {
+            facility all {
+                level notice
+            }
+            facility protocols {
+                level debug
+            }
+        }
+    }
+    time-zone UTC
+}

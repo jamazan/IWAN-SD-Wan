@@ -1,0 +1,217 @@
+interfaces {
+    ethernet eth0 {
+        address 10.60.0.2/30
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:00
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth1 {
+        address 10.6.100.1/24
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:01
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth2 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:02
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth3 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:03
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth4 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:04
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth5 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:05
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth6 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:06
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth7 {
+        address 192.168.150.11/24
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:07
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth8 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:08
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth9 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:09
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth10 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:0a
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth11 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:0b
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth12 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:0c
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth13 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:0d
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth14 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:0e
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth15 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:0f
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth16 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:10
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth17 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:11
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth18 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:12
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth19 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:13
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth20 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:14
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth21 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:15
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth22 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:16
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth23 {
+        duplex auto
+        hw-id 0c:ac:24:3b:d4:17
+        smp_affinity auto
+        speed auto
+    }
+    loopback lo {
+    }
+}
+protocols {
+    bgp 65060 {
+        neighbor 10.60.0.1 {
+            remote-as 65000
+        }
+        redistribute {
+            connected {
+            }
+        }
+    }
+}
+service {
+    ssh {
+        port 22
+    }
+}
+system {
+    config-management {
+        commit-revisions 20
+    }
+    console {
+        device ttyS0 {
+            speed 9600
+        }
+    }
+    host-name br6-ath-ce
+    login {
+        user vyos {
+            authentication {
+                encrypted-password ****************
+                plaintext-password ****************
+            }
+            level admin
+        }
+    }
+    ntp {
+        server 0.pool.ntp.org {
+        }
+        server 1.pool.ntp.org {
+        hw-id 0c:ac:24:3b:d4:01
+        }
+        server 2.pool.ntp.org {
+        }
+    }
+    package {
+        auto-sync 1
+        repository community {
+            components main
+            distribution helium
+            password ****************
+            url http://packages.vyos.net/vyos
+            username ""
+        }
+    }
+    syslog {
+        global {
+            facility all {
+                level notice
+            }
+            facility protocols {
+                level debug
+            }
+        }
+    }
+    time-zone UTC
+}
