@@ -1,0 +1,86 @@
+{
+  "definitionId": "86f6931b-3c17-48d2-b7e2-ebb1e1613dfd",
+  "name": "REWRITE-POLICY",
+  "type": "rewriteRule",
+  "description": "REWRITE-POLICY",
+  "definition": {
+    "rules": [
+      {
+        "class": "a6e2759f-8913-44d3-bdfc-5823d807fe02",
+        "plp": "low",
+        "dscp": "18",
+        "layer2Cos": "2"
+      },
+      {
+        "class": "57cc673f-8a56-4cb4-a56e-12367d094f4a",
+        "plp": "low",
+        "dscp": "10",
+        "layer2Cos": "1"
+      },
+      {
+        "class": "509276ea-4ae6-4fec-9d4e-21022b5a7c5f",
+        "plp": "low",
+        "dscp": "10",
+        "layer2Cos": "1"
+      },
+      {
+        "class": "132f11dc-ba83-4c1e-ac28-3d8894a087a7",
+        "plp": "low",
+        "dscp": "46",
+        "layer2Cos": "2"
+      },
+      {
+        "class": "d271daef-cbcf-4a17-95c7-61aedf48ec9d",
+        "plp": "low",
+        "dscp": "10",
+        "layer2Cos": "1"
+      },
+      {
+        "class": "fbdb1909-ab8e-4a7b-bed3-bacf1a7e7335",
+        "plp": "low",
+        "dscp": "10",
+        "layer2Cos": "1"
+      },
+      {
+        "class": "40361b48-b40e-4b80-96b1-db6b15c12e88",
+        "plp": "low",
+        "dscp": "10",
+        "layer2Cos": "1"
+      },
+      {
+        "class": "5ca2cbfe-3fb3-48b9-aac7-a8307221164b",
+        "plp": "low",
+        "dscp": "10",
+        "layer2Cos": "1"
+      }
+    ]
+  },
+  "lastUpdated": 1595978660366,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 4,
+  "references": [
+    {
+      "id": "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+      "property": "policyId"
+    },
+    {
+      "id": "da4ce817-406f-45a4-8512-cde24c99ffac",
+      "property": "policyId"
+    },
+    {
+      "id": "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+      "property": "policyId"
+    },
+    {
+      "id": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+    "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+    "c7e6c8f7-46db-4507-bd74-517c799d2ef0"
+  ],
+  "isActivatedByVsmart": false
+}

@@ -1,0 +1,109 @@
+{
+  "templateName": "Factory_Default_CSR_1000V_V01",
+  "templateDescription": "Factory Default template for CSR 1000V",
+  "deviceType": "vedge-CSR-1000v",
+  "configType": "template",
+  "factoryDefault": true,
+  "policyId": "",
+  "featureTemplateUidRange": [],
+  "connectionPreference": true,
+  "connectionPreferenceRequired": true,
+  "generalTemplates": [
+    {
+      "templateType": "cedge_aaa",
+      "templateId": "a70d531b-4d93-407f-8c49-25c1f7f014f5"
+    },
+    {
+      "templateType": "cisco_system",
+      "subTemplates": [
+        {
+          "templateType": "cisco_logging",
+          "templateId": "bd69e6df-9407-4173-a3d8-779922e9c3f2"
+        }
+      ],
+      "templateId": "41c211fb-2dc5-4202-a5a5-a71d458f3c65"
+    },
+    {
+      "templateType": "cedge_aaa",
+      "templateId": "a70d531b-4d93-407f-8c49-25c1f7f014f5"
+    },
+    {
+      "templateType": "cisco_ntp",
+      "templateId": "5241c565-b644-484f-8f98-4d1873dfb09c"
+    },
+    {
+      "templateType": "cisco_logging",
+      "templateId": "bd69e6df-9407-4173-a3d8-779922e9c3f2"
+    },
+    {
+      "templateType": "cedge_global",
+      "templateId": "b71883dd-d0ca-494d-90a4-2389dcc4aebf"
+    },
+    {
+      "templateType": "cisco_bfd",
+      "templateId": "71cb0c43-ad9d-40f3-a62f-9a14cbb923ed"
+    },
+    {
+      "templateType": "cisco_omp",
+      "templateId": "ffed9e51-9b88-47ad-851b-5fbf154cd36e"
+    },
+    {
+      "templateType": "cisco_security",
+      "templateId": "105a76cc-d5b7-4986-87c0-737ccb45acbe"
+    },
+    {
+      "templateType": "cisco_vpn",
+      "subTemplates": [
+        {
+          "templateType": "cisco_vpn_interface",
+          "templateId": "9aa1d9ff-cdff-472b-86cc-fd4b8ef37a78"
+        },
+        {
+          "templateType": "cisco_vpn_interface",
+          "templateId": "897f63ee-c8b4-4855-a8ce-edea9ca70d9d"
+        },
+        {
+          "templateType": "cisco_vpn_interface",
+          "templateId": "bc163a43-52ca-4681-a342-78ded68e2369"
+        },
+        {
+          "templateType": "cisco_vpn_interface",
+          "templateId": "d891a16e-ccf6-491f-a86a-5c550aa914fd"
+        },
+        {
+          "templateType": "cisco_vpn_interface",
+          "templateId": "b3eb9329-9ad1-41b7-8965-16d6a236b1f3"
+        },
+        {
+          "templateType": "cisco_vpn_interface",
+          "templateId": "7f0e8637-1655-4618-ad23-62251a35cbb5"
+        }
+      ],
+      "templateId": "7bbab6d1-4ac6-4e73-a628-01bbe791de1d"
+    },
+    {
+      "templateType": "cisco_vpn",
+      "subTemplates": [
+        {
+          "templateType": "cisco_vpn_interface",
+          "templateId": "e265d1fc-b6de-4321-91ae-abf0d0b38d90"
+        },
+        {
+          "templateType": "cisco_vpn_interface",
+          "templateId": "8ae3e389-e05f-4bd3-b807-fded9bd0477a"
+        },
+        {
+          "templateType": "cisco_vpn_interface",
+          "templateId": "d8a35117-623d-46e7-8ab6-95ad0149b87f"
+        }
+      ],
+      "templateId": "5195b2dc-3776-46af-a4e8-3ac1e93c9d38"
+    },
+    {
+      "templateType": "cisco_vpn",
+      "templateId": "016bb7dc-b27d-45f5-ab7b-f146e7e02c86"
+    }
+  ],
+  "templateClass": "cedge",
+  "templateId": "77e88451-52c4-496e-926d-993417c0f467"
+}

@@ -1,0 +1,46 @@
+{
+  "definitionId": "4b4bd176-a1eb-4bf8-bdf4-e3f8545134e2",
+  "name": "BGP_TO_DC",
+  "type": "vedgeRoute",
+  "description": "sets community to DC",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "Route",
+      "baseAction": "accept",
+      "sequenceType": "vedgeRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": []
+      },
+      "actions": [
+        {
+          "type": "set",
+          "parameter": [
+            {
+              "field": "community",
+              "value": "1000:1000"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "defaultAction": {
+    "type": "accept"
+  },
+  "lastUpdated": 1595978660020,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "c7e6c8f7-46db-4507-bd74-517c799d2ef0"
+  ],
+  "isActivatedByVsmart": false
+}

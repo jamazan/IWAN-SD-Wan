@@ -1,0 +1,39 @@
+{
+  "listId": "a9344ef8-ef6b-4743-8ecd-00615c777055",
+  "name": "browsing",
+  "type": "app",
+  "description": "Desc Not Required",
+  "entries": [
+    {
+      "app": "wikipedia"
+    },
+    {
+      "app": "spdy"
+    },
+    {
+      "app": "http"
+    },
+    {
+      "app": "https"
+    },
+    {
+      "app": "ssl"
+    },
+    {
+      "app": "flash-video"
+    }
+  ],
+  "lastUpdated": 1604905692663,
+  "owner": "system",
+  "readOnly": false,
+  "version": "0",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+      "type": "appRoute"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

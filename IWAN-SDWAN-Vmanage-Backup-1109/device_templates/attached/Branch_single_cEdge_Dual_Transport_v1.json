@@ -1,0 +1,14 @@
+[
+  {
+    "host-name": "BR3-LAX-cEDGE",
+    "deviceIP": "172.16.3.1",
+    "local-system-ip": "172.16.3.1",
+    "site-id": "30",
+    "device-groups": [
+      "No groups"
+    ],
+    "uuid": "CSR-F3EF66F0-A1E8-4C11-9C12-3C95ED91A2CC",
+    "personality": "vedge",
+    "configCloudxMode": "none"
+  }
+]

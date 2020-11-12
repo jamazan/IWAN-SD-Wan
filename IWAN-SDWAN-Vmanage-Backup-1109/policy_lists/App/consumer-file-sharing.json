@@ -1,0 +1,36 @@
+{
+  "listId": "80a70afe-e7a4-437d-8ec4-21aa51f9fbb7",
+  "name": "consumer-file-sharing",
+  "type": "app",
+  "description": "Desc Not Required",
+  "entries": [
+    {
+      "app": "xunlei"
+    },
+    {
+      "app": "edonkey"
+    },
+    {
+      "app": "share"
+    },
+    {
+      "app": "bittorrent"
+    },
+    {
+      "app": "ares"
+    }
+  ],
+  "lastUpdated": 1604905680987,
+  "owner": "system",
+  "readOnly": false,
+  "version": "0",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+      "type": "appRoute"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

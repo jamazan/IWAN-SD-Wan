@@ -1,0 +1,103 @@
+{
+  "definitionId": "302acc00-8ab6-4c9b-98a4-2fb379741c4e",
+  "name": "WAN-QOS",
+  "type": "qosMap",
+  "description": "WAN-QOS",
+  "definition": {
+    "qosSchedulers": [
+      {
+        "queue": "0",
+        "bandwidthPercent": "10",
+        "bufferPercent": "10",
+        "burst": "15000",
+        "scheduling": "llq",
+        "drops": "tail-drop",
+        "classMapRef": ""
+      },
+      {
+        "queue": "1",
+        "bandwidthPercent": "25",
+        "bufferPercent": "25",
+        "scheduling": "wrr",
+        "drops": "red-drop",
+        "classMapRef": "a6e2759f-8913-44d3-bdfc-5823d807fe02"
+      },
+      {
+        "queue": "2",
+        "bandwidthPercent": "1",
+        "bufferPercent": "1",
+        "scheduling": "wrr",
+        "drops": "red-drop",
+        "classMapRef": "5ca2cbfe-3fb3-48b9-aac7-a8307221164b"
+      },
+      {
+        "queue": "4",
+        "bandwidthPercent": "30",
+        "bufferPercent": "30",
+        "scheduling": "wrr",
+        "drops": "red-drop",
+        "classMapRef": "fbdb1909-ab8e-4a7b-bed3-bacf1a7e7335"
+      },
+      {
+        "queue": "5",
+        "bandwidthPercent": "5",
+        "bufferPercent": "5",
+        "scheduling": "wrr",
+        "drops": "red-drop",
+        "classMapRef": "d271daef-cbcf-4a17-95c7-61aedf48ec9d"
+      },
+      {
+        "queue": "6",
+        "bandwidthPercent": "10",
+        "bufferPercent": "10",
+        "scheduling": "wrr",
+        "drops": "red-drop",
+        "classMapRef": "57cc673f-8a56-4cb4-a56e-12367d094f4a"
+      },
+      {
+        "queue": "7",
+        "bandwidthPercent": "4",
+        "bufferPercent": "4",
+        "scheduling": "wrr",
+        "drops": "red-drop",
+        "classMapRef": "509276ea-4ae6-4fec-9d4e-21022b5a7c5f"
+      },
+      {
+        "queue": "3",
+        "bandwidthPercent": "15",
+        "bufferPercent": "15",
+        "scheduling": "wrr",
+        "drops": "red-drop",
+        "classMapRef": "40361b48-b40e-4b80-96b1-db6b15c12e88"
+      }
+    ]
+  },
+  "lastUpdated": 1595978660766,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 4,
+  "references": [
+    {
+      "id": "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+      "property": "policyId"
+    },
+    {
+      "id": "da4ce817-406f-45a4-8512-cde24c99ffac",
+      "property": "policyId"
+    },
+    {
+      "id": "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+      "property": "policyId"
+    },
+    {
+      "id": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+    "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+    "c7e6c8f7-46db-4507-bd74-517c799d2ef0"
+  ],
+  "isActivatedByVsmart": false
+}

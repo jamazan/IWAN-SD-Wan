@@ -1,0 +1,28 @@
+{
+  "listId": "39d4e173-f106-4946-94e3-d014e6563d38",
+  "name": "mybusinessapp-list",
+  "type": "app",
+  "description": "Desc Not Required",
+  "entries": [
+    {
+      "app": "mybusinessapp",
+      "appRef": "42313fad-42e2-4b5a-b7f4-9e4e9b398386"
+    }
+  ],
+  "lastUpdated": 1604905707533,
+  "owner": "system",
+  "readOnly": false,
+  "version": "0",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+      "type": "appRoute"
+    }
+  ],
+  "activatedId": [
+    "f61db73f-0782-42f4-bbe0-acb886158961"
+  ],
+  "isActivatedByVsmart": true
+}

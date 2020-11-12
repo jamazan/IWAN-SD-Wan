@@ -1,0 +1,54 @@
+[
+  {
+    "name": "BGP_FROM_DC",
+    "definitionId": "ad305b41-1396-43d1-b5d3-d715f0b8e37d",
+    "type": "vedgeRoute",
+    "description": "BGP inbound policy that rejects routes learned from another DC WAN agg based on community list 1",
+    "owner": "admin",
+    "lastUpdated": 1595978660175,
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+        "property": "policyId"
+      }
+    ]
+  },
+  {
+    "name": "BGP_TO_DC",
+    "definitionId": "4b4bd176-a1eb-4bf8-bdf4-e3f8545134e2",
+    "type": "vedgeRoute",
+    "description": "sets community to DC",
+    "owner": "admin",
+    "lastUpdated": 1595978660020,
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+        "property": "policyId"
+      }
+    ]
+  },
+  {
+    "name": "set-bgp-as-prepend",
+    "definitionId": "a8fd48ad-0aa9-4d67-a415-2c1da226c74c",
+    "type": "vedgeRoute",
+    "description": "set-bgp-as-prepend",
+    "owner": "admin",
+    "lastUpdated": 1603743920895,
+    "infoTag": "",
+    "referenceCount": 2,
+    "references": [
+      {
+        "id": "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+        "property": "policyId"
+      },
+      {
+        "id": "da4ce817-406f-45a4-8512-cde24c99ffac",
+        "property": "policyId"
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "name": "QOS-ACL",
+    "definitionId": "4518a8fe-a9ae-4794-b4a2-78177c29e296",
+    "type": "acl",
+    "description": "QOS-ACL",
+    "owner": "admin",
+    "lastUpdated": 1602014867993,
+    "infoTag": "",
+    "referenceCount": 4,
+    "references": [
+      {
+        "id": "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+        "property": "policyId"
+      },
+      {
+        "id": "da4ce817-406f-45a4-8512-cde24c99ffac",
+        "property": "policyId"
+      },
+      {
+        "id": "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+        "property": "policyId"
+      },
+      {
+        "id": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+        "property": "policyId"
+      }
+    ]
+  },
+  {
+    "name": "G_QoS_ACL_IPv4_v03",
+    "definitionId": "5a9ad431-f940-422e-902a-4b814ee0cb83",
+    "type": "acl",
+    "description": "CX Golden | Basic QoS ACL IPv4 | Applied Inbound on Service LAN | Trusts Inbound DSCP | 18.4.3",
+    "owner": "admin",
+    "lastUpdated": 1595978659643,
+    "infoTag": "",
+    "referenceCount": 0,
+    "references": []
+  }
+]

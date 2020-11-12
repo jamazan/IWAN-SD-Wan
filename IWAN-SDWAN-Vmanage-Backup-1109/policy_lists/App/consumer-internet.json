@@ -1,0 +1,54 @@
+{
+  "listId": "14f45514-6598-490c-b4e4-b610b003f6ea",
+  "name": "consumer-internet",
+  "type": "app",
+  "description": "Desc Not Required",
+  "entries": [
+    {
+      "app": "google-services"
+    },
+    {
+      "app": "google-downloads"
+    },
+    {
+      "app": "gmail"
+    },
+    {
+      "app": "dropbox"
+    },
+    {
+      "app": "icloud"
+    },
+    {
+      "app": "ms-live-accounts"
+    },
+    {
+      "app": "yahoo-mail"
+    },
+    {
+      "app": "skydrive"
+    },
+    {
+      "app": "espn-browsing"
+    },
+    {
+      "app": "qq-services"
+    },
+    {
+      "app": "qq-im"
+    }
+  ],
+  "lastUpdated": 1604905686469,
+  "owner": "system",
+  "readOnly": false,
+  "version": "0",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+      "type": "appRoute"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

@@ -1,0 +1,58 @@
+{
+  "definitionId": "d6fdf5f2-679f-48ed-a16e-1b4d5b58792d",
+  "name": "DC_Group_CP_v01",
+  "type": "control",
+  "description": "DC CP for H/S topology",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "Route",
+      "baseAction": "accept",
+      "sequenceType": "route",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+          }
+        ]
+      },
+      "actions": []
+    },
+    {
+      "sequenceId": 11,
+      "sequenceName": "TLOC",
+      "baseAction": "accept",
+      "sequenceType": "tloc",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+          }
+        ]
+      },
+      "actions": []
+    }
+  ],
+  "defaultAction": {
+    "type": "reject"
+  },
+  "lastUpdated": 1603127896150,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 2,
+  "references": [
+    {
+      "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+      "property": "policyId"
+    },
+    {
+      "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+      "property": "policyId"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

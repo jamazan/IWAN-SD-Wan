@@ -1,0 +1,72 @@
+[
+  {
+    "listId": "cda84750-e819-45e6-b91c-5ba4aa945f5f",
+    "name": "vpn1-zone",
+    "type": "zone",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "vpn": "1"
+      }
+    ],
+    "lastUpdated": 1600803482929,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 4,
+    "references": [
+      {
+        "id": "9f6b77f0-6c25-410f-9db8-dd85c20a280c",
+        "type": "zoneBasedFW"
+      },
+      {
+        "id": "92d1ede7-2eed-46fa-a4d2-e5421990a38a",
+        "type": "zoneBasedFW"
+      },
+      {
+        "id": "39a51c7f-5c77-4032-bce4-59717034711f",
+        "type": "zoneBasedFW"
+      },
+      {
+        "id": "a61c9051-c413-4a4e-9646-e372ec0855cf",
+        "type": "zoneBasedFW"
+      }
+    ],
+    "activatedId": [
+      "ca2f05f3-caf9-4161-b304-bab14af4327f"
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "5968b34f-fb89-43da-a400-ecd9cf4e5f60",
+    "name": "vpn0-zone",
+    "type": "zone",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "vpn": "0"
+      }
+    ],
+    "lastUpdated": 1600803495658,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 2,
+    "references": [
+      {
+        "id": "9f6b77f0-6c25-410f-9db8-dd85c20a280c",
+        "type": "zoneBasedFW"
+      },
+      {
+        "id": "92d1ede7-2eed-46fa-a4d2-e5421990a38a",
+        "type": "zoneBasedFW"
+      }
+    ],
+    "activatedId": [
+      "ca2f05f3-caf9-4161-b304-bab14af4327f"
+    ],
+    "isActivatedByVsmart": false
+  }
+]

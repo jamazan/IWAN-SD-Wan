@@ -1,0 +1,65 @@
+{
+  "templateName": "Default_AWS_TGW_CSR1000V_Template_V01",
+  "templateDescription": "Default device template for AWS TGW CSR1000V",
+  "deviceType": "vedge-CSR-1000v",
+  "configType": "template",
+  "factoryDefault": true,
+  "policyId": "",
+  "featureTemplateUidRange": [],
+  "connectionPreference": true,
+  "connectionPreferenceRequired": true,
+  "generalTemplates": [
+    {
+      "templateId": "a70d531b-4d93-407f-8c49-25c1f7f014f5",
+      "templateType": "cedge_aaa"
+    },
+    {
+      "templateId": "71cb0c43-ad9d-40f3-a62f-9a14cbb923ed",
+      "templateType": "cisco_bfd"
+    },
+    {
+      "templateId": "be6bc825-b1b0-43c2-b2df-7901150608a5",
+      "templateType": "cisco_omp"
+    },
+    {
+      "templateId": "105a76cc-d5b7-4986-87c0-737ccb45acbe",
+      "templateType": "cisco_security"
+    },
+    {
+      "templateId": "41c211fb-2dc5-4202-a5a5-a71d458f3c65",
+      "templateType": "cisco_system",
+      "subTemplates": [
+        {
+          "templateId": "bd69e6df-9407-4173-a3d8-779922e9c3f2",
+          "templateType": "cisco_logging"
+        }
+      ]
+    },
+    {
+      "templateId": "b0c29852-ac83-4b14-93d2-c8ded02248c8",
+      "templateType": "cisco_vpn",
+      "subTemplates": [
+        {
+          "templateId": "bd375161-7975-411b-b10b-818c897bbe89",
+          "templateType": "cisco_vpn_interface"
+        }
+      ]
+    },
+    {
+      "templateId": "72623d7d-89fb-40e8-9ae4-a24d24035102",
+      "templateType": "cisco_vpn",
+      "subTemplates": [
+        {
+          "templateId": "092cb31b-9243-4082-a6fe-ed83d1edfbde",
+          "templateType": "cisco_vpn_interface"
+        }
+      ]
+    },
+    {
+      "templateId": "b71883dd-d0ca-494d-90a4-2389dcc4aebf",
+      "templateType": "cedge_global"
+    }
+  ],
+  "templateClass": "cedge",
+  "templateId": "2fb4ac3e-c7d8-4fbf-88d4-9ebe8ee78e04"
+}

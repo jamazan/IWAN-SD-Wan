@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Traffic-data-policy",
+    "definitionId": "c8350ddc-89ea-4a59-a08e-8cde2b5ec7b7",
+    "type": "data",
+    "description": "Traffic-data-policy",
+    "owner": "admin",
+    "lastUpdated": 1600395805730,
+    "infoTag": "",
+    "referenceCount": 5,
+    "references": [
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "property": "policyId"
+      },
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "property": "policyId"
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "property": "policyId"
+      },
+      {
+        "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+        "property": "policyId"
+      },
+      {
+        "id": "f52076a6-6a96-4ab7-a466-415761b0eac8",
+        "property": "policyId"
+      }
+    ]
+  }
+]

@@ -1,0 +1,96 @@
+[
+  {
+    "listId": "0d526762-7c70-4afa-b0d4-dac81ec3db9f",
+    "name": "DC-TLOCs",
+    "type": "tloc",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "tloc": "1.10.1.1",
+        "color": "mpls",
+        "encap": "ipsec"
+      },
+      {
+        "tloc": "1.10.1.1",
+        "color": "biz-internet",
+        "encap": "ipsec"
+      }
+    ],
+    "lastUpdated": 1604183050833,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 3,
+    "references": [
+      {
+        "id": "cc32d0f8-c5eb-45d8-a55c-fcad99d2bd3c",
+        "type": "control"
+      },
+      {
+        "id": "37682080-05ff-454d-90e7-bac1c68f0b67",
+        "type": "control"
+      },
+      {
+        "id": "c9d47cf0-10cf-425d-a49c-eb0f485667e4",
+        "type": "control"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "27d0d89d-17eb-4b6c-ab46-cd3bf384c96c",
+    "name": "DC-TLOCs_copy",
+    "type": "tloc",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "tloc": "1.10.1.1",
+        "color": "mpls",
+        "encap": "ipsec",
+        "preference": "200"
+      },
+      {
+        "tloc": "1.10.1.2",
+        "color": "biz-internet",
+        "encap": "ipsec",
+        "preference": "150"
+      },
+      {
+        "tloc": "1.20.1.1",
+        "color": "mpls",
+        "encap": "ipsec",
+        "preference": "100"
+      },
+      {
+        "tloc": "1.20.1.2",
+        "color": "biz-internet",
+        "encap": "ipsec",
+        "preference": "100"
+      },
+      {
+        "tloc": "1.10.1.1",
+        "color": "biz-internet",
+        "encap": "ipsec",
+        "preference": "200"
+      },
+      {
+        "tloc": "1.10.1.2",
+        "color": "mpls",
+        "encap": "ipsec",
+        "preference": "150"
+      }
+    ],
+    "lastUpdated": 1604183012176,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 0,
+    "references": [],
+    "isActivatedByVsmart": false
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "REWRITE-POLICY",
+    "definitionId": "86f6931b-3c17-48d2-b7e2-ebb1e1613dfd",
+    "type": "rewriteRule",
+    "description": "REWRITE-POLICY",
+    "owner": "admin",
+    "lastUpdated": 1595978660366,
+    "infoTag": "",
+    "referenceCount": 4,
+    "references": [
+      {
+        "id": "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+        "property": "policyId"
+      },
+      {
+        "id": "da4ce817-406f-45a4-8512-cde24c99ffac",
+        "property": "policyId"
+      },
+      {
+        "id": "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+        "property": "policyId"
+      },
+      {
+        "id": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+        "property": "policyId"
+      }
+    ]
+  }
+]

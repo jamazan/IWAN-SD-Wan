@@ -1,0 +1,14 @@
+[
+  {
+    "host-name": "vSmart-1",
+    "deviceIP": "1.1.1.3",
+    "local-system-ip": "1.1.1.3",
+    "site-id": "1",
+    "device-groups": [
+      "No groups"
+    ],
+    "uuid": "4b81c38d-acc6-4ca0-ab77-c8ea497ac571",
+    "personality": "vsmart",
+    "configCloudxMode": "none"
+  }
+]

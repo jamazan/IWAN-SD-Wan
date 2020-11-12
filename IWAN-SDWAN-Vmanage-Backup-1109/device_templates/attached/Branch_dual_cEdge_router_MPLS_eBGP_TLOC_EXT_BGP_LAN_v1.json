@@ -1,0 +1,14 @@
+[
+  {
+    "host-name": "BR5-BCN-cEDGE1",
+    "deviceIP": "172.16.5.1",
+    "local-system-ip": "172.16.5.1",
+    "site-id": "50",
+    "device-groups": [
+      "No groups"
+    ],
+    "uuid": "CSR-DC54554A-5BE7-49BD-936B-702ECD2FBE4B",
+    "personality": "vedge",
+    "configCloudxMode": "none"
+  }
+]

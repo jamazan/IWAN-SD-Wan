@@ -1,0 +1,19 @@
+{
+  "listId": "0adae5a5-792a-4013-87ad-3a8a9b87b1b5",
+  "name": "zoho_crm_apps",
+  "type": "app",
+  "description": "SaaS App List for Zoho CRM",
+  "entries": [
+    {
+      "app": "zoho-services"
+    }
+  ],
+  "lastUpdated": 1595978435005,
+  "owner": "system",
+  "readOnly": true,
+  "version": "3.0",
+  "infoTag": "",
+  "referenceCount": 0,
+  "references": [],
+  "isActivatedByVsmart": false
+}

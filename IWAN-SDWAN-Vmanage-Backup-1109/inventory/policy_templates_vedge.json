@@ -1,0 +1,62 @@
+[
+  {
+    "mastersAttached": 3,
+    "lastUpdatedBy": "admin",
+    "policyName": "LOCAL-POLICY-V01",
+    "policyDefinitionEdit": "{\"assembly\":[{\"definitionId\":\"302acc00-8ab6-4c9b-98a4-2fb379741c4e\",\"type\":\"qosMap\"},{\"definitionId\":\"86f6931b-3c17-48d2-b7e2-ebb1e1613dfd\",\"type\":\"rewriteRule\"},{\"definitionId\":\"4518a8fe-a9ae-4794-b4a2-78177c29e296\",\"type\":\"acl\"}],\"settings\":{\"appVisibility\":true,\"flowVisibility\":true}}",
+    "policyDefinition": "{\"assembly\":[{\"definitionId\":\"302acc00-8ab6-4c9b-98a4-2fb379741c4e\",\"type\":\"qosMap\"},{\"definitionId\":\"86f6931b-3c17-48d2-b7e2-ebb1e1613dfd\",\"type\":\"rewriteRule\"},{\"definitionId\":\"4518a8fe-a9ae-4794-b4a2-78177c29e296\",\"type\":\"acl\"}],\"settings\":{\"appVisibility\":true,\"flowVisibility\":true}}",
+    "createdOn": 1595978662201,
+    "policyDescription": "LOCAL-POLICY-V01",
+    "@rid": 452,
+    "policyId": "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+    "createdBy": "admin",
+    "devicesAttached": 3,
+    "policyType": "feature",
+    "lastUpdatedOn": 1595978662201
+  },
+  {
+    "mastersAttached": 1,
+    "lastUpdatedBy": "admin",
+    "policyName": "LOCAL-POLICY-DC-V01",
+    "policyDefinition": "{\"assembly\":[{\"definitionId\":\"302acc00-8ab6-4c9b-98a4-2fb379741c4e\",\"type\":\"qosMap\"},{\"definitionId\":\"86f6931b-3c17-48d2-b7e2-ebb1e1613dfd\",\"type\":\"rewriteRule\"},{\"definitionId\":\"4518a8fe-a9ae-4794-b4a2-78177c29e296\",\"type\":\"acl\"},{\"definitionId\":\"4b4bd176-a1eb-4bf8-bdf4-e3f8545134e2\",\"type\":\"vedgeRoute\"},{\"definitionId\":\"ad305b41-1396-43d1-b5d3-d715f0b8e37d\",\"type\":\"vedgeRoute\"}],\"settings\":{\"appVisibility\":true,\"flowVisibility\":true}}",
+    "policyDefinitionEdit": "{\"assembly\":[{\"definitionId\":\"302acc00-8ab6-4c9b-98a4-2fb379741c4e\",\"type\":\"qosMap\"},{\"definitionId\":\"86f6931b-3c17-48d2-b7e2-ebb1e1613dfd\",\"type\":\"rewriteRule\"},{\"definitionId\":\"4518a8fe-a9ae-4794-b4a2-78177c29e296\",\"type\":\"acl\"},{\"definitionId\":\"4b4bd176-a1eb-4bf8-bdf4-e3f8545134e2\",\"type\":\"vedgeRoute\"},{\"definitionId\":\"ad305b41-1396-43d1-b5d3-d715f0b8e37d\",\"type\":\"vedgeRoute\"}],\"settings\":{\"appVisibility\":true,\"flowVisibility\":true}}",
+    "createdOn": 1595978661589,
+    "policyDescription": "Local policy for Data Centers with BGP route policy",
+    "@rid": 468,
+    "policyId": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+    "createdBy": "admin",
+    "devicesAttached": 2,
+    "policyType": "feature",
+    "lastUpdatedOn": 1595978661589
+  },
+  {
+    "mastersAttached": 1,
+    "lastUpdatedBy": "admin",
+    "policyName": "LOCAL-POLICY-DC2-V01",
+    "policyDefinitionEdit": "{\"assembly\":[{\"definitionId\":\"302acc00-8ab6-4c9b-98a4-2fb379741c4e\",\"type\":\"qosMap\"},{\"definitionId\":\"86f6931b-3c17-48d2-b7e2-ebb1e1613dfd\",\"type\":\"rewriteRule\"},{\"definitionId\":\"4518a8fe-a9ae-4794-b4a2-78177c29e296\",\"type\":\"acl\"},{\"definitionId\":\"a8fd48ad-0aa9-4d67-a415-2c1da226c74c\",\"type\":\"vedgeRoute\"}],\"settings\":{\"appVisibility\":true,\"flowVisibility\":true}}",
+    "policyDefinition": "{\"assembly\":[{\"definitionId\":\"302acc00-8ab6-4c9b-98a4-2fb379741c4e\",\"type\":\"qosMap\"},{\"definitionId\":\"86f6931b-3c17-48d2-b7e2-ebb1e1613dfd\",\"type\":\"rewriteRule\"},{\"definitionId\":\"4518a8fe-a9ae-4794-b4a2-78177c29e296\",\"type\":\"acl\"},{\"definitionId\":\"a8fd48ad-0aa9-4d67-a415-2c1da226c74c\",\"type\":\"vedgeRoute\"}],\"settings\":{\"appVisibility\":true,\"flowVisibility\":true}}",
+    "createdOn": 1603744406740,
+    "policyDescription": "LOCAL-POLICY-DC2-V01",
+    "@rid": 1222,
+    "policyId": "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+    "createdBy": "admin",
+    "devicesAttached": 1,
+    "policyType": "feature",
+    "lastUpdatedOn": 1603744406740
+  },
+  {
+    "mastersAttached": 0,
+    "lastUpdatedBy": "admin",
+    "policyName": "LOCAL-POLICY-DC-V02",
+    "policyDefinitionEdit": "{\"assembly\":[{\"definitionId\":\"302acc00-8ab6-4c9b-98a4-2fb379741c4e\",\"type\":\"qosMap\"},{\"definitionId\":\"86f6931b-3c17-48d2-b7e2-ebb1e1613dfd\",\"type\":\"rewriteRule\"},{\"definitionId\":\"4518a8fe-a9ae-4794-b4a2-78177c29e296\",\"type\":\"acl\"},{\"definitionId\":\"a8fd48ad-0aa9-4d67-a415-2c1da226c74c\",\"type\":\"vedgeRoute\"}],\"settings\":{\"appVisibility\":true,\"flowVisibility\":true}}",
+    "policyDefinition": "{\"assembly\":[{\"definitionId\":\"302acc00-8ab6-4c9b-98a4-2fb379741c4e\",\"type\":\"qosMap\"},{\"definitionId\":\"86f6931b-3c17-48d2-b7e2-ebb1e1613dfd\",\"type\":\"rewriteRule\"},{\"definitionId\":\"4518a8fe-a9ae-4794-b4a2-78177c29e296\",\"type\":\"acl\"},{\"definitionId\":\"a8fd48ad-0aa9-4d67-a415-2c1da226c74c\",\"type\":\"vedgeRoute\"}],\"settings\":{\"appVisibility\":true,\"flowVisibility\":true}}",
+    "createdOn": 1603743968048,
+    "policyDescription": "Adding QoS components, rewrite rule and BGP route-policy to V2",
+    "@rid": 3720,
+    "policyId": "da4ce817-406f-45a4-8512-cde24c99ffac",
+    "createdBy": "admin",
+    "devicesAttached": 0,
+    "policyType": "feature",
+    "lastUpdatedOn": 1603743968048
+  }
+]

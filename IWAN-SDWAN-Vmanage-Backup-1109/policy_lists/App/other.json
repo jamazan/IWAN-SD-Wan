@@ -1,0 +1,45 @@
+{
+  "listId": "481d04e0-6070-4c85-9ccc-4e786f1e013d",
+  "name": "other",
+  "type": "app",
+  "description": "Desc Not Required",
+  "entries": [
+    {
+      "app": "nntp"
+    },
+    {
+      "app": "mcafee-antivirus"
+    },
+    {
+      "app": "qq-services"
+    },
+    {
+      "app": "google-earth"
+    },
+    {
+      "app": "icmp"
+    },
+    {
+      "app": "apple-services"
+    },
+    {
+      "app": "google-services"
+    },
+    {
+      "app": "kakao-talk"
+    }
+  ],
+  "lastUpdated": 1604905698856,
+  "owner": "system",
+  "readOnly": false,
+  "version": "0",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+      "type": "appRoute"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

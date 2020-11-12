@@ -1,0 +1,36 @@
+{
+  "definitionId": "e682aaa6-d610-42ef-9c97-15a884026df5",
+  "name": "cFlow_Policy_v01",
+  "type": "cflowd",
+  "description": "cFlow Policy v01 - ejs - testing",
+  "definition": {
+    "flowActiveTimeout": 600,
+    "flowInactiveTimeout": 60,
+    "flowSamplingInterval": 30,
+    "templateRefresh": 90,
+    "collectors": [
+      {
+        "vpn": "1",
+        "address": "1.1.1.1",
+        "port": 13322,
+        "transport": "transport_tcp",
+        "sourceInterface": "loopback0"
+      }
+    ]
+  },
+  "lastUpdated": 1603207801795,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 2,
+  "references": [
+    {
+      "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+      "property": "policyId"
+    },
+    {
+      "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+      "property": "policyId"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

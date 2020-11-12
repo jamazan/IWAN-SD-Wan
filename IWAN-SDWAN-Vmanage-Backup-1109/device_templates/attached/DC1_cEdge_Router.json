@@ -1,0 +1,26 @@
+[
+  {
+    "host-name": "DC1-SJC-cEdge1",
+    "deviceIP": "1.10.1.1",
+    "local-system-ip": "1.10.1.1",
+    "site-id": "10",
+    "device-groups": [
+      "No groups"
+    ],
+    "uuid": "CSR-C2F64427-7D0B-48CD-8D49-A27924ED7D1D",
+    "personality": "vedge",
+    "configCloudxMode": "none"
+  },
+  {
+    "host-name": "DC1-SJC-cEdge2",
+    "deviceIP": "1.10.1.2",
+    "local-system-ip": "1.10.1.2",
+    "site-id": "10",
+    "device-groups": [
+      "No groups"
+    ],
+    "uuid": "CSR-FA7B0A20-10D6-4A69-9F5A-10FDF444989B",
+    "personality": "vedge",
+    "configCloudxMode": "none"
+  }
+]

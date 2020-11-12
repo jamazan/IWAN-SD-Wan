@@ -1,0 +1,14 @@
+[
+  {
+    "host-name": "DC2-FRA-CEDGE1",
+    "deviceIP": "1.20.1.1",
+    "local-system-ip": "1.20.1.1",
+    "site-id": "20",
+    "device-groups": [
+      "No groups"
+    ],
+    "uuid": "CSR-212D9E25-AD84-4E18-9725-B3CDEABFE1A8",
+    "personality": "vedge",
+    "configCloudxMode": "none"
+  }
+]

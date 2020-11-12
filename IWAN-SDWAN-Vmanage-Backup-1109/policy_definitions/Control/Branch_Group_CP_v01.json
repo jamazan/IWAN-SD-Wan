@@ -1,0 +1,88 @@
+{
+  "definitionId": "37682080-05ff-454d-90e7-bac1c68f0b67",
+  "name": "Branch_Group_CP_v01",
+  "type": "control",
+  "description": "Branch group CP for H/S",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "Route",
+      "baseAction": "accept",
+      "sequenceType": "route",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "68db6511-ba73-4cbe-9e7d-aa7c63d094d6"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "set",
+          "parameter": [
+            {
+              "field": "tlocAction",
+              "value": "backup"
+            },
+            {
+              "field": "tlocList",
+              "ref": "0d526762-7c70-4afa-b0d4-dac81ec3db9f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 11,
+      "sequenceName": "Route",
+      "baseAction": "accept",
+      "sequenceType": "route",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "76f6f831-a8a4-4174-aa50-f89d814be843"
+          }
+        ]
+      },
+      "actions": []
+    },
+    {
+      "sequenceId": 21,
+      "sequenceName": "TLOC",
+      "baseAction": "accept",
+      "sequenceType": "tloc",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "a8e76200-ac2e-499b-8f16-f352cbbe2965"
+          }
+        ]
+      },
+      "actions": []
+    }
+  ],
+  "defaultAction": {
+    "type": "reject"
+  },
+  "lastUpdated": 1603143134902,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 2,
+  "references": [
+    {
+      "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+      "property": "policyId"
+    },
+    {
+      "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+      "property": "policyId"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

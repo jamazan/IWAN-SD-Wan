@@ -1,0 +1,167 @@
+{
+  "definitionId": "5a9ad431-f940-422e-902a-4b814ee0cb83",
+  "name": "G_QoS_ACL_IPv4_v03",
+  "type": "acl",
+  "description": "CX Golden | Basic QoS ACL IPv4 | Applied Inbound on Service LAN | Trusts Inbound DSCP | 18.4.3",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "46"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "132f11dc-ba83-4c1e-ac28-3d8894a087a7"
+          }
+        },
+        {
+          "type": "log",
+          "parameter": ""
+        }
+      ]
+    },
+    {
+      "sequenceId": 11,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "26"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "d271daef-cbcf-4a17-95c7-61aedf48ec9d"
+          }
+        }
+      ]
+    },
+    {
+      "sequenceId": 21,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "34"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "fbdb1909-ab8e-4a7b-bed3-bacf1a7e7335"
+          }
+        }
+      ]
+    },
+    {
+      "sequenceId": 31,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "12 14 18 20 22  28 30 36 38"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "a6e2759f-8913-44d3-bdfc-5823d807fe02"
+          }
+        },
+        {
+          "type": "log",
+          "parameter": ""
+        }
+      ]
+    },
+    {
+      "sequenceId": 41,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "8 10 16 24 32 40 48 56"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "5ca2cbfe-3fb3-48b9-aac7-a8307221164b"
+          }
+        },
+        {
+          "type": "log",
+          "parameter": ""
+        }
+      ]
+    },
+    {
+      "sequenceId": 51,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "0"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "40361b48-b40e-4b80-96b1-db6b15c12e88"
+          }
+        }
+      ]
+    }
+  ],
+  "defaultAction": {
+    "type": "accept"
+  },
+  "lastUpdated": 1595978659643,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 0,
+  "references": [],
+  "isActivatedByVsmart": false
+}

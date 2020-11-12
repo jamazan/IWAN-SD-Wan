@@ -1,0 +1,278 @@
+[
+  {
+    "listId": "a8e76200-ac2e-499b-8f16-f352cbbe2965",
+    "name": "ALL-SITES",
+    "type": "site",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "siteId": "10"
+      },
+      {
+        "siteId": "20"
+      },
+      {
+        "siteId": "30"
+      },
+      {
+        "siteId": "50"
+      }
+    ],
+    "lastUpdated": 1595978657776,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 16,
+    "references": [
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "type": ""
+      },
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "type": ""
+      },
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "type": ""
+      },
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "type": ""
+      },
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "type": ""
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "type": ""
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "type": ""
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "type": ""
+      },
+      {
+        "id": "37682080-05ff-454d-90e7-bac1c68f0b67",
+        "type": "control"
+      },
+      {
+        "id": "d6fdf5f2-679f-48ed-a16e-1b4d5b58792d",
+        "type": "control"
+      },
+      {
+        "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+        "type": ""
+      },
+      {
+        "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+        "type": ""
+      },
+      {
+        "id": "f52076a6-6a96-4ab7-a466-415761b0eac8",
+        "type": ""
+      },
+      {
+        "id": "f52076a6-6a96-4ab7-a466-415761b0eac8",
+        "type": ""
+      },
+      {
+        "id": "1ffdc62d-6846-4e63-bdda-9d271b1ea55e",
+        "type": ""
+      },
+      {
+        "id": "4c4f2bf8-70ff-4080-b0cc-cb0097027289",
+        "type": ""
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "68db6511-ba73-4cbe-9e7d-aa7c63d094d6",
+    "name": "Branch_Group",
+    "type": "site",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "siteId": "30"
+      },
+      {
+        "siteId": "50"
+      }
+    ],
+    "lastUpdated": 1602877352529,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 4,
+    "references": [
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "type": ""
+      },
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "type": ""
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "type": ""
+      },
+      {
+        "id": "37682080-05ff-454d-90e7-bac1c68f0b67",
+        "type": "control"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "f41cd770-b896-4962-9986-35646647cefd",
+    "name": "DC1",
+    "type": "site",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "siteId": "10"
+      }
+    ],
+    "lastUpdated": 1603737437901,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "cc32d0f8-c5eb-45d8-a55c-fcad99d2bd3c",
+        "type": "control"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "c4b3c787-302e-4432-9212-ce12661d730d",
+    "name": "DC2",
+    "type": "site",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "siteId": "20"
+      }
+    ],
+    "lastUpdated": 1603737515439,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "cc32d0f8-c5eb-45d8-a55c-fcad99d2bd3c",
+        "type": "control"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "9a8c7354-8a12-4099-be35-adda50a20563",
+    "name": "Dynamic-tunnel-branches",
+    "type": "site",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "siteId": "30"
+      },
+      {
+        "siteId": "50"
+      }
+    ],
+    "lastUpdated": 1600458027622,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 3,
+    "references": [
+      {
+        "id": "cc32d0f8-c5eb-45d8-a55c-fcad99d2bd3c",
+        "type": "control"
+      },
+      {
+        "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+        "type": ""
+      },
+      {
+        "id": "c9d47cf0-10cf-425d-a49c-eb0f485667e4",
+        "type": "control"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "76f6f831-a8a4-4174-aa50-f89d814be843",
+    "name": "DC_Group",
+    "type": "site",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "siteId": "10"
+      },
+      {
+        "siteId": "20"
+      }
+    ],
+    "lastUpdated": 1602877312475,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 5,
+    "references": [
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "type": ""
+      },
+      {
+        "id": "9e4b5909-4ba5-412f-9c2d-43cc15be63fe",
+        "type": "control"
+      },
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "type": ""
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "type": ""
+      },
+      {
+        "id": "37682080-05ff-454d-90e7-bac1c68f0b67",
+        "type": "control"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  }
+]

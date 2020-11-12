@@ -1,0 +1,36 @@
+{
+  "listId": "a1591227-a642-4ae4-bce4-bd757cf9d277",
+  "name": "consumer-messaging",
+  "type": "app",
+  "description": "Desc Not Required",
+  "entries": [
+    {
+      "app": "naver-line"
+    },
+    {
+      "app": "skype"
+    },
+    {
+      "app": "yahoo-messenger"
+    },
+    {
+      "app": "gtalk"
+    },
+    {
+      "app": "facetime"
+    }
+  ],
+  "lastUpdated": 1604905703026,
+  "owner": "system",
+  "readOnly": false,
+  "version": "0",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+      "type": "appRoute"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

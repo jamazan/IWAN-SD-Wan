@@ -1,0 +1,223 @@
+{
+  "definitionId": "4518a8fe-a9ae-4794-b4a2-78177c29e296",
+  "name": "QOS-ACL",
+  "type": "acl",
+  "description": "QOS-ACL",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "40 26 28 30"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "57cc673f-8a56-4cb4-a56e-12367d094f4a"
+          }
+        }
+      ]
+    },
+    {
+      "sequenceId": 11,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "32 34 36 38"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "fbdb1909-ab8e-4a7b-bed3-bacf1a7e7335"
+          }
+        }
+      ]
+    },
+    {
+      "sequenceId": 21,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "16 10 12 14 18 20 22"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "a6e2759f-8913-44d3-bdfc-5823d807fe02"
+          }
+        }
+      ]
+    },
+    {
+      "sequenceId": 31,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "46"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "132f11dc-ba83-4c1e-ac28-3d8894a087a7"
+          }
+        }
+      ]
+    },
+    {
+      "sequenceId": 41,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "8"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "5ca2cbfe-3fb3-48b9-aac7-a8307221164b"
+          }
+        }
+      ]
+    },
+    {
+      "sequenceId": 51,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "24"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "509276ea-4ae6-4fec-9d4e-21022b5a7c5f"
+          }
+        }
+      ]
+    },
+    {
+      "sequenceId": 61,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "48"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "d271daef-cbcf-4a17-95c7-61aedf48ec9d"
+          }
+        }
+      ]
+    },
+    {
+      "sequenceId": 71,
+      "sequenceName": "Access Control List",
+      "baseAction": "accept",
+      "sequenceType": "acl",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "0"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "class",
+          "parameter": {
+            "ref": "40361b48-b40e-4b80-96b1-db6b15c12e88"
+          }
+        }
+      ]
+    }
+  ],
+  "defaultAction": {
+    "type": "drop"
+  },
+  "lastUpdated": 1602014867993,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 4,
+  "references": [
+    {
+      "id": "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+      "property": "policyId"
+    },
+    {
+      "id": "da4ce817-406f-45a4-8512-cde24c99ffac",
+      "property": "policyId"
+    },
+    {
+      "id": "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+      "property": "policyId"
+    },
+    {
+      "id": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+    "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+    "c7e6c8f7-46db-4507-bd74-517c799d2ef0"
+  ],
+  "isActivatedByVsmart": false
+}

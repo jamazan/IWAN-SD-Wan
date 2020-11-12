@@ -1,0 +1,439 @@
+[
+  {
+    "listId": "01d7a37c-1333-4d81-8e28-edb87e0e7737",
+    "name": "Bulk-Data",
+    "type": "sla",
+    "description": "ACI Bulk Data SLA",
+    "entries": [
+      {
+        "jitter": "100",
+        "latency": "300",
+        "loss": "10"
+      }
+    ],
+    "lastUpdated": 1595978434854,
+    "owner": "system",
+    "readOnly": false,
+    "version": "1.0",
+    "infoTag": "aci",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+        "type": "appRoute"
+      }
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "5c8dcc9d-535f-43a2-9d66-da5441807753",
+    "name": "Transactional-Data",
+    "type": "sla",
+    "description": "ACI Transactional Data SLA",
+    "entries": [
+      {
+        "jitter": "100",
+        "latency": "50",
+        "loss": "5"
+      }
+    ],
+    "lastUpdated": 1595978435798,
+    "owner": "system",
+    "readOnly": false,
+    "version": "1.0",
+    "infoTag": "aci",
+    "referenceCount": 0,
+    "references": [],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "d7452b72-33b4-43cb-b7e8-912849ede541",
+    "name": "Default",
+    "type": "sla",
+    "description": "ACI Default SLA",
+    "entries": [
+      {
+        "jitter": "100",
+        "latency": "300",
+        "loss": "25"
+      }
+    ],
+    "lastUpdated": 1595978436449,
+    "owner": "system",
+    "readOnly": false,
+    "version": "1.0",
+    "infoTag": "aci",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+        "type": "appRoute"
+      }
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "38e60713-3dbb-4128-ac49-8e46f84330cc",
+    "name": "Voice-And-Video",
+    "type": "sla",
+    "description": "ACI Voice And Video SLA",
+    "entries": [
+      {
+        "jitter": "100",
+        "latency": "45",
+        "loss": "2"
+      }
+    ],
+    "lastUpdated": 1595978436559,
+    "owner": "system",
+    "readOnly": false,
+    "version": "1.0",
+    "infoTag": "aci",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+        "type": "appRoute"
+      }
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "a77ebef0-b888-4bea-81ab-55c6884582ff",
+    "name": "BULK_DATA",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "300",
+        "loss": "5",
+        "jitter": null
+      }
+    ],
+    "lastUpdated": 1595978657591,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "66b58539-4ea0-49a1-816a-30f0e6e5a102",
+        "type": "appRoute"
+      }
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "16a7f607-f499-429c-a341-ea08f8fd837e",
+    "name": "LOW_LATENCY_DATA",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "100",
+        "loss": "5",
+        "jitter": null
+      }
+    ],
+    "lastUpdated": 1595978657687,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 2,
+    "references": [
+      {
+        "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+        "type": "appRoute"
+      },
+      {
+        "id": "66b58539-4ea0-49a1-816a-30f0e6e5a102",
+        "type": "appRoute"
+      }
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "356d49dd-1ab3-4aa5-b6ac-4e8e8a8488e0",
+    "name": "VOICE-ITU",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "150",
+        "loss": "1",
+        "jitter": "30"
+      }
+    ],
+    "lastUpdated": 1595978657872,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "66b58539-4ea0-49a1-816a-30f0e6e5a102",
+        "type": "appRoute"
+      }
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "dedb630d-5f1d-42d3-a3e7-6964d6d437b7",
+    "name": "REAL_TIME_VIDEO",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "150",
+        "loss": "1",
+        "jitter": "20"
+      }
+    ],
+    "lastUpdated": 1595978658053,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "66b58539-4ea0-49a1-816a-30f0e6e5a102",
+        "type": "appRoute"
+      }
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "a5d7273c-60e1-46af-a541-a440d55857e3",
+    "name": "SCAVENGER",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "500",
+        "loss": "50",
+        "jitter": null
+      }
+    ],
+    "lastUpdated": 1595978658178,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 2,
+    "references": [
+      {
+        "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+        "type": "appRoute"
+      },
+      {
+        "id": "66b58539-4ea0-49a1-816a-30f0e6e5a102",
+        "type": "appRoute"
+      }
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "3c400ba8-347c-4d93-a8ff-8ad0d15635c2",
+    "name": "DEFAULT",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "500",
+        "loss": "10",
+        "jitter": null
+      }
+    ],
+    "lastUpdated": 1595978658267,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "66b58539-4ea0-49a1-816a-30f0e6e5a102",
+        "type": "appRoute"
+      }
+    ],
+    "isActivatedByVsmart": false
+  },
+  {
+    "listId": "4284e84b-c3ba-422d-9351-c60c700cf9fa",
+    "name": "BULK_DATA1",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "300",
+        "loss": "5",
+        "jitter": null
+      }
+    ],
+    "lastUpdated": 1600797422929,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+        "type": "appRoute"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "1b55ccc5-22dd-4eda-bd8e-ece214d13645",
+    "name": "LOW_LATENCY_DATA1",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "100",
+        "loss": "5",
+        "jitter": null
+      }
+    ],
+    "lastUpdated": 1600797517223,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+        "type": "appRoute"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "cb6c721c-c15d-4417-a3f3-b7977c21b19b",
+    "name": "VOICE-ITU1",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "150",
+        "loss": "1",
+        "jitter": "30"
+      }
+    ],
+    "lastUpdated": 1600797550372,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+        "type": "appRoute"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "15e4f525-679d-4292-8195-0aaece8a6c4f",
+    "name": "SCAVENGER1",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "500",
+        "loss": "50",
+        "jitter": null
+      }
+    ],
+    "lastUpdated": 1600797591823,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+        "type": "appRoute"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "1c51ab49-92ea-4e50-9389-9fceb4af7342",
+    "name": "DEFAULT1",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "500",
+        "loss": "10",
+        "jitter": null
+      }
+    ],
+    "lastUpdated": 1600797619709,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+        "type": "appRoute"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  },
+  {
+    "listId": "9dafc253-35da-4120-9f6e-723fc25a3f25",
+    "name": "REAL_TIME_VIDEO1",
+    "type": "sla",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "latency": "150",
+        "loss": "1",
+        "jitter": "20"
+      }
+    ],
+    "lastUpdated": 1600797571272,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+        "type": "appRoute"
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  }
+]

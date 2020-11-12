@@ -1,0 +1,52 @@
+{
+  "definitionId": "c9d47cf0-10cf-425d-a49c-eb0f485667e4",
+  "name": "Central-topology-policy",
+  "type": "control",
+  "description": "Central-topology-policy",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "Route",
+      "baseAction": "accept",
+      "sequenceType": "route",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "9a8c7354-8a12-4099-be35-adda50a20563"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "set",
+          "parameter": [
+            {
+              "field": "tlocAction",
+              "value": "backup"
+            },
+            {
+              "field": "tlocList",
+              "ref": "0d526762-7c70-4afa-b0d4-dac81ec3db9f"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "defaultAction": {
+    "type": "accept"
+  },
+  "lastUpdated": 1600475085262,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+      "property": "policyId"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

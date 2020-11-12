@@ -1,0 +1,244 @@
+{
+  "definitionId": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+  "name": "AAR-Policy-v2",
+  "type": "appRoute",
+  "description": "copy of AAR-Policy-v1 -tahir",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "39d4e173-f106-4946-94e3-d014e6563d38"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "4284e84b-c3ba-422d-9351-c60c700cf9fa"
+            },
+            {
+              "field": "preferredColor",
+              "value": "mpls"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 11,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "46"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "cb6c721c-c15d-4417-a3f3-b7977c21b19b"
+            },
+            {
+              "field": "preferredColor",
+              "value": "mpls"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 21,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "32 34 36 38"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "9dafc253-35da-4120-9f6e-723fc25a3f25"
+            },
+            {
+              "field": "preferredColor",
+              "value": "mpls"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 31,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "16 18 20 22 24"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "1b55ccc5-22dd-4eda-bd8e-ece214d13645"
+            },
+            {
+              "field": "preferredColor",
+              "value": "mpls"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 41,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "10 12 14"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "4284e84b-c3ba-422d-9351-c60c700cf9fa"
+            },
+            {
+              "field": "preferredColor",
+              "value": "biz-internet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 51,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "8"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "15e4f525-679d-4292-8195-0aaece8a6c4f"
+            },
+            {
+              "field": "preferredColor",
+              "value": "biz-internet"
+            },
+            {
+              "field": "strict"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 61,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "0"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "1c51ab49-92ea-4e50-9389-9fceb4af7342"
+            },
+            {
+              "field": "preferredColor",
+              "value": "biz-internet"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lastUpdated": 1604692081157,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 5,
+  "references": [
+    {
+      "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+      "property": "policyId"
+    },
+    {
+      "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+      "property": "policyId"
+    },
+    {
+      "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+      "property": "policyId"
+    },
+    {
+      "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+      "property": "policyId"
+    },
+    {
+      "id": "f52076a6-6a96-4ab7-a466-415761b0eac8",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "f61db73f-0782-42f4-bbe0-acb886158961"
+  ],
+  "isActivatedByVsmart": true
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "name": "AAR-Policy-v1",
+    "definitionId": "66b58539-4ea0-49a1-816a-30f0e6e5a102",
+    "type": "appRoute",
+    "description": "Application Aware policy - developed from IWAN PfRv3 domain policy  (SLA classes and path preference)",
+    "owner": "admin",
+    "lastUpdated": 1595978661165,
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "4c4f2bf8-70ff-4080-b0cc-cb0097027289",
+        "property": "policyId"
+      }
+    ]
+  },
+  {
+    "name": "SYF-AAR-IWAN-Derived",
+    "definitionId": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+    "type": "appRoute",
+    "description": "Sample AAR policy from existing PfRv3 domain policy",
+    "owner": "admin",
+    "lastUpdated": 1596490036703,
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "1ffdc62d-6846-4e63-bdda-9d271b1ea55e",
+        "property": "policyId"
+      }
+    ]
+  },
+  {
+    "name": "AAR-Policy-v2",
+    "definitionId": "2837d122-47d3-4f07-bf0e-d17aefa8d34b",
+    "type": "appRoute",
+    "description": "copy of AAR-Policy-v1 -tahir",
+    "owner": "admin",
+    "lastUpdated": 1604692081157,
+    "infoTag": "",
+    "referenceCount": 5,
+    "references": [
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "property": "policyId"
+      },
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "property": "policyId"
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "property": "policyId"
+      },
+      {
+        "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+        "property": "policyId"
+      },
+      {
+        "id": "f52076a6-6a96-4ab7-a466-415761b0eac8",
+        "property": "policyId"
+      }
+    ]
+  }
+]

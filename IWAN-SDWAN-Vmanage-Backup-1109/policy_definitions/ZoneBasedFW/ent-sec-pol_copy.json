@@ -1,0 +1,73 @@
+{
+  "definitionId": "9f6b77f0-6c25-410f-9db8-dd85c20a280c",
+  "name": "ent-sec-pol_copy",
+  "type": "zoneBasedFW",
+  "description": "Allow only web traffic",
+  "definition": {
+    "defaultAction": {
+      "type": "drop"
+    },
+    "sequences": [
+      {
+        "sequenceId": 1,
+        "sequenceName": "internet-allow",
+        "baseAction": "inspect",
+        "sequenceType": "zoneBasedFW",
+        "match": {
+          "entries": [
+            {
+              "field": "destinationPort",
+              "value": "443 80 2164 53 90",
+              "app": "https http ddns-v3 dns dnsix"
+            },
+            {
+              "field": "protocol",
+              "value": "6 17",
+              "app": "https http ddns-v3 dns dnsix"
+            },
+            {
+              "field": "protocolName",
+              "value": "https http ddns-v3 dns dnsix"
+            }
+          ]
+        },
+        "actions": []
+      },
+      {
+        "sequenceId": 11,
+        "sequenceName": "icmp-allow",
+        "baseAction": "inspect",
+        "sequenceType": "zoneBasedFW",
+        "match": {
+          "entries": [
+            {
+              "field": "protocol",
+              "value": "1 17"
+            }
+          ]
+        },
+        "actions": []
+      }
+    ],
+    "entries": [
+      {
+        "sourceZone": "cda84750-e819-45e6-b91c-5ba4aa945f5f",
+        "destinationZone": "5968b34f-fb89-43da-a400-ecd9cf4e5f60"
+      }
+    ]
+  },
+  "lastUpdated": 1604696011427,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "ca2f05f3-caf9-4161-b304-bab14af4327f",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "ca2f05f3-caf9-4161-b304-bab14af4327f"
+  ],
+  "isActivatedByVsmart": false
+}

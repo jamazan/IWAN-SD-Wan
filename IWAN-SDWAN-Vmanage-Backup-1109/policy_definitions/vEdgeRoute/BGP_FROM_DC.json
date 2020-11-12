@@ -1,0 +1,42 @@
+{
+  "definitionId": "ad305b41-1396-43d1-b5d3-d715f0b8e37d",
+  "name": "BGP_FROM_DC",
+  "type": "vedgeRoute",
+  "description": "BGP inbound policy that rejects routes learned from another DC WAN agg based on community list 1",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "Route",
+      "baseAction": "reject",
+      "sequenceType": "vedgeRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "community",
+            "matchFlag": "or",
+            "ref": "3f04ec85-9d1c-4ba5-bce1-7b978bcf9dda"
+          }
+        ]
+      },
+      "actions": []
+    }
+  ],
+  "defaultAction": {
+    "type": "accept"
+  },
+  "lastUpdated": 1595978660175,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "c7e6c8f7-46db-4507-bd74-517c799d2ef0",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "c7e6c8f7-46db-4507-bd74-517c799d2ef0"
+  ],
+  "isActivatedByVsmart": false
+}

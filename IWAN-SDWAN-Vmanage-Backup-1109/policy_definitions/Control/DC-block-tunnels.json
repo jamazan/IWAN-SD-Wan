@@ -1,0 +1,41 @@
+{
+  "definitionId": "9e4b5909-4ba5-412f-9c2d-43cc15be63fe",
+  "name": "DC-block-tunnels",
+  "type": "control",
+  "description": "DC-block-tunnels",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "TLOC",
+      "baseAction": "reject",
+      "sequenceType": "tloc",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "76f6f831-a8a4-4174-aa50-f89d814be843"
+          }
+        ]
+      },
+      "actions": []
+    }
+  ],
+  "defaultAction": {
+    "type": "accept"
+  },
+  "lastUpdated": 1603991682800,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "f61db73f-0782-42f4-bbe0-acb886158961"
+  ],
+  "isActivatedByVsmart": true
+}

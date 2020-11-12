@@ -1,0 +1,49 @@
+{
+  "definitionId": "39a51c7f-5c77-4032-bce4-59717034711f",
+  "name": "allow-vpn1-fw-pol_copy",
+  "type": "zoneBasedFW",
+  "description": "allow vpn1 to vpn1 overlay in firewall policies",
+  "definition": {
+    "defaultAction": {
+      "type": "pass"
+    },
+    "sequences": [
+      {
+        "sequenceId": 1,
+        "sequenceName": "allow-all",
+        "baseAction": "pass",
+        "sequenceType": "zoneBasedFW",
+        "match": {
+          "entries": [
+            {
+              "field": "sourceDataPrefixList",
+              "ref": "dc2e2082-51aa-4ab2-a632-482ecc89c406"
+            },
+            {
+              "field": "destinationDataPrefixList",
+              "ref": "dc2e2082-51aa-4ab2-a632-482ecc89c406"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "type": "log",
+            "parameter": ""
+          }
+        ]
+      }
+    ],
+    "entries": [
+      {
+        "sourceZone": "cda84750-e819-45e6-b91c-5ba4aa945f5f",
+        "destinationZone": "cda84750-e819-45e6-b91c-5ba4aa945f5f"
+      }
+    ]
+  },
+  "lastUpdated": 1604189771920,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 0,
+  "references": [],
+  "isActivatedByVsmart": false
+}

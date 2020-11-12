@@ -1,0 +1,18 @@
+{
+  "deviceType": "vsmart",
+  "lastUpdatedBy": "admin",
+  "templateClass": "vedge",
+  "templateConfiguration": " system\n host-name             vSmart-1\n system-ip             1.1.1.3\n site-id               1\n admin-tech-on-failure\n organization-name     \"Viptela-POC-Tool - 19827\"\n clock timezone America/Los_Angeles\n upgrade-confirm       15\n vbond vbond-test-drive\n aaa\n  auth-order local radius tacacs\n  usergroup basic\n   task system read write\n   task interface read write\n  !\n  usergroup netadmin\n  !\n  usergroup operator\n   task system read\n   task interface read\n   task policy read\n   task routing read\n   task security read\n  !\n  usergroup tenantadmin\n  !\n  user admin\n   password $6$l2Yh.0L7CGiQDvdE$IVdOIegEQTZry7BiXAowL1Pqypbb5UO5W.KWg2h3S/Lx9L4zieW/sp3a.ZIR4O/YIgNvwj77iBsO38f7/3fmW.\n  !\n !\n logging\n  disk\n   enable\n  !\n !\n ntp\n  server time1.google.com\n   version 4\n  exit\n !\n!\nomp\n no shutdown\n send-path-limit   16\n send-backup-paths\n graceful-restart\n!\nvpn 0\n host vbond-test-drive ip 19.1.1.2\n interface eth0\n  ip dhcp-client\n  tunnel-interface\n   allow-service dhcp\n   allow-service dns\n   allow-service icmp\n   allow-service sshd\n   allow-service netconf\n   allow-service ntp\n   no allow-service stun\n  !\n  no shutdown\n !\n!\nvpn 512\n dns 8.8.8.8 primary\n interface eth7\n  ip address 192.168.150.4/24\n  no shutdown\n !\n ip route 0.0.0.0/0 192.168.150.1\n!\n",
+  "templateId": "67a9d8ef-f764-4da7-826b-9666b2fce4c4",
+  "configType": "file",
+  "templateConfigurationEdited": " system\n host-name             vSmart-1\n system-ip             1.1.1.3\n site-id               1\n admin-tech-on-failure\n organization-name     \"Viptela-POC-Tool - 19827\"\n clock timezone America/Los_Angeles\n upgrade-confirm       15\n vbond vbond-test-drive\n aaa\n  auth-order local radius tacacs\n  usergroup basic\n   task system read write\n   task interface read write\n  !\n  usergroup netadmin\n  !\n  usergroup operator\n   task system read\n   task interface read\n   task policy read\n   task routing read\n   task security read\n  !\n  usergroup tenantadmin\n  !\n  user admin\n   password $6$l2Yh.0L7CGiQDvdE$IVdOIegEQTZry7BiXAowL1Pqypbb5UO5W.KWg2h3S/Lx9L4zieW/sp3a.ZIR4O/YIgNvwj77iBsO38f7/3fmW.\n  !\n !\n logging\n  disk\n   enable\n  !\n !\n ntp\n  server time1.google.com\n   version 4\n  exit\n !\n!\nomp\n no shutdown\n send-path-limit   16\n send-backup-paths\n graceful-restart\n!\nvpn 0\n host vbond-test-drive ip 19.1.1.2\n interface eth0\n  ip dhcp-client\n  tunnel-interface\n   allow-service dhcp\n   allow-service dns\n   allow-service icmp\n   allow-service sshd\n   allow-service netconf\n   allow-service ntp\n   no allow-service stun\n  !\n  no shutdown\n !\n!\nvpn 512\n dns 8.8.8.8 primary\n interface eth7\n  ip address 192.168.150.4/24\n  no shutdown\n !\n ip route 0.0.0.0/0 192.168.150.1\n!\n",
+  "createdOn": 1603739887360,
+  "@rid": 3837,
+  "feature": "vmanage-default",
+  "factoryDefault": false,
+  "templateName": "vsmart-cli-template",
+  "createdBy": "admin",
+  "templateDescription": "vsmart-cli-template",
+  "lastUpdatedOn": 1603739887360,
+  "templateAttached": 0
+}

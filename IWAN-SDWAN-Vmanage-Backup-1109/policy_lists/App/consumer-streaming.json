@@ -1,0 +1,69 @@
+{
+  "listId": "04ba73b0-3fcd-4400-8ddf-acb02c7b7f9b",
+  "name": "consumer-streaming",
+  "type": "app",
+  "description": "Desc Not Required",
+  "entries": [
+    {
+      "app": "pptv"
+    },
+    {
+      "app": "qq-services"
+    },
+    {
+      "app": "rtmp"
+    },
+    {
+      "app": "pando"
+    },
+    {
+      "app": "baidu-movie"
+    },
+    {
+      "app": "netshow"
+    },
+    {
+      "app": "rtsp"
+    },
+    {
+      "app": "shoutcast"
+    },
+    {
+      "app": "itunes"
+    },
+    {
+      "app": "espn-browsing"
+    },
+    {
+      "app": "youtube"
+    },
+    {
+      "app": "an"
+    },
+    {
+      "app": "netflix"
+    },
+    {
+      "app": "hulu"
+    },
+    {
+      "app": "airplay"
+    },
+    {
+      "app": "xunlei"
+    }
+  ],
+  "lastUpdated": 1604905688102,
+  "owner": "system",
+  "readOnly": false,
+  "version": "0",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+      "type": "appRoute"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

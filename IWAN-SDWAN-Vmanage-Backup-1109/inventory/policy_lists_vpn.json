@@ -1,0 +1,73 @@
+[
+  {
+    "listId": "3a66dac0-6a34-409e-bbef-a9b6a8242ba9",
+    "name": "VPN1-corporate",
+    "type": "vpn",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "vpn": "1"
+      }
+    ],
+    "lastUpdated": 1595978658347,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 12,
+    "references": [
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "type": ""
+      },
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "type": ""
+      },
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "type": ""
+      },
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "type": ""
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "type": ""
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "type": ""
+      },
+      {
+        "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+        "type": ""
+      },
+      {
+        "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+        "type": ""
+      },
+      {
+        "id": "f52076a6-6a96-4ab7-a466-415761b0eac8",
+        "type": ""
+      },
+      {
+        "id": "f52076a6-6a96-4ab7-a466-415761b0eac8",
+        "type": ""
+      },
+      {
+        "id": "1ffdc62d-6846-4e63-bdda-9d271b1ea55e",
+        "type": ""
+      },
+      {
+        "id": "4c4f2bf8-70ff-4080-b0cc-cb0097027289",
+        "type": ""
+      }
+    ],
+    "activatedId": [
+      "f61db73f-0782-42f4-bbe0-acb886158961"
+    ],
+    "isActivatedByVsmart": true
+  }
+]

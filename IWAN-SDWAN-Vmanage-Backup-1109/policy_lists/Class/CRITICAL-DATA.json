@@ -1,0 +1,41 @@
+{
+  "listId": "a6e2759f-8913-44d3-bdfc-5823d807fe02",
+  "name": "CRITICAL-DATA",
+  "type": "class",
+  "description": "Desc Not Required",
+  "entries": [
+    {
+      "queue": "1"
+    }
+  ],
+  "lastUpdated": 1595978657383,
+  "owner": "admin",
+  "readOnly": false,
+  "version": "0",
+  "infoTag": "",
+  "referenceCount": 4,
+  "references": [
+    {
+      "id": "4518a8fe-a9ae-4794-b4a2-78177c29e296",
+      "type": "acl"
+    },
+    {
+      "id": "302acc00-8ab6-4c9b-98a4-2fb379741c4e",
+      "type": "qosMap"
+    },
+    {
+      "id": "86f6931b-3c17-48d2-b7e2-ebb1e1613dfd",
+      "type": "rewriteRule"
+    },
+    {
+      "id": "5a9ad431-f940-422e-902a-4b814ee0cb83",
+      "type": "acl"
+    }
+  ],
+  "activatedId": [
+    "18ab26bd-0e7c-4530-b59e-e3c9bcb3d3e6",
+    "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+    "c7e6c8f7-46db-4507-bd74-517c799d2ef0"
+  ],
+  "isActivatedByVsmart": false
+}

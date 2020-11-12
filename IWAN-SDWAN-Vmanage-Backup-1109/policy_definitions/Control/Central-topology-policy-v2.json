@@ -1,0 +1,107 @@
+{
+  "definitionId": "cc32d0f8-c5eb-45d8-a55c-fcad99d2bd3c",
+  "name": "Central-topology-policy-v2",
+  "type": "control",
+  "description": "DC pref added",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "Route",
+      "baseAction": "accept",
+      "sequenceType": "route",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "f41cd770-b896-4962-9986-35646647cefd"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "set",
+          "parameter": [
+            {
+              "field": "preference",
+              "value": "400"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 11,
+      "sequenceName": "Route",
+      "baseAction": "accept",
+      "sequenceType": "route",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "c4b3c787-302e-4432-9212-ce12661d730d"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "set",
+          "parameter": [
+            {
+              "field": "preference",
+              "value": "200"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 21,
+      "sequenceName": "Route",
+      "baseAction": "accept",
+      "sequenceType": "route",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "siteList",
+            "ref": "9a8c7354-8a12-4099-be35-adda50a20563"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "set",
+          "parameter": [
+            {
+              "field": "tlocAction",
+              "value": "backup"
+            },
+            {
+              "field": "tlocList",
+              "ref": "0d526762-7c70-4afa-b0d4-dac81ec3db9f"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "defaultAction": {
+    "type": "accept"
+  },
+  "lastUpdated": 1603737561804,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "f61db73f-0782-42f4-bbe0-acb886158961"
+  ],
+  "isActivatedByVsmart": true
+}

@@ -1,0 +1,53 @@
+{
+  "definitionId": "a8fd48ad-0aa9-4d67-a415-2c1da226c74c",
+  "name": "set-bgp-as-prepend",
+  "type": "vedgeRoute",
+  "description": "set-bgp-as-prepend",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "Route",
+      "baseAction": "accept",
+      "sequenceType": "vedgeRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": []
+      },
+      "actions": [
+        {
+          "type": "set",
+          "parameter": [
+            {
+              "field": "asPath",
+              "value": {
+                "exclude": "1",
+                "prepend": "65011 65011 65011 65011"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "defaultAction": {
+    "type": "accept"
+  },
+  "lastUpdated": 1603743920895,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 2,
+  "references": [
+    {
+      "id": "904b514c-b104-4bd0-a9f1-9bfca5ef3322",
+      "property": "policyId"
+    },
+    {
+      "id": "da4ce817-406f-45a4-8512-cde24c99ffac",
+      "property": "policyId"
+    }
+  ],
+  "activatedId": [
+    "904b514c-b104-4bd0-a9f1-9bfca5ef3322"
+  ],
+  "isActivatedByVsmart": false
+}

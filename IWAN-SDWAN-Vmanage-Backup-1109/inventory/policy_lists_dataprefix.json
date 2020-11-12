@@ -1,0 +1,30 @@
+[
+  {
+    "listId": "dc2e2082-51aa-4ab2-a632-482ecc89c406",
+    "name": "LAN-prefix",
+    "type": "dataPrefix",
+    "description": "Desc Not Required",
+    "entries": [
+      {
+        "ipPrefix": "10.0.0.0/8"
+      }
+    ],
+    "lastUpdated": 1600804140148,
+    "owner": "admin",
+    "readOnly": false,
+    "version": "0",
+    "infoTag": "",
+    "referenceCount": 2,
+    "references": [
+      {
+        "id": "39a51c7f-5c77-4032-bce4-59717034711f",
+        "type": "zoneBasedFW"
+      },
+      {
+        "id": "a61c9051-c413-4a4e-9646-e372ec0855cf",
+        "type": "zoneBasedFW"
+      }
+    ],
+    "isActivatedByVsmart": false
+  }
+]

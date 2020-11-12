@@ -1,0 +1,394 @@
+{
+  "definitionId": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+  "name": "SYF-AAR-IWAN-Derived",
+  "type": "appRoute",
+  "description": "Sample AAR policy from existing PfRv3 domain policy",
+  "sequences": [
+    {
+      "sequenceId": 1,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "78d526f0-f6ac-4880-bbff-bcdf49fe219c"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "a5d7273c-60e1-46af-a541-a440d55857e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 11,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "14f45514-6598-490c-b4e4-b610b003f6ea"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "a5d7273c-60e1-46af-a541-a440d55857e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 21,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "80a70afe-e7a4-437d-8ec4-21aa51f9fbb7"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "a5d7273c-60e1-46af-a541-a440d55857e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 31,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "04ba73b0-3fcd-4400-8ddf-acb02c7b7f9b"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "a5d7273c-60e1-46af-a541-a440d55857e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 41,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "a9344ef8-ef6b-4743-8ecd-00615c777055"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "16a7f607-f499-429c-a341-ea08f8fd837e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 51,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "99440d90-4306-4cd2-9d9d-8a67cab50143"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "a5d7273c-60e1-46af-a541-a440d55857e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 61,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "fc1c63f0-02d4-425e-a8e8-781026057223"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "a5d7273c-60e1-46af-a541-a440d55857e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 71,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "e09583c7-dc10-46fb-b78b-543aa89fcf75"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "a5d7273c-60e1-46af-a541-a440d55857e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 81,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "4bc9f573-6ac2-43cc-b301-c7753e7952cc"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "16a7f607-f499-429c-a341-ea08f8fd837e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 91,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "adcfaa78-ced9-4a43-9d1a-02366e132328"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "38e60713-3dbb-4128-ac49-8e46f84330cc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 101,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "481d04e0-6070-4c85-9ccc-4e786f1e013d"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "a5d7273c-60e1-46af-a541-a440d55857e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 111,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "515813a0-1cc1-403e-9825-47c4d2068dbb"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "01d7a37c-1333-4d81-8e28-edb87e0e7737"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 121,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "955b0c1e-049c-4898-8b6a-a92ee025e847"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "16a7f607-f499-429c-a341-ea08f8fd837e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 131,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "appList",
+            "ref": "a1591227-a642-4ae4-bce4-bd757cf9d277"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "a5d7273c-60e1-46af-a541-a440d55857e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequenceId": 141,
+      "sequenceName": "App Route",
+      "sequenceType": "appRoute",
+      "sequenceIpType": "ipv4",
+      "match": {
+        "entries": [
+          {
+            "field": "dscp",
+            "value": "0"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "slaClass",
+          "parameter": [
+            {
+              "field": "name",
+              "ref": "d7452b72-33b4-43cb-b7e8-912849ede541"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lastUpdated": 1596490036703,
+  "owner": "admin",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "1ffdc62d-6846-4e63-bdda-9d271b1ea55e",
+      "property": "policyId"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

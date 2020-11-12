@@ -1,0 +1,86 @@
+{
+  "header": {
+    "generatedOn": 1604933367713,
+    "templateVariableCount": 0,
+    "columns": [
+      {
+        "property": "csv-status",
+        "title": "Status",
+        "toolTip": "Input status",
+        "hideable": false,
+        "dataType": "string",
+        "editable": false,
+        "isDisplay": true,
+        "isLeftPinned": true,
+        "minWidth": 30,
+        "width": 30,
+        "display": "icon",
+        "iconProperty": "csv-status",
+        "icon": [
+          {
+            "key": "complete",
+            "value": "images/template_complete.png"
+          },
+          {
+            "key": "in_complete",
+            "value": "images/template_in_complete.png"
+          }
+        ]
+      },
+      {
+        "property": "csv-deviceId",
+        "title": "Chassis Number",
+        "toolTip": "UUID: csv-deviceId",
+        "hideable": false,
+        "dataType": "string",
+        "editable": false,
+        "isDisplay": true,
+        "isLeftPinned": true,
+        "objectType": "object",
+        "templateType": "None",
+        "values": false,
+        "optional": false,
+        "width": 280
+      },
+      {
+        "property": "csv-deviceIP",
+        "title": "System IP",
+        "toolTip": "Device IP: csv-deviceIP",
+        "hideable": false,
+        "dataType": "string",
+        "editable": false,
+        "isDisplay": true,
+        "isLeftPinned": true,
+        "objectType": "object",
+        "templateType": "None",
+        "values": false,
+        "optional": false,
+        "width": 100
+      },
+      {
+        "property": "csv-host-name",
+        "title": "Hostname",
+        "toolTip": "Host name: csv-host-name",
+        "hideable": false,
+        "dataType": "string",
+        "editable": false,
+        "isDisplay": true,
+        "isLeftPinned": true,
+        "objectType": "object",
+        "templateType": "None",
+        "values": false,
+        "optional": false,
+        "width": 180
+      }
+    ],
+    "fields": {}
+  },
+  "data": [
+    {
+      "csv-status": "complete",
+      "csv-deviceId": "4b81c38d-acc6-4ca0-ab77-c8ea497ac571",
+      "csv-deviceIP": "1.1.1.3",
+      "csv-host-name": "vSmart-1"
+    }
+  ]
+}

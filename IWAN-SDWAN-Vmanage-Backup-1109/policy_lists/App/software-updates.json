@@ -1,0 +1,45 @@
+{
+  "listId": "99440d90-4306-4cd2-9d9d-8a67cab50143",
+  "name": "software-updates",
+  "type": "app",
+  "description": "Desc Not Required",
+  "entries": [
+    {
+      "app": "android-updates"
+    },
+    {
+      "app": "apple-updates"
+    },
+    {
+      "app": "windows-update"
+    },
+    {
+      "app": "ms-sms"
+    },
+    {
+      "app": "apple-app-store"
+    },
+    {
+      "app": "apple-ios-updates"
+    },
+    {
+      "app": "ms-update"
+    },
+    {
+      "app": "google-play"
+    }
+  ],
+  "lastUpdated": 1604905672914,
+  "owner": "system",
+  "readOnly": false,
+  "version": "0",
+  "infoTag": "",
+  "referenceCount": 1,
+  "references": [
+    {
+      "id": "27ec43a7-e224-4269-abb5-852c27d0c89a",
+      "type": "appRoute"
+    }
+  ],
+  "isActivatedByVsmart": false
+}

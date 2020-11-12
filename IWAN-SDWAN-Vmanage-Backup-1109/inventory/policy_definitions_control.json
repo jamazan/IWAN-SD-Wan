@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Central-topology-policy",
+    "definitionId": "c9d47cf0-10cf-425d-a49c-eb0f485667e4",
+    "type": "control",
+    "description": "Central-topology-policy",
+    "owner": "admin",
+    "lastUpdated": 1600475085262,
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "74954d86-c740-4eba-9ad6-40e31df44852",
+        "property": "policyId"
+      }
+    ]
+  },
+  {
+    "name": "DC_Group_CP_v01",
+    "definitionId": "d6fdf5f2-679f-48ed-a16e-1b4d5b58792d",
+    "type": "control",
+    "description": "DC CP for H/S topology",
+    "owner": "admin",
+    "lastUpdated": 1603127896150,
+    "infoTag": "",
+    "referenceCount": 2,
+    "references": [
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "property": "policyId"
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "property": "policyId"
+      }
+    ]
+  },
+  {
+    "name": "Branch_Group_CP_v01",
+    "definitionId": "37682080-05ff-454d-90e7-bac1c68f0b67",
+    "type": "control",
+    "description": "Branch group CP for H/S",
+    "owner": "admin",
+    "lastUpdated": 1603143134902,
+    "infoTag": "",
+    "referenceCount": 2,
+    "references": [
+      {
+        "id": "b2f1089e-28e9-4d5c-81ba-355618a56372",
+        "property": "policyId"
+      },
+      {
+        "id": "fa2a8f04-7d81-4731-a814-fc74ff1dda57",
+        "property": "policyId"
+      }
+    ]
+  },
+  {
+    "name": "Central-topology-policy-v2",
+    "definitionId": "cc32d0f8-c5eb-45d8-a55c-fcad99d2bd3c",
+    "type": "control",
+    "description": "DC pref added",
+    "owner": "admin",
+    "lastUpdated": 1603737561804,
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "property": "policyId"
+      }
+    ]
+  },
+  {
+    "name": "DC-block-tunnels",
+    "definitionId": "9e4b5909-4ba5-412f-9c2d-43cc15be63fe",
+    "type": "control",
+    "description": "DC-block-tunnels",
+    "owner": "admin",
+    "lastUpdated": 1603991682800,
+    "infoTag": "",
+    "referenceCount": 1,
+    "references": [
+      {
+        "id": "f61db73f-0782-42f4-bbe0-acb886158961",
+        "property": "policyId"
+      }
+    ]
+  }
+]
